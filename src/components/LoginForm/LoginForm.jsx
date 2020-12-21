@@ -5,10 +5,8 @@ import { Formik, Form, Field } from "formik";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = ({
-  inputName,
-  handleChangeName,
-  inputEmail,
-  handleChangeEmail,
+  inputLogin,
+  handleChangeLogin,
   inputPassword,
   handleChangePassword,
 }) => {
@@ -22,8 +20,8 @@ const LoginForm = ({
               type="text"
               name="login"
               placeholder=" "
-              value={inputEmail}
-              onChange={handleChangeEmail}
+              value={inputLogin}
+              onChange={handleChangeLogin}
               className={styles.input}
             />
             <p className={styles.name}>Логин *</p>
@@ -52,10 +50,8 @@ const LoginForm = ({
 };
 
 LoginForm.propTypes = {
-  inputName: PropTypes.string.isRequired,
-  handleChangeName: PropTypes.func.isRequired,
-  inputEmail: PropTypes.string.isRequired,
-  handleChangeEmail: PropTypes.func.isRequired,
+  inputLogin: PropTypes.string.isRequired,
+  handleChangeLogin: PropTypes.func.isRequired,
   inputPassword: PropTypes.string.isRequired,
   handleChangePassword: PropTypes.func.isRequired,
 };
