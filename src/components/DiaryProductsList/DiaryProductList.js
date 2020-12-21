@@ -1,9 +1,15 @@
 import React from 'react';
+// import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import DiaryProductsListItem from './DiaryProductsListItem/DiaryProductsListItem';
 import styles from './DiaryProductsList.module.css';
 
-const DiaryProductsList = () => {
+const DiaryProductsList = ({ products }) => {
   return (
     <ul className={styles.list}>
+      {/* {products.map(({ id }) => (
+        <DiaryProductsListItem id={id} />
+      ))} */}
       <li className={styles.listItem}>
         <p className={styles.listItemName}>Баклажан</p>
         <p className={styles.listItemWeight}>100 г</p>
@@ -77,5 +83,12 @@ const DiaryProductsList = () => {
     </ul>
   );
 };
+// DiaryProductsList.propTypes = {
+//   products: PropTypes.array.isRequired,
+// };
 
+// const mapStateToProps = state => ({
+//   products: productsSelectors.getProductsByDate(state),
+// });
+// export default connect(mapStateToProps)(DiaryProductsList);
 export default DiaryProductsList;
