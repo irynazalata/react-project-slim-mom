@@ -7,13 +7,14 @@ import style from './DiaryDateCalendar.module.css'
 
 class DiaryDateCalendar extends Component {
   state = {
-    
+    date: ''
   }
   handleTap = (someDate, setSomeDate) => {
     setSomeDate(someDate)
    
     const result =`${someDate.getFullYear()}-${someDate.getMonth() + 1}-${someDate.getDate()}`;
-     console.log(result);
+    console.log(result);
+    this.setState({date: result})
   }
   render() {
     return <div className={style.CalendarContainer}>

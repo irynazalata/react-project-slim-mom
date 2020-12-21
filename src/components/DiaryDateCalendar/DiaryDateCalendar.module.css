@@ -6,11 +6,13 @@
   font-family: Verdana, sans-serif;
   border: none;
   width: 138px;
+  height: 20px;
+  padding: 0;
 }
 .img {
   position: absolute;
   top: 0;
-  right: -5px;
+  right: 0;
   width: 18px;
   height: 20px;
 }

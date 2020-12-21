@@ -13,7 +13,6 @@ const Calendar = ({onTap}) => {
       dateFormat="dd.MM.yyyy"
       selected={startDate}
       onChange={date => onTap(date, setStartDate)}
-      // onClick={onTap(date)}
     />
   );
 };
