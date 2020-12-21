@@ -1,5 +1,7 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
+
+import style from './DiaryAddProductForm.module.css'
+
 
 class DiaryAddProductForm extends Component {
 
@@ -18,10 +20,10 @@ class DiaryAddProductForm extends Component {
   }
 
   render() {
-    return <form onSubmit={this.handleSubmit}>
-      <input name="product" value={this.state.product} placeholder="Введите название продукта" type="text" onChange={this.handleChange} />
-      <input name="weight" value={this.state.weight} placeholder="Граммы" type="number" />
-      <button type='submit' onChange={this.handleChange}>Добавить</button>
+  return <form className={style.form} onSubmit={this.handleSubmit}>
+      <input className={style.input} name="product" value={this.state.product} placeholder="Введите название продукта" type="text" onChange={this.handleChange} />
+      <input className={style.input} name="weight" value={this.state.weight} placeholder="Граммы" type="number" onChange={this.handleChange}/>
+      <button className={style.btn} type='submit'>Добавить</button>
     </form>
   }
 }

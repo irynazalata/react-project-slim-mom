@@ -1,0 +1,23 @@
+.form {
+  display: block;
+}
+.input {
+  display: block;
+  font-family: Verdana, sans-serif;
+  width: 289px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.214;
+
+  color: black;
+}
+::placeholder {
+  font-family: Verdana, sans-serif;
+  color: rgba(155, 159, 170, 1);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.214;
+}
+.btn {
+  display: block;
+}
