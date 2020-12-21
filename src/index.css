@@ -1,7 +1,29 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
-  margin: 0;
   font-family: 'Gotham Pro';
   font-weight: 700;
+  scrollbar-color: #264061 #f0f1f3;
+  scrollbar-width: 6px;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f0f1f3;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #264061;
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 40px;
 }
 
 .container {
@@ -14,11 +36,13 @@ body {
   .container {
     width: 768px;
     padding: 0 87px;
+    margin: 0;
   }
 }
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
     padding: 0 115px;
+    margin: 0;
   }
 }
