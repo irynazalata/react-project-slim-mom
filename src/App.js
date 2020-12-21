@@ -1,5 +1,12 @@
+import RegistrationForm from "./components/RegistrationForm/RegistrationFormContainer";
+
 function App() {
-  return <h1>Hello world</h1>;
+  return (
+    <div className="container">
+      <h1>Hello world</h1>
+      <RegistrationForm />
+    </div>
+  );
 }
 
 export default App;
