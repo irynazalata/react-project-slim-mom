@@ -1,5 +1,7 @@
+import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar'
+
 function App() {
-  return <h1>Hello world</h1>;
+  return <DiaryDateCalendar/>;
 }
 
 export default App;
