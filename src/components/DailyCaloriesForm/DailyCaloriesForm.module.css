@@ -1,4 +1,4 @@
-/* for mobile */
+
 .title {
   margin-bottom: 40px;
   font-family: Verdana;
@@ -13,16 +13,19 @@
   margin: 0 auto;
   width: 240px;
 }
+.inputWrapper{
+    margin-bottom: 40px;
+}
 
 .input {
   margin-bottom: 40px;
-  width: 100%;
+  width: 240px;
   border: 0;
   border-bottom: 1px solid #e0e0e0;
 }
 
 .label {
-  margin-bottom:10px;
+  margin-bottom: 10px;
   padding: 0;
   font-family: Verdana;
   font-weight: 700;
@@ -39,8 +42,8 @@
   width: 176px;
   border: 2px solid #fc842d;
   border-radius: 30px;
-  background-color: #ffffff;
-  color: #fc842d;
+  background-color: #fc842d;
+  color: #ffffff;
   font-weight: 700;
   font-family: Verdana;
   font-size: 14px;
@@ -54,13 +57,50 @@
   color: #ffffff;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 }
-
-.radioWrapper{
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: space-between;
+.inputBlock{
+    width: 240px;
 }
 
-/* .radioLabel:not(:last-child){
-padding-right: 28px;
-} */
+.radioWrapper {
+ 
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom:60px;
+  }
+  .form {
+    margin: 0 auto;
+    width: 605px;
+  }
+  .inputWrapper {
+    display: flex;
+    margin-bottom: 60px;
+  }
+  .inputBlock:not(:last-child) {
+    margin-right: 30px;
+   
+  }
+  .button{
+      margin:0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 34px;
+    line-height: 41px;
+    margin-bottom:68px;
+  }
+  .inputWrapper {
+ 
+    margin-bottom: 64px;
+  }
+  .button{
+    margin-left:346px;
+}
+}
