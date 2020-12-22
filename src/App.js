@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
 import  DiaryAddProductForm from './components/DiaryAddProductForm/DiaryAddProductForm'
+import Modal from './shared/Modal/Modal';
 
-
-function App() {
-  return (
-    <div className="container">
-      <h1>Hello world</h1>
-      <DiaryAddProductForm/>
-    </div>
-  );
+class App extends Component {
+  state = {
+    showModal: false,
+  };
+  modalToggle = () => {
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  };
+  render() {
+    return (
+      <>
+        <h1>Hello world</h1>
+        {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
+        <DiaryAddProductForm/>
+      </>
+    );
+  }
 }
-
 export default App;
+
