@@ -1,16 +1,20 @@
 import React, { Component, Suspense } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import routes from "./routes";
 import { authOperations } from "../redux/auth";
-import PrivateRoute from "./PrivateRoute";
-import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
+import Loader from "./components/Loader/Loader";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
   render() {
     return (
       <BrowserRouter>
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<Loader />}>
           <Switch>
             {routes.map((route) =>
               route.private ? (
