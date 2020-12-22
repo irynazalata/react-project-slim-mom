@@ -1,21 +1,21 @@
-import RegistrationForm from "./components/RegistrationForm/RegistrationFormContainer";
+import React, { Component } from 'react';
+import Modal from './shared/Modal/Modal';
 
-import React from 'react';
-function App() {
-  return (
-    <div className="container">
-      <RegistrationForm />
-    </div>
-  );
+class App extends Component {
+  state = {
+    showModal: false,
+  };
+  modalToggle = () => {
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  };
+  render() {
+    return (
+      <>
+        <h1>Hello world</h1>
+        {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
+      </>
+    );
+  }
 }
 export default App;
 
-// function App() {
-//   return (
-//     <div className="container">
-//       <h1>Hello world</h1>
-//     </div>
-//   );
-// }
-
-// export default App;
