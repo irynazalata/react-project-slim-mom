@@ -13,11 +13,13 @@ const user = createReducer(
     [authActions.registerSuccess]: createUser,
     [authActions.loginSuccess]: loginUser,
     [authActions.getCurrentUserSuccess]: getUser,
+    [authActions.logoutSuccess]: () => ({}),
   }
 );
 
 const token = createReducer("", {
   [authActions.loginSuccess]: addToken,
+  [authActions.logoutSuccess]: () => "",
 });
 
 export default combineReducers({

@@ -9,7 +9,7 @@ class App extends Component {
     showModal: false,
   };
   modalToggle = () => {
-    this.setState(prevState => ({ showModal: !prevState.showModal }));
+    this.setState((prevState) => ({ showModal: !prevState.showModal }));
   };
   render() {
     return (
@@ -25,4 +25,3 @@ class App extends Component {
   }
 }
 export default App;
-
