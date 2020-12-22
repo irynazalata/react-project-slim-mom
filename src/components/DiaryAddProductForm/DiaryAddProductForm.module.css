@@ -65,8 +65,8 @@
     margin-bottom: 59px;
   }
   .input {
-    padding-bottom: 19.5px;
     width: 104px;
+    margin-bottom: 0;
   }
   .input:first-child {
     width: 239px;
