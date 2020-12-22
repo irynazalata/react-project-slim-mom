@@ -9,10 +9,6 @@ export default function LoginFormContainer() {
   const getToken = useSelector(authSelectors.getToken);
 
   useEffect(() => {
-    // if (!getToken) {
-    //   return;
-    // }
-    // console.log("dispatch");
     dispatch(authOperations.getCurrentUser());
   }, [dispatch, getToken]);
 
