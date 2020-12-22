@@ -1,29 +1,32 @@
-import React, { Component } from "react"
+import React, { useState, Component } from "react"
+import { connect } from "react-redux"
 import styles from "./DailyCaloriesForm.module.css"
+import dailyRateOperations from "../../redux/dailyRate/dailyRateOperations"
 
 class DailyCaloriesForm extends Component {
   state = {
     height: "",
     age: "",
-    currentWeight: "",
-    targetWeight: "",
-
+    weight: "",
+    desiredWeight: "",
+    bloodType: ""
   }
-  
+
   handleChange = ({ target: { value, name } }) => {
     this.setState({ [name]: value })
   }
+
   handleSubmit = (event) => {
     event.preventDefault()
+    //this.props.onFetchDailyRates()
+    
+    this.props.showModal()
   }
 
   render() {
     return (
       <>
-        <form
-          className={styles.form}
-          // onSubmit={this.handleSubmit}
-        >
+        <form className={styles.form} onSubmit={this.handleSubmit}>
           <h2 className={styles.title}>
             Просчитай свою суточную норму калорий
           </h2>
@@ -51,48 +54,51 @@ class DailyCaloriesForm extends Component {
                   value={this.state.age}
                   onChange={this.handleChange}
                   required
-                /><p className={styles.labelValue}>Возраст*</p>
+                />
+                <p className={styles.labelValue}>Возраст*</p>
               </label>
 
               <label className={styles.label}>
                 <input
-                placeholder=" "
+                  placeholder=" "
                   className={styles.input}
-                  name="currentWeight"
+                  name="weight"
                   type="number"
                   value={this.state.currentWeight}
-                    onChange={this.handleChange}
+                  onChange={this.handleChange}
                   required
-                /><p className={styles.labelValue}>Текущий вес*</p>
+                />
+                <p className={styles.labelValue}>Текущий вес*</p>
               </label>
             </div>
             <div className={styles.inputBlock}>
               <label className={styles.label}>
                 <input
-                placeholder=" "
+                  placeholder=" "
                   className={styles.input}
-                  name="targetWeight"
+                  name="desiredWeight"
                   type="number"
                   value={this.state.targetWeight}
-                    onChange={this.handleChange}
+                  onChange={this.handleChange}
                   required
-                /><p className={styles.labelValue}>Желаемый вес*</p>
+                />
+                <p className={styles.labelValue}>Желаемый вес*</p>
               </label>
               <p className={styles.radioTitle}>Группа крови*</p>
               <div className={styles.radioWrapper}>
-                <input id="first" type="radio" name="numbers" value="1" />
+                <input id="first" type="radio" name="bloodType" value="1" />
                 <label for="first" className={styles.radioLabel}>
                   1
                 </label>
-                <input id="second" type="radio" name="numbers" value="2" />
+                <input id="second" type="radio" name="bloodType" value="2" />
                 <label for="second" className={styles.radioLabel}>
                   2
                 </label>
-                <input id="third" type="radio" name="numbers" value="3" />
+                <input id="third" type="radio" name="bloodType" value="3" />
                 <label for="third" className={styles.radioLabel}>
                   3
                 </label>
-                <input id="fourth" type="radio" name="numbers" value="4" />
+                <input id="fourth" type="radio" name="bloodType" value="4" />
                 <label for="fourth" className={styles.radioLabel}>
                   4
                 </label>
@@ -108,4 +114,8 @@ class DailyCaloriesForm extends Component {
   }
 }
 
-export default DailyCaloriesForm
+const mapDispatchToProps = {
+  onFetchDailyRates: dailyRateOperations.onFetchDailyRates,
+}
+
+export default connect(null, mapDispatchToProps)(DailyCaloriesForm)
