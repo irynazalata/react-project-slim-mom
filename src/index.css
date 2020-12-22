@@ -41,7 +41,7 @@ body {
   .container {
     width: 768px;
     padding: 0 87px;
-    margin: 0;
+    margin: 0 auto;
   }
 }
 
@@ -50,9 +50,5 @@ body {
     width: 1280px;
     padding: 0 115px;
     margin: 0;
-  }
-  .containerWithSideBar {
-    padding-right: 0;
-    display: flex;
   }
 }

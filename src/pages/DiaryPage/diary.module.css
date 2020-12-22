@@ -1,6 +1,26 @@
+.container {
+  width: 320px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    margin: 0 auto;
+    padding-right: 0;
+    display: flex;
+  }
+}
 .containerInformation {
-  padding-top: 40px;
-  text-align: center;
+  padding: 40px 15px 0px 15px;
+  margin-bottom: 60px;
 }
 .button {
   margin-top: 60px;
@@ -8,12 +28,10 @@
   height: 50px;
   background-color: orange;
 }
-.SideBarBox {
-  margin-top: 60px;
-}
 @media screen and (min-width: 768px) {
   .containerInformation {
-    padding-top: 100px;
+    padding: 100px 87px 0 87px;
+    margin-bottom: 60px;
   }
   .button {
     display: none;
@@ -22,13 +40,8 @@
 @media screen and (min-width: 1280px) {
   .containerInformation {
     padding-top: 137px;
+    padding-left: 115px;
     margin-right: 30px;
-    width: 600px;
-  }
-  .SideBarBox {
-    margin: 0;
-    width: 535px;
-    padding-top: 137px;
-    padding-right: 115px;
+    width: 715px;
   }
 }
