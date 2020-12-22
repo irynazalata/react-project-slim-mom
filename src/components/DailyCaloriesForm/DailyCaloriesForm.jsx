@@ -11,11 +11,13 @@ class DailyCaloriesForm extends Component {
   render() {
     return (
       <>
-       
-        <form 
+        <form
           className={styles.form}
           // onSubmit={this.handleSubmit}
-        ><h2 className={styles.title}>Просчитай свою суточную норму калорий</h2>
+        >
+          <h2 className={styles.title}>
+            Просчитай свою суточную норму калорий
+          </h2>
           <div className={styles.inputWrapper}>
             <div className={styles.inputBlock}>
               <label className={styles.label}>
@@ -66,29 +68,16 @@ class DailyCaloriesForm extends Component {
                   required
                 />
               </label>
-
               <p className={styles.label}>Группа крови *</p>
               <div className={styles.radioWrapper}>
-                <label className={styles.radioLabel}>
-                  {" "}
-                  <input type="radio" id="choice1" name="bloodType" value="1" />
-                  1
-                </label>
-
-                <label className={styles.radioLabel}>
-                  <input type="radio" id="choice2" name="bloodType" value="2" />
-                  2
-                </label>
-
-                <label className={styles.radioLabel}>
-                  <input type="radio" id="choice3" name="bloodType" value="3" />
-                  3
-                </label>
-
-                <label className={styles.radioLabel}>
-                  <input type="radio" id="choice4" name="bloodType" value="4" />
-                  4
-                </label>
+                <input id="first" type="radio" name="numbers" value="1" />
+                <label for="first" className = {styles.radioLabel}>1</label>
+                <input id="second" type="radio" name="numbers" value="2" />
+                <label for="second" className = {styles.radioLabel}>2</label>
+                <input id="third" type="radio" name="numbers" value="3" />
+                <label for="third" className = {styles.radioLabel}>3</label>
+                <input id="fourth" type="radio" name="numbers" value="4" />
+                <label for="fourth" className = {styles.radioLabel}>4</label>
               </div>
             </div>
           </div>
