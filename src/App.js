@@ -1,10 +1,11 @@
-import DailyCaloriesForm from "../src/components/DailyCaloriesForm"
+import React from 'react';
 
 function App() {
-  return <>
-  <h1>Hello world</h1>
-  <DailyCaloriesForm/>
-  </>;
+  return (
+    <div className="container">
+      <h1>Hello world</h1>
+    </div>
+  );
 }
 
 export default App;
