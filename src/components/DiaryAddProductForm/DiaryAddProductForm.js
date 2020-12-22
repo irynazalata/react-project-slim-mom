@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import img from "../../images/plus.png"
+import img from "../../images/plus.png";
+import { connect } from 'react-redux';
+import productAddOperations from '../../redux/products/productAdd/productAddOperations'
 
 import style from './DiaryAddProductForm.module.css'
 
@@ -32,4 +34,14 @@ class DiaryAddProductForm extends Component {
   }
 }
 
-export default DiaryAddProductForm;
+const mapStateToProps = (state) => ({
+products: state.products.items
+})
+
+const mapDispatchToProps = dispatch => {
+ 
+  return {
+    toAddProdacts: (product, weight) => dispatch(productAddOperations.addProduct(product, weight)),
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps) (DiaryAddProductForm);
