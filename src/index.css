@@ -9,7 +9,8 @@ html {
 }
 
 body {
-  font-family: 'Gotham Pro';
+  margin: 0;
+  font-family: "Gotham Pro";
   font-weight: 700;
   scrollbar-color: #264061 #f0f1f3;
   scrollbar-width: 6px;
@@ -25,6 +26,10 @@ body {
 ::-webkit-scrollbar-thumb:vertical {
   height: 40px;
 }
+#root {
+  margin: 0;
+  padding: 0;
+}
 
 .container {
   width: 320px;
@@ -39,6 +44,7 @@ body {
     margin: 0;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
