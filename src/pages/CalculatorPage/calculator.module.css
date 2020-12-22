@@ -1,0 +1,27 @@
+.CalculatorCalorieFormBox {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+@media screen and (min-width: 768px) {
+  .CalculatorCalorieFormBox {
+    padding-top: 100px;
+    padding-bottom: 74px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    display: flex;
+    padding-right: 0;
+  }
+  .CalculatorCalorieFormBox {
+    width: 605px;
+    padding-top: 137px;
+    margin-right: 25px;
+    padding-bottom: 111px;
+  }
+  .SideBarBox {
+    width: 420px;
+    padding-top: 137px;
+    padding-right: 115px;
+  }
+}
