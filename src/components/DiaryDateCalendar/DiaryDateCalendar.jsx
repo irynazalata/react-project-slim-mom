@@ -9,6 +9,8 @@ class DiaryDateCalendar extends Component {
   state = {
     date: ''
   }
+
+  
   handleTap = (someDate, setSomeDate) => {
     setSomeDate(someDate)
    
