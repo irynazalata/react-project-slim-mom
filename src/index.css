@@ -1,6 +1,16 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
-  font-family: 'Gotham Pro';
+  font-family: "Gotham Pro";
   font-weight: 700;
 }
 
