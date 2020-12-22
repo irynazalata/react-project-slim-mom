@@ -1,0 +1,57 @@
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .logoTextSlim {
+    display: none;
+  }
+  .logoTextMom {
+    display: none;
+  }
+  .logoImage {
+    width: 46.67px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .logoImage {
+    width: 46.67px;
+    height: 44px;
+    margin-right: 10px;
+  }
+  .logoTextSlim {
+    margin-right: 5px;
+
+    height: 16px;
+    color: #212121;
+  }
+  .logoTextMom {
+    height: 15.41px;
+    color: #fc842d;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1800px) {
+  .logoContainer {
+    display: flex;
+    position: relative;
+  }
+  .logoImage {
+    width: 70px;
+    height: 66px;
+    margin-right: 10px;
+    position: absolute;
+    right: 57px;
+    bottom: 10px;
+  }
+  .logoTextSlim {
+    height: 16px;
+    color: #212121;
+  }
+  .logoTextMom {
+    height: 15.41px;
+    color: #fc842d;
+  }
+}
+
+.logoContainer {
+  display: flex;
+}
