@@ -1,10 +1,13 @@
 import React from 'react';
-import styles from './LoginRegistrationPage.module.css';
+import LoginForm from '../components/LoginForm/LoginForm';
+// import Header from '../components/Header/Header';
+import {pageContainer} from './LoginRegistrationPage.module.css';
 
-const LoginPage = ({ children }) => (
+const LoginPage = () => (
     <>
-        <div className={styles.container}>
-            {children}
+        <div className={pageContainer}>
+            {/* <Header/> */}
+            <LoginForm/>
         </div>
     </>
 );

@@ -1,11 +1,14 @@
 import React from 'react';
-import styles from './MainPage.module.css';
+import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyCaloriesForm';
+// import Header from '../components/Header/Header';
+import {pageContainer} from './MainPage.module.css';
 
-const MainPage = ({ children }) => (
+const MainPage = () => (
     <>
-        <div className={styles.container}>
-            {children}
-        </div>
+        <div className={pageContainer}>
+            {/* <Header/> */}
+            <DailyCaloriesForm />
+      </div>
     </>
 );
 
