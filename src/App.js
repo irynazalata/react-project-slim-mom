@@ -1,10 +1,7 @@
-import DiaryAddProductForm from './components/DiaryAddProductForm/DiaryAddProductForm'
-
 function App() {
-  return  (
+  return (
     <div className="container">
       <h1>Hello world</h1>
-      <DiaryAddProductForm/>
     </div>
   );
 }
