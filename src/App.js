@@ -1,7 +1,7 @@
-import DiaryAddProductForm from './components/DiaryAddProductForm/DiaryAddProductForm'
+import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar'
 
 function App() {
-  return <DiaryAddProductForm/>;
+  return <DiaryDateCalendar/>;
 }
 
 export default App;
