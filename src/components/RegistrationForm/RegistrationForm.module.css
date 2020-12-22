@@ -1,5 +1,5 @@
 .title {
-  font-family: Verdana;
+  font-family: "Gotham Pro";
   margin-bottom: 80px;
   font-size: 14px;
   font-weight: 700;
@@ -93,12 +93,13 @@
 @media screen and (min-width: 767px) {
   .title {
     margin-bottom: 60px;
+    margin-left: 18px;
     text-align: start;
   }
 
   .form {
     position: relative;
-    margin-left: 0;
+    margin-left: 18px;
     margin-bottom: 38px;
     width: 239px;
   }
@@ -117,17 +118,19 @@
   }
 
   .buttonEnter {
-    margin-left: 206px;
+    margin-left: 230px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .title {
     margin-bottom: 80px;
+    margin-left: 25px;
   }
 
   .form {
     margin-bottom: 60px;
+    margin-left: 25px;
   }
 
   .buttonReg {
