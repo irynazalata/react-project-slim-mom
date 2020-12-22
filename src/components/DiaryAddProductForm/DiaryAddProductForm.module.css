@@ -72,8 +72,9 @@
     width: 239px;
     margin-right: 31px;
   }
-  .input:last-child {
+  .input:nth-child(2) {
     width: 104px;
+    padding-left: 35px;
   }
   .btn {
     display: none;
