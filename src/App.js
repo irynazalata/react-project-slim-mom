@@ -1,12 +1,21 @@
-import React from "react";
-import LoginForm from "./components/LoginForm/LoginFormContainer";
+import React, { Component } from 'react';
+import Modal from './shared/Modal/Modal';
 
-function App() {
-  return (
-    <div className="container">
-      <LoginForm />
-    </div>
-  );
+class App extends Component {
+  state = {
+    showModal: false,
+  };
+  modalToggle = () => {
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  };
+  render() {
+    return (
+      <>
+        <h1>Hello world</h1>
+        {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
+      </>
+    );
+  }
 }
-
 export default App;
+
