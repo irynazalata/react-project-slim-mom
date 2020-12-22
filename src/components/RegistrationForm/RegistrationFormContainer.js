@@ -1,33 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import RegistrationForm from "./RegistrationForm";
+import authOperations from "../../redux/auth/authOperations";
 
 export default function RegistrationFormContainer() {
-  const [inputName, setInputName] = useState("");
+  const dispatch = useDispatch();
 
-  const handleChangeName = (e) => {
-    setInputName(e.target.value);
+  const handleSubmit = (values) => {
+    dispatch(authOperations.register(values));
   };
 
-  const [inputEmail, setInputEmail] = useState("");
-
-  const handleChangeEmail = (e) => {
-    setInputEmail(e.target.value);
-  };
-
-  const [inputPassword, setInputPassword] = useState("");
-
-  const handleChangePassword = (e) => {
-    setInputPassword(e.target.value);
-  };
-
-  return (
-    <RegistrationForm
-      inputName={inputName}
-      handleChangeName={handleChangeName}
-      inputEmail={inputEmail}
-      handleChangeEmail={handleChangeEmail}
-      inputPassword={inputPassword}
-      handleChangePassword={handleChangePassword}
-    />
-  );
+  return <RegistrationForm handleSubmit={handleSubmit} />;
 }
