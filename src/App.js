@@ -1,5 +1,19 @@
+import Header from "./components/Header/Header";
+import Logo from "./components/Logo/Logo.js";
+// import UserInfo from "./components/UserInfo/UserInfo";
+import "./App.css";
 function App() {
-  return <h1>Hello world</h1>;
+  return (
+    <>
+      <div className="headerContainer">
+        <Logo />
+        <div className="vectorOfHeader"></div>
+        <Header />
+        {/* <UserInfo /> */}
+      </div>
+      <div className="bottomVectorOfHeader"></div>
+    </>
+  );
 }
 
 export default App;
