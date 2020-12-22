@@ -1,10 +1,10 @@
 import React from 'react';
 
+import Lol from "./pages/DiaryPage/DiaryPage.js"
+
 function App() {
   return (
-    <div className="container">
-      <h1>Hello world</h1>
-    </div>
+ <Lol/>
   );
 }
 

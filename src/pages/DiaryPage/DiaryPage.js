@@ -1,26 +1,21 @@
 import React from "react"
-import DiaryDateCalendar from "../../components/DiaryDateCalendar/DiaryDateCalendar.js"
+import DiaryDateCalendar from "../../components/DiaryDateCalendar/DiaryDateCalendar.jsx"
 import DiaryAddProductForm from "../../components/DiaryAddProductForm/DiaryAddProductForm.js"
 import DiaryAddProductList from "../../components/DiaryProductsList/DiaryProductList.js"
 
-import "./Diary.module.css"
+import styles from  "./Diary.module.css"
+import "../../index.css"
 
 const DiaryPage = () => {
   return (
-    <div className="container">
-      <div className="containerInformation">
-        <div className="DiaryDateCalendarBox">
+    <div className='container containerWithSideBar' >
+      <div className={styles.containerInformation}>
           <DiaryDateCalendar />
-        </div>
-        <div className="DiaryAddProductFormBox">
           <DiaryAddProductForm />
-        </div>
-        <div className="DiaryAddProductListBox">
           <DiaryAddProductList />
-        </div>
-        <button className='button'></button>
+        <button className={styles.button}></button>
       </div>
-      <div className="SideBarBox">
+      <div className={styles.SideBarBox}>
       </div>
     </div>
   )

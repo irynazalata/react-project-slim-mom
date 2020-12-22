@@ -51,4 +51,8 @@ body {
     padding: 0 115px;
     margin: 0;
   }
+  .containerWithSideBar {
+    padding-right: 0;
+    display: flex;
+  }
 }
