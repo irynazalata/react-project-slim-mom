@@ -5,7 +5,6 @@ import { Formik, Form, Field } from "formik";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = ({ onSubmit }) => {
-  console.log(onSubmit);
   return (
     <>
       <h1 className={styles.title}>Вход</h1>
