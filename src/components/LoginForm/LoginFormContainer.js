@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./LoginForm";
+import authOperations from "../../redux/auth/authOperations";
+import authSelectors from "../../redux/auth/authSelectors";
 
 export default function LoginFormContainer() {
-  const [inputLogin, setInputLogin] = useState("");
+  const dispatch = useDispatch();
+  const getToken = useSelector(authSelectors.getToken);
 
-  const handleChangeLogin = (e) => {
-    setInputLogin(e.target.value);
+  useEffect(() => {
+    if (!getToken) {
+      return;
+    }
+    console.log("dispatch");
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch, getToken]);
+
+  const handleSubmit = (value) => {
+    console.log(value);
+    dispatch(authOperations.login(value));
   };
 
-  const [inputPassword, setInputPassword] = useState("");
-
-  const handleChangePassword = (e) => {
-    setInputPassword(e.target.value);
-  };
-
-  return (
-    <LoginForm
-      inputLogin={inputLogin}
-      handleChangeLogin={handleChangeLogin}
-      inputPassword={inputPassword}
-      handleChangePassword={handleChangePassword}
-    />
-  );
+  return <LoginForm onSubmit={handleSubmit} />;
 }

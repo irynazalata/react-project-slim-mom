@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import LoginForm from "./components/LoginForm/LoginFormContainer";
 
 function App() {
   return (
     <div className="container">
-      <h1>Hello world</h1>
+      <LoginForm />
     </div>
   );
 }

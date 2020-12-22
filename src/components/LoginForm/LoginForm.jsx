@@ -4,37 +4,25 @@ import PropTypes from "prop-types";
 import { Formik, Form, Field } from "formik";
 import styles from "./LoginForm.module.css";
 
-const LoginForm = ({
-  inputLogin,
-  handleChangeLogin,
-  inputPassword,
-  handleChangePassword,
-}) => {
+const LoginForm = ({ onSubmit }) => {
+  console.log(onSubmit);
   return (
     <>
       <h1 className={styles.title}>Вход</h1>
-      <Formik>
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values, { resetForm }) => {
+          onSubmit(values);
+          resetForm({});
+        }}
+      >
         <Form className={styles.form}>
           <label className={styles.label}>
-            <Field
-              type="text"
-              name="login"
-              placeholder=" "
-              value={inputLogin}
-              onChange={handleChangeLogin}
-              className={styles.input}
-            />
+            <Field type="text" name="email" placeholder=" " className={styles.input} />
             <p className={styles.name}>Логин *</p>
           </label>
           <label className={styles.label}>
-            <Field
-              type="password"
-              name="password"
-              placeholder=" "
-              value={inputPassword}
-              onChange={handleChangePassword}
-              className={styles.inputPass}
-            />
+            <Field type="password" name="password" placeholder=" " className={styles.inputPass} />
             <p className={styles.name}>Пароль *</p>
           </label>
           <button type="submit" className={styles.buttonReg}>
@@ -50,10 +38,7 @@ const LoginForm = ({
 };
 
 LoginForm.propTypes = {
-  inputLogin: PropTypes.string.isRequired,
-  handleChangeLogin: PropTypes.func.isRequired,
-  inputPassword: PropTypes.string.isRequired,
-  handleChangePassword: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
