@@ -2,8 +2,17 @@ import React, { Component } from "react"
 import styles from "./DailyCaloriesForm.module.css"
 
 class DailyCaloriesForm extends Component {
-  handleChange = () => {}
+  state = {
+    height: "",
+    age: "",
+    currentWeight: "",
+    targetWeight: "",
 
+  }
+  
+  handleChange = ({ target: { value, name } }) => {
+    this.setState({ [name]: value })
+  }
   handleSubmit = (event) => {
     event.preventDefault()
   }
@@ -21,63 +30,72 @@ class DailyCaloriesForm extends Component {
           <div className={styles.inputWrapper}>
             <div className={styles.inputBlock}>
               <label className={styles.label}>
-                Рост *
                 <input
+                  placeholder=" "
                   className={styles.input}
                   name="height"
                   type="number"
-                  value="{height}"
-                  //   onChange={this.handleChange}
+                  value={this.state.height}
+                  onChange={this.handleChange}
                   required
-                />
+                />{" "}
+                <p className={styles.labelValue}>Рост*</p>
               </label>
               <label className={styles.label}>
                 {" "}
-                Возраст *
                 <input
+                  placeholder=" "
                   className={styles.input}
                   name="age"
                   type="number"
-                  value="{age}"
-                  //   onChange={this.handleChange}
+                  value={this.state.age}
+                  onChange={this.handleChange}
                   required
-                />
+                /><p className={styles.labelValue}>Возраст*</p>
               </label>
 
               <label className={styles.label}>
-                Текущий вес *
                 <input
+                placeholder=" "
                   className={styles.input}
                   name="currentWeight"
                   type="number"
-                  value="{currentWeight}"
-                  //   onChange={this.handleChange}
+                  value={this.state.currentWeight}
+                    onChange={this.handleChange}
                   required
-                />
+                /><p className={styles.labelValue}>Текущий вес*</p>
               </label>
             </div>
             <div className={styles.inputBlock}>
               <label className={styles.label}>
-                Желаемый вес *
                 <input
+                placeholder=" "
                   className={styles.input}
                   name="targetWeight"
                   type="number"
-                  value="{targetWeight}"
-                  //   onChange={this.handleChange}
+                  value={this.state.targetWeight}
+                    onChange={this.handleChange}
                   required
-                />
+                /><p className={styles.labelValue}>Желаемый вес*</p>
               </label>
-              <p className={styles.label}>Группа крови *</p>
+              <p className={styles.label}>Группа крови*</p>
               <div className={styles.radioWrapper}>
                 <input id="first" type="radio" name="numbers" value="1" />
-                <label for="first" className = {styles.radioLabel}>1</label>
+                <label for="first" className={styles.radioLabel}>
+                  1
+                </label>
                 <input id="second" type="radio" name="numbers" value="2" />
-                <label for="second" className = {styles.radioLabel}>2</label>
+                <label for="second" className={styles.radioLabel}>
+                  2
+                </label>
                 <input id="third" type="radio" name="numbers" value="3" />
-                <label for="third" className = {styles.radioLabel}>3</label>
+                <label for="third" className={styles.radioLabel}>
+                  3
+                </label>
                 <input id="fourth" type="radio" name="numbers" value="4" />
-                <label for="fourth" className = {styles.radioLabel}>4</label>
+                <label for="fourth" className={styles.radioLabel}>
+                  4
+                </label>
               </div>
             </div>
           </div>
