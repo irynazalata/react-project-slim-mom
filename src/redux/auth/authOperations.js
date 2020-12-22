@@ -55,8 +55,21 @@ const getCurrentUser = () => (dispatch, getState) => {
     .catch((error) => dispatch(authActions.getCurrentUserError(error)));
 };
 
+const logOut = (credentials) => (dispatch) => {
+  dispatch(authActions.logoutRequest());
+
+  axios
+    .post("auth/logout")
+    .then(() => {
+      token.unset();
+      dispatch(authActions.logoutSuccess());
+    })
+    .catch((error) => dispatch(authActions.logoutError(error)));
+};
+
 export default {
   register,
   login,
-  getCurrentUser
+  getCurrentUser,
+  logOut
 };
