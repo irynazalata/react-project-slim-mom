@@ -1,0 +1,52 @@
+.overlay {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  background-color: rgba(33, 33, 33, 0.12);
+}
+
+.modal {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  height: 100%;
+  padding: 80px 15px 80px;
+  background-color: white;
+}
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 594px;
+    height: 580px;
+    padding: 64px 42px 68px;
+    top: 222px;
+  }
+  .overlay {
+    top: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .modal {
+    width: 690px;
+    height: 580px;
+    padding: 64px 90px 81px;
+    top: 135px;
+  }
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.closeModalBtn:hover {
+  background-color: rgba(37, 37, 37, 0.12);
+}

@@ -5,9 +5,18 @@ import routes from "./routes";
 import { authOperations } from "../redux/auth";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
+import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
+import Modal from './shared/Modal/Modal';
+import "./App.css";
 
 class App extends Component {
+   state = {
+    showModal: false,
+  };
+  modalToggle = () => {
+    this.setState((prevState) => ({ showModal: !prevState.showModal }));
+  };
   componentDidMount() {
     this.props.onGetCurrentUser();
   }
@@ -24,6 +33,11 @@ class App extends Component {
               )
             )}
           </Switch>
+      <div className="headerContainer">
+        <Header />
+      </div>
+      <div className="bottomVectorOfHeader"></div>
+        {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
         </Suspense>
       </BrowserRouter>
     );
