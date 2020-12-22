@@ -3,7 +3,7 @@ import Modal from './shared/Modal/Modal';
 
 class App extends Component {
   state = {
-    showModal: true,
+    showModal: false,
   };
   modalToggle = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
@@ -17,5 +17,5 @@ class App extends Component {
     );
   }
 }
-
 export default App;
+
