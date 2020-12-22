@@ -1,0 +1,60 @@
+.pageContainer {
+  width: 320px;
+  padding: 0 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .pageContainer {
+    display: inline-block;
+    width: 100%;
+    height: 1024px;
+    padding: 0 69px;
+    position: relative;
+    background-image: url(../images/tablet-webP/banana-tablet-x1.webp),
+      url(../images/tablet-webP/strawberry-tablet-x1.webp),
+      url(../images/tablet-webP/leaves-tablet-x1.webp),
+      url(../images/tablet-webP/greybcg-tablet-x1.webp);
+    background-repeat: no-repeat;
+    background-position: bottom right, top 503px right 96px, bottom left,
+      bottom right;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pageContainer {
+    width: 100%;
+    height: 850px;
+    padding: 0 90px;
+    background-image: url(../images/desktop-webP/banana-desktop-x1.webp),
+      url(../images/desktop-webP//leaves-desktop-x1.webp),
+      url(../images/desktop-webP/strawberry-desktop-x1.webp),
+      url(../images/desktop-webP/greybcg-desktop-x1.webp);
+    background-repeat: no-repeat;
+    background-position: top right, bottom 30px right 195px, bottom right 36px,
+      bottom right;
+  }
+}
+
+@media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .pageContainer {
+    background-image: url(../images/tablet-webP/banana-tablet-x2.webp),
+      url(../images/tablet-webP/strawberry-tablet-x2.webp),
+      url(../images/tablet-webP/leaves-tablet-x2.webp),
+      url(../images/tablet-webP/greybcg-tablet-x2.webp);
+    background-repeat: no-repeat;
+    background-position: bottom right, top 503px right 96px, bottom left,
+      bottom right;
+  }
+}
+
+@media screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+  .pageContainer {
+    background-image: url(../images/desktop-webP/banana-desktop-x2.webp),
+      url(../images/desktop-webP//leaves-desktop-x2.webp),
+      url(../images/desktop-webP/strawberry-desktop-x2.webp),
+      url(../images/desktop-webP/greybcg-desktop-x2.webp);
+    background-repeat: no-repeat;
+    background-position: top right, bottom 30px right 195px, bottom right 36px,
+      bottom right;
+  }
+}
