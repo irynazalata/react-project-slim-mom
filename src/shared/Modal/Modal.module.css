@@ -3,7 +3,7 @@
   top: 80px;
   left: 0;
   width: 100vw;
-  height: 100vw;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,6 @@
   position: absolute;
   top: 40px;
   width: 100%;
-  height: 100%;
   padding: 80px 15px 80px;
   background-color: white;
 }
