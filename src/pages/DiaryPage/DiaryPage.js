@@ -3,8 +3,7 @@ import DiaryDateCalendar from "../../components/DiaryDateCalendar/DiaryDateCalen
 import DiaryAddProductForm from "../../components/DiaryAddProductForm/DiaryAddProductForm.js"
 import DiaryAddProductList from "../../components/DiaryProductsList/DiaryProductList.js"
 
-import "./diary.module.css"
-import '../../index.css'
+import "./Diary.module.css"
 
 const DiaryPage = () => {
   return (

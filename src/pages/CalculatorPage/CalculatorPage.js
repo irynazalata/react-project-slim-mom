@@ -1,8 +1,7 @@
 import React from "react"
 import CalculatorCalorieForm from "../../components/CalculatorCalorieForm/CalculatorCalorieForm.js"
 
-import "../../index.css"
-import "./calculator.module.css"
+import "./Calculator.module.css"
 
 const CalculatorPage = () => {
   return (
