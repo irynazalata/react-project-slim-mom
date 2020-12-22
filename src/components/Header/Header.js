@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
+import Logo from "../Logo/Logo";
+import "../../App.css";
 // import { connect } from "react-redux";
 export default class Header extends Component {
   render() {
     return (
       <>
+        <Logo />
+        <div className="vectorOfHeader"></div>
         <div className="navContainer">
           <p className="loginLink">Вход</p>
           <p className="loginLink">Регистрация</p>

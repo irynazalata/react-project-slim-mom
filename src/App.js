@@ -6,8 +6,6 @@ function App() {
   return (
     <>
       <div className="headerContainer">
-        <Logo />
-        <div className="vectorOfHeader"></div>
         <Header />
         {/* <UserInfo /> */}
       </div>
