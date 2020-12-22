@@ -78,7 +78,7 @@ class DailyCaloriesForm extends Component {
                   required
                 /><p className={styles.labelValue}>Желаемый вес*</p>
               </label>
-              <p className={styles.label}>Группа крови*</p>
+              <p className={styles.radioTitle}>Группа крови*</p>
               <div className={styles.radioWrapper}>
                 <input id="first" type="radio" name="numbers" value="1" />
                 <label for="first" className={styles.radioLabel}>
