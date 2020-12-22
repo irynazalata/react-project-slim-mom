@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import img from "../../images/plus.png";
 import { connect } from 'react-redux';
-import productAddOperations from '../../redux/products/productAdd/productAddOperations'
+import productAddOperations from '../../redux/products/productAdd/productAddOperations';
+import axiosList from './axiosList';
 
 import style from './DiaryAddProductForm.module.css'
 
@@ -19,8 +20,11 @@ class DiaryAddProductForm extends Component {
   }
 
   handleSubmit = (e) => {
-   e.preventDefault();
+    e.preventDefault();
+    this.props.toFindProducts(this.state.product)
   }
+
+  
 
   render() {
   return <form className={style.form} onSubmit={this.handleSubmit}>
@@ -41,7 +45,8 @@ products: state.products.items
 const mapDispatchToProps = dispatch => {
  
   return {
-    toAddProdacts: (product, weight) => dispatch(productAddOperations.addProduct(product, weight)),
+    toAddProducts: (date, productId, weight) => dispatch(productAddOperations.addProduct(date, productId, weight)),
+    toFindProducts: (query) => dispatch(productAddOperations.searchProducts(query))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps) (DiaryAddProductForm);
