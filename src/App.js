@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Modal from './shared/Modal/Modal';
+import DailyCalorieIntake from './components/DailyCalorieIntake/DailyCalorieIntake';
 
 class App extends Component {
   state = {
-    showModal: false,
+    showModal: true,
   };
   modalToggle = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
@@ -18,4 +19,3 @@ class App extends Component {
   }
 }
 export default App;
-
