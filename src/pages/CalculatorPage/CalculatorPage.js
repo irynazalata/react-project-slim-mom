@@ -13,7 +13,7 @@ const CalculatorPage = () => {
       </div>
      <RightSideBar/>
     </div>
-  )
-}
+  );
+};
 
-export default CalculatorPage
+export default CalculatorPage;
