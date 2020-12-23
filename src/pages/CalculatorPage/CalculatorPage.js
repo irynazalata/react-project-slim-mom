@@ -1,5 +1,5 @@
 import React from "react"
-import CalculatorCalorieForm from "../../components/CalculatorCalorieForm/CalculatorCalorieForm.js"
+import CalculatorCalorieForm from "../../components/CalculatorCalorieForm/CalculatorCalorieForm.jsx"
 
 import "./calculator.module.css"
 

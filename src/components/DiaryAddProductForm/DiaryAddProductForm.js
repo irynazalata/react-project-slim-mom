@@ -12,13 +12,16 @@ class DiaryAddProductForm extends Component {
 
   state = {
     product: '',
-    weight: 100,
+    weight: '',
     productsQuery: []
 }
 
   handleChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value,
+      weight: 100,
+    });
   }
 
   handleSubmit = (e) => {
