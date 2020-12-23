@@ -26,10 +26,6 @@ class App extends Component {
               ),
             )}
           </Switch>
-          <div className="headerContainer">
-            <Header />
-          </div>
-          <div className="bottomVectorOfHeader"></div>
         </Suspense>
       </BrowserRouter>
     );
