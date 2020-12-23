@@ -1,17 +1,21 @@
-import React from "react"
-import CalculatorCalorieForm from "../../components/CalculatorCalorieForm/CalculatorCalorieForm.jsx"
-import RightSideBar from "../../components/RightSideBar/RightSideBar.js"
+import React from 'react';
+import CalculatorCalorieForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
+import Header from '../../components/Header/Header';
+import RightSideBar from '../../components/RightSideBar/RightSideBar.js';
 
-import styles from "../DiaryPage/diary.module.css"
+import styles from '../DiaryPage/diary.module.css';
 
 const CalculatorPage = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.CalculatorCalorieFormBox}>
-        <CalculatorCalorieForm />
+    <>
+      <Header />
+      <div className={styles.container}>
+        <div className={styles.CalculatorCalorieFormBox}>
+          <CalculatorCalorieForm />
+        </div>
+        <RightSideBar />
       </div>
-     <RightSideBar/>
-    </div>
+    </>
   );
 };
 

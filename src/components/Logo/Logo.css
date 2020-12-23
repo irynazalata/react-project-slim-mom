@@ -1,4 +1,34 @@
+.logoTextSlim {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  font-weight: 100;
+}
+.logoTextMom {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+}
+.logoTextSlimAuth {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+}
+.logoTextMomAuth {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+}
 @media screen and (min-width: 0px) and (max-width: 767px) {
+  .logoTextSlimAuth {
+    margin-right: 1px;
+    height: 16px;
+    color: #212121;
+  }
+  .logoTextMomAuth {
+    height: 15.41px;
+    color: #fc842d;
+  }
+
+  .logoContainer {
+    display: block;
+  }
   .logoTextSlim {
     display: none;
   }
@@ -8,6 +38,7 @@
   .logoImage {
     width: 46.67px;
     height: 44px;
+    margin-right: 10px;
   }
 }
 
@@ -17,9 +48,17 @@
     height: 44px;
     margin-right: 10px;
   }
+  .logoTextSlimAuth {
+    margin-right: 1px;
+    height: 16px;
+    color: #212121;
+  }
+  .logoTextMomAuth {
+    height: 15.41px;
+    color: #fc842d;
+  }
   .logoTextSlim {
-    margin-right: 5px;
-
+    margin-right: 1px;
     height: 16px;
     color: #212121;
   }
@@ -42,6 +81,14 @@
     right: 57px;
     bottom: 10px;
   }
+  .logoTextSlimAuth {
+    height: 16px;
+    color: #212121;
+  }
+  .logoTextMomAuth {
+    height: 15.41px;
+    color: #fc842d;
+  }
   .logoTextSlim {
     height: 16px;
     color: #212121;
@@ -53,5 +100,6 @@
 }
 
 .logoContainer {
+  text-decoration: none;
   display: flex;
 }

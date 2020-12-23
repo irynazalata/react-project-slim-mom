@@ -1,51 +1,38 @@
-import React, { Component } from "react";
-import "./Header.css";
-import { NavLink } from "react-router-dom";
-import Logo from "../Logo/Logo";
-import "./Header.css";
-// import { connect } from "react-redux";
-export default class Header extends Component {
+import React, { Component } from 'react';
+import styles from './Header.module.css';
+import { NavLink } from 'react-router-dom';
+import Logo from '../Logo/Logo';
+import { connect } from 'react-redux';
+import Navigation from '../Navigation/Navigation';
+import { authSelectors } from '../../redux/auth';
+
+class Header extends Component {
   render() {
     return (
       <>
-        <div className="headerContainer">
-          <Logo />
-        <div className="vectorOfHeader"></div>
-        <div className="navContainer">
-          <p className="loginLink">Вход</p>
-          <p className="loginLink">Регистрация</p>
-        </div>
-        </div>
-          <div className="bottomVectorOfHeader"></div>
+        {!this.props.isAuthenticated && (
+          <div className={styles.headerContainer}>
+            <Logo />
 
+            <div className={styles.navContainer}>
+              <NavLink className={styles.loginLink} to="/auth/login">
+                Вход
+              </NavLink>
+              <NavLink className={styles.loginLink} to="/auth/register">
+                Регистрация
+              </NavLink>
+            </div>
+          </div>
+        )}
+
+        {this.props.isAuthenticated && <Navigation />}
       </>
     );
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   isAuth: state.auth.token,
-// });
+const mapStateToProps = state => ({
+  isAuthenticated: authSelectors.isAuthenticated(state),
+});
 
-// {
-//   !this.props.isAuth ? (
-//     <NavLink className="loginLink" to="/login">
-//       Вход
-//     </NavLink>
-//   ) : (
-//     <NavLink className="loginLink" to="/">
-//       Name
-//     </NavLink>
-//   );
-// }
-// {
-//   !this.props.isAuth ? (
-//     <NavLink className="loginLink" to="/registration ">
-//       Регистрация
-//     </NavLink>
-//   ) : (
-//     <NavLink className="loginLink" to="/">
-//       Выйти
-//     </NavLink>
-//   );
-// }
+export default connect(mapStateToProps, null)(Header);
