@@ -1,3 +1,6 @@
+.userInfo {
+  border-top: 1px solid #e0e0e0;
+}
 .logo {
   width: 162px;
   height: 44px;
@@ -54,11 +57,26 @@
   .userInfo {
     display: none;
   }
+  .container {
+    border-bottom: 1px solid #e0e0e0;
+  }
 }
 @media screen and (min-width: 1280px) {
+  .navContainer {
+    display: flex;
+    height: 32px;
+    border-left: 2px solid #e0e0e0;
+    padding-left: 22px;
+    align-items: center;
+    margin-left: 22px;
+  }
+  .boxTablet {
+    display: none;
+  }
   .logo {
     display: none;
   }
+
   .logoDesktop {
     display: block;
     padding-top: 22px;
@@ -78,7 +96,6 @@
     display: block;
     min-width: 535px;
     margin-left: auto;
-
     height: 150px;
     margin-left: auto;
     background-color: #f0f1f3;
@@ -93,21 +110,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    min-width: 1280px;
     padding-left: 115px;
+    margin: 0;
   }
-  .verticalLine {
-    margin-right: 22px;
-  }
+
   .desktopLink {
-    padding-top: 15px;
     margin-right: 22px;
     font-family: Gotham Pro;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 13px;
-
+    text-decoration: none;
+    color: #9b9faa;
     text-transform: uppercase;
+  }
+  .desktopLinkActive {
+    color: black;
   }
 }
