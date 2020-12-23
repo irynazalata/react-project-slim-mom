@@ -1,37 +1,49 @@
 import React, { useState, Component } from "react"
-import { connect } from "react-redux"
+import { connect, useDispatch } from "react-redux"
 import styles from "./DailyCaloriesForm.module.css"
 import dailyRateOperations from "../../redux/dailyRate/dailyRateOperations"
-import { Formik, Form, Field } from "formik";
-import DailyCalorieIntake from '../DailyCalorieIntake'
-import * as Yup from "yup";
+import { Formik, Form, Field } from "formik"
+import DailyCalorieIntake from "../DailyCalorieIntake"
+import * as Yup from "yup"
 
-class DailyCaloriesForm extends Component {
+const DailyCaloriesForm = ({ onShowModal }) => {
+  const dispatch = useDispatch()
 
-
-  handleSubmit = (values) => {
-values.bloodType = Number(values.bloodType)
-  this.props.onFetchDailyRates(values)
+  const handleSubmit = (values) => {
+    values.bloodType = Number(values.bloodType)
+    dispatch(dailyRateOperations.onFetchDailyRates(values))
     
-    this.props.onShowModal()
-   
+    onShowModal()
   }
 
+  const DisplayingErrorMessagesSchema = Yup.object().shape({
+    height: Yup.number().min(100, "At least 100 cm!").max(260, "Max height is 260 cm!").required("Required"),
+    age: Yup.number().min(12, "Too young for a diet!").max(100, "Diet after 100?").required("Required"),
+    weight: Yup.number().min(40, "You should be at least 40 kg!").max(330, "Max weight is 330!").required("Required"),
+    desiredWeight: Yup.number().min(40, "Enter at least 40 kg").max(250, "Wow! Are you sure?").required("Required"),
 
-  
-  render() {
-    return (
-      <>
-       <Formik
-        initialValues={{ height: "", age: "", weight: "", desiredWeight:"", bloodType:"" }}
+  });
+
+  return (
+    <>
+      <Formik
+       validationSchema={DisplayingErrorMessagesSchema}
+        initialValues={{
+          height: "",
+          age: "",
+          weight: "",
+          desiredWeight: "",
+          bloodType: "",
+        }}
         onSubmit={(values, { resetForm }) => {
-          this.handleSubmit(values);
-          // resetForm({});
+          handleSubmit(values)
+          resetForm({})
         }}
       >
-         <Form className={styles.form}>
+         {({ errors, touched }) => ( 
+        <Form className={styles.form}>
           <h2 className={styles.title}>
-          Просчитай свою суточную норму калорий прямо сейчас
+            Просчитай свою суточную норму калорий прямо сейчас
           </h2>
           <div className={styles.inputWrapper}>
             <div className={styles.inputBlock}>
@@ -41,10 +53,10 @@ values.bloodType = Number(values.bloodType)
                   className={styles.input}
                   name="height"
                   type="number"
-                 
                   required
                 />{" "}
                 <p className={styles.labelValue}>Рост*</p>
+                {touched.height && errors.height && <div className={styles.error}>{errors.height}</div>} 
               </label>
               <label className={styles.label}>
                 {" "}
@@ -53,10 +65,10 @@ values.bloodType = Number(values.bloodType)
                   className={styles.input}
                   name="age"
                   type="number"
-                 
                   required
                 />
                 <p className={styles.labelValue}>Возраст*</p>
+                {touched.age && errors.age && <div className={styles.error}>{errors.age}</div>} 
               </label>
 
               <label className={styles.label}>
@@ -65,10 +77,10 @@ values.bloodType = Number(values.bloodType)
                   className={styles.input}
                   name="weight"
                   type="number"
-               
                   required
                 />
                 <p className={styles.labelValue}>Текущий вес*</p>
+                {touched.weight && errors.weight && <div className={styles.error}>{errors.weight}</div>}
               </label>
             </div>
             <div className={styles.inputBlock}>
@@ -78,10 +90,10 @@ values.bloodType = Number(values.bloodType)
                   className={styles.input}
                   name="desiredWeight"
                   type="number"
-          
                   required
                 />
                 <p className={styles.labelValue}>Желаемый вес*</p>
+                {touched.desiredWeight && errors.desiredWeight && <div className={styles.error}>{errors.desiredWeight}</div>} 
               </label>
               <p className={styles.radioTitle}>Группа крови*</p>
               <div className={styles.radioWrapper}>
@@ -107,15 +119,15 @@ values.bloodType = Number(values.bloodType)
           <button className={styles.button} type="submit">
             Похудеть
           </button>
-          </Form>
-        </Formik>
-      </>
-    )
-  }
+        </Form>
+         )}
+      </Formik>
+    </>
+  )
 }
 
-const mapDispatchToProps = {
-  onFetchDailyRates: dailyRateOperations.onFetchDailyRates,
-}
+// const mapDispatchToProps = {
+//   onFetchDailyRates: dailyRateOperations.onFetchDailyRates,
+// }
 
-export default connect(null, mapDispatchToProps)(DailyCaloriesForm)
+export default DailyCaloriesForm

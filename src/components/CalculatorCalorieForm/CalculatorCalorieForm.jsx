@@ -92,7 +92,7 @@ function CalculatorCalorieForm() {
               </label>
               <p className={styles.radioTitle}>Группа крови*</p>
               <div className={styles.radioWrapper}>
-                <Field id="first" type="radio" name="bloodType" value="1" />
+                <Field id="first" type="radio" name="bloodType" value="1" required/>
                 <label for="first" className={styles.radioLabel}>
                   1
                 </label>
