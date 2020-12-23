@@ -1,9 +1,9 @@
 import React from 'react';
 
-const axiosList = (arr) => {
-  return <select name="select" id="select">
-    {arr.map(el => <option key={el._id} name={el.title.ru} value={el._id}>{el.title.ru}</option>)}
-  </select>
+const AxiosList = ({arr, toGetProduct}) => {
+  return <ul onClick={toGetProduct}>
+    {arr.map(el => <li value={el.title.ru} data-id={el._id} key={el._id}>{el.title.ru}</li>)}
+  </ul>
 }
 
-export default axiosList;
+export default AxiosList;
