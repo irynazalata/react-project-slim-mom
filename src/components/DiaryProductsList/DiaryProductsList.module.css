@@ -50,7 +50,7 @@
   .list {
     width: 589px;
     height: 240px;
-    margin-bottom: 61px;
+    /* margin-bottom: 61px; */
   }
 
   .listItem p {
@@ -75,7 +75,7 @@
 }
 @media screen and (min-width: 1280px) {
   .list {
-    width: 594px;
+    width: 600px;
     height: 239px;
     padding-bottom: 0;
   }

@@ -6,9 +6,9 @@ import productsReducer from './products/productAdd/productAddReducer';
 import dateReducer from './calendar/calendarReducer';
 
 const persistConfig = {
-  key: "auth",
+  key: 'auth',
   storage,
-  whitelist: ["token"],
+  whitelist: ['token'],
 };
 
 export const store = configureStore({

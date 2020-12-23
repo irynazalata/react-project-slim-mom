@@ -1,9 +1,9 @@
 import React, { useState, Component } from "react"
 import { connect } from "react-redux"
-import styles from "./DailyCaloriesForm.module.css"
+import styles from "./CalculatorCalorieForm.module.css"
 import dailyRateOperations from "../../redux/dailyRate/dailyRateOperations"
 
-class DailyCaloriesForm extends Component {
+class CalculatorCalorieForm extends Component {
   state = {
     height: "",
     age: "",
@@ -20,7 +20,7 @@ class DailyCaloriesForm extends Component {
     event.preventDefault()
     //this.props.onFetchDailyRates()
     
-    this.props.onShowModal()
+    
   }
 
   render() {
@@ -28,7 +28,7 @@ class DailyCaloriesForm extends Component {
       <>
         <form className={styles.form} onSubmit={this.handleSubmit}>
           <h2 className={styles.title}>
-          Просчитай свою суточную норму калорий прямо сейчас
+            Просчитай свою суточную норму калорий
           </h2>
           <div className={styles.inputWrapper}>
             <div className={styles.inputBlock}>
@@ -118,4 +118,4 @@ const mapDispatchToProps = {
   onFetchDailyRates: dailyRateOperations.onFetchDailyRates,
 }
 
-export default connect(null, mapDispatchToProps)(DailyCaloriesForm)
+export default connect(null, mapDispatchToProps)(CalculatorCalorieForm)
