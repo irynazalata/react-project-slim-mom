@@ -30,8 +30,9 @@ class DiaryAddProductForm extends Component {
     this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight)
     
   }
-  searchProducts = (query)  => {
-  axios.get(`/product?search=${query}`)
+  searchProducts = (query) => {
+    console.log(query);
+    axios.get(`/product?search=${query}`)
     .then(resp => console.log(resp))
   .catch(err => console.log(err));
 }

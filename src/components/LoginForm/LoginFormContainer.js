@@ -14,5 +14,6 @@ export default function LoginFormContainer() {
     dispatch(authOperations.login(value));
   };
 
+  console.log(handleSubmit);
   return <LoginForm onSubmit={handleSubmit} />;
 }
