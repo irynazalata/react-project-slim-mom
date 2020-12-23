@@ -4,33 +4,37 @@ import PropTypes from "prop-types";
 import { Formik, Form, Field } from "formik";
 import styles from "./LoginForm.module.css";
 
-const LoginForm = ({ onSubmit }) => {
-  console.log(onSubmit);
+const LoginForm = ({ onSubmit, DisplayingErrorMessagesSchema }) => {
   return (
     <>
       <h1 className={styles.title}>Вход</h1>
       <Formik
         initialValues={{ email: "", password: "" }}
+        validationSchema={DisplayingErrorMessagesSchema}
         onSubmit={(values, { resetForm }) => {
           onSubmit(values);
           resetForm({});
         }}
       >
-        <Form className={styles.form}>
-          <label className={styles.label}>
-            <Field type="text" name="email" placeholder=" " className={styles.input} />
-            <p className={styles.name}>Логин *</p>
-          </label>
-          <label className={styles.label}>
-            <Field type="password" name="password" placeholder=" " className={styles.inputPass} />
-            <p className={styles.name}>Пароль *</p>
-          </label>
-          <button type="submit" className={styles.buttonReg}>
-            Вход
-          </button>
-        </Form>
+        {({ errors, touched }) => (
+          <Form className={styles.form}>
+            <label className={styles.label}>
+              <Field type="text" name="email" placeholder=" " className={styles.input} />
+              <p className={styles.name}>Логин *</p>
+              {touched.email && errors.email && <div className={styles.error}>{errors.email}</div>}
+            </label>
+            <label className={styles.label}>
+              <Field type="password" name="password" placeholder=" " className={styles.inputPass} />
+              <p className={styles.name}>Пароль *</p>
+              {touched.password && errors.password && <div className={styles.error}>{errors.password}</div>}
+            </label>
+            <button type="submit" className={styles.buttonReg}>
+              Вход
+            </button>
+          </Form>
+        )}
       </Formik>
-      <Link to="/" className={styles.buttonEnter}>
+      <Link to="/auth/register" className={styles.buttonEnter}>
         Регистрация
       </Link>
     </>
