@@ -32,6 +32,10 @@ margin-bottom:40px;
     color: #ffffff;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   }
+
+  .buttonLink{
+    text-decoration: none;
+  }
 .caloriesText {
   font-family: Verdana;
   font-style: normal;

@@ -28,7 +28,7 @@ console.log(products);
           
           
         </ol>
-        <Link to= "/auth/register" className={styles.button}>
+        <Link to= "/auth/register" className={styles.button, styles.buttonLink}>
           Начать худеть
         </Link>
       </div>

@@ -18,20 +18,20 @@ const DailyCaloriesForm = ({ onShowModal }) => {
 
   const DisplayingErrorMessagesSchema = Yup.object().shape({
     height: Yup.number()
-      .min(100, "At least 100 cm!")
-      .max(260, "Max height is 260 cm!")
+      .min(100, "Минимальное значение 100 см")
+      .max(260, "Максимальное значение 260 см")
       .required("Required"),
     age: Yup.number()
-      .min(12, "Too young for a diet!")
-      .max(100, "Diet after 100?")
+      .min(12, "Минимум 12 лет")
+      .max(100, "Максимум 100 лет")
       .required("Required"),
     weight: Yup.number()
-      .min(40, "You should be at least 40 kg!")
-      .max(330, "Max weight is 330!")
+      .min(40, "Минимальный вес 40 кг")
+      .max(200, "Максимальный вес 200 кг")
       .required("Required"),
     desiredWeight: Yup.number()
-      .min(40, "Enter at least 40 kg")
-      .max(250, "Wow! Are you sure?")
+      .min(40, "Минимальный вес 40 кг")
+      .max(150, "Максимальный вес 150 кг")
       .required("Required"),
   })
 
