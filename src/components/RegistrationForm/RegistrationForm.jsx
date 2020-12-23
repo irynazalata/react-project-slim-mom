@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { Formik, Form, Field } from "formik";
-import styles from "./RegistrationForm.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Formik, Form, Field } from 'formik';
+import styles from './RegistrationForm.module.css';
 
 const RegistrationForm = ({ handleSubmit, DisplayingErrorMessagesSchema }) => {
   return (
     <>
       <h1 className={styles.title}>Регистрация</h1>
       <Formik
-        initialValues={{ username: "", email: "", password: "" }}
+        initialValues={{ username: '', email: '', password: '' }}
         validationSchema={DisplayingErrorMessagesSchema}
         onSubmit={(values, { resetForm }) => {
           handleSubmit(values);
@@ -19,19 +19,40 @@ const RegistrationForm = ({ handleSubmit, DisplayingErrorMessagesSchema }) => {
         {({ errors, touched }) => (
           <Form className={styles.form}>
             <label className={styles.label}>
-              <Field type="text" name="username" placeholder=" " className={styles.input} />
+              <Field
+                type="text"
+                name="username"
+                placeholder=" "
+                className={styles.input}
+              />
               <p className={styles.name}>Имя *</p>
-              {touched.username && errors.username && <div className={styles.error}>{errors.username}</div>}
+              {touched.username && errors.username && (
+                <div className={styles.error}>{errors.username}</div>
+              )}
             </label>
             <label className={styles.label}>
-              <Field type="text" name="email" placeholder=" " className={styles.input} />
+              <Field
+                type="text"
+                name="email"
+                placeholder=" "
+                className={styles.input}
+              />
               <p className={styles.name}>Логин *</p>
-              {touched.email && errors.email && <div className={styles.error}>{errors.email}</div>}
+              {touched.email && errors.email && (
+                <div className={styles.error}>{errors.email}</div>
+              )}
             </label>
             <label className={styles.label}>
-              <Field type="password" name="password" placeholder=" " className={styles.inputPass} />
+              <Field
+                type="password"
+                name="password"
+                placeholder=" "
+                className={styles.inputPass}
+              />
               <p className={styles.name}>Пароль *</p>
-              {touched.password && errors.password && <div className={styles.error}>{errors.password}</div>}
+              {touched.password && errors.password && (
+                <div className={styles.error}>{errors.password}</div>
+              )}
             </label>
             <button type="submit" className={styles.buttonReg}>
               Регистрация
@@ -45,9 +66,7 @@ const RegistrationForm = ({ handleSubmit, DisplayingErrorMessagesSchema }) => {
     </>
   );
 };
-
 RegistrationForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
-
 export default RegistrationForm;
