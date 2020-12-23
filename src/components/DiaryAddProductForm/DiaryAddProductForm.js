@@ -36,7 +36,10 @@ class DiaryAddProductForm extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.product !== this.state.product) {
-     this.searchProducts(this.state.product) 
+      this.setState({
+      productsQuery: this.searchProducts(this.state.product) 
+    })
+      
 
     // this.setState this.props.toFindProducts(this.state.product)
     }
@@ -62,7 +65,6 @@ const mapDispatchToProps = dispatch => {
  
   return {
     toAddProducts: (date, productId, weight) => dispatch(productAddOperations.addProduct(date, productId, weight)),
-    toFindProducts: (query) => dispatch(productAddOperations.searchProducts(query))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps) (DiaryAddProductForm);
