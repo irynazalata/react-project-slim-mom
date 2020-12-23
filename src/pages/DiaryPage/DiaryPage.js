@@ -3,7 +3,6 @@ import DiaryDateCalendar from "../../components/DiaryDateCalendar/DiaryDateCalen
 import DiaryAddProductForm from "../../components/DiaryAddProductForm/DiaryAddProductForm.js"
 import DiaryAddProductList from "../../components/DiaryProductsList/DiaryProductList.js"
 import RightSideBar from "../../components/RightSideBar/RightSideBar.js"
-import Container from "../../shared/Container/Container.js"
 
 
 import styles from "./diary.module.css"
