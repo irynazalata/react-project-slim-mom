@@ -1,16 +1,17 @@
 import axios from "axios"
+import {useSelector} from "react-redux"
 import dailyRateActions from "./dailyRateActions"
+import authSelectors from "../auth/authSelectors"
 
-axios.defaults.baseURL = "https://slimmom-backend.herokuapp.com/";
+axios.defaults.baseURL = "https://slimmom-backend.herokuapp.com";
 
-//TODO: should token be here as well?
-//Where should auth check be held for dailyRate and calc componenets? || in axios?
 
-const onFetchDailyRates = (weight, height, age, desiredWeight, bloodType) => (dispatch) => {
+
+const onFetchDailyRates = (values) => (dispatch) => {
     dispatch(dailyRateActions.fetchDailyRateRequest())
   
     axios
-      .post("/daily-rate")
+      .post("/daily-rate", values)
       .then((receivedData) =>
         dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
       )
@@ -18,11 +19,11 @@ const onFetchDailyRates = (weight, height, age, desiredWeight, bloodType) => (di
   }
 
 
-  const onFetchDailyRatesAuthorised = (weight, height, age, desiredWeight, bloodType) => (dispatch) => {
+  const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
     dispatch(dailyRateActions.fetchDailyRateRequest())
   
     axios
-      .post("/daily-rate/{userId}")
+      .post(`/daily-rate/${userId}`, values)
       .then((receivedData) =>
         dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
       )

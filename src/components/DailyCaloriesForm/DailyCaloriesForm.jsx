@@ -11,7 +11,6 @@ class DailyCaloriesForm extends Component {
     this.props.onFetchDailyRates(values);
     this.props.onShowModal();
   };
-
   render() {
     return (
       <>
