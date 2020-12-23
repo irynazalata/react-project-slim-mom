@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../Modal/Modal.module.css';
+import DailyCalorieIntake from '../../components/DailyCalorieIntake/DailyCalorieIntake';
 
 class Modal extends Component {
   componentDidMount() {
@@ -35,6 +36,7 @@ class Modal extends Component {
             >
               X
             </button>
+            <DailyCalorieIntake />
           </div>
         </div>
       </>
