@@ -1,5 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import authReducer from './auth/authReducer';
+import userDataDiet from './dailyRate/dailyRateReducer';
 import {
   persistStore,
   persistReducer,
@@ -21,6 +22,7 @@ const persistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
+    dailyRate: userDataDiet,
   },
   middleware: [
     ...getDefaultMiddleware({
