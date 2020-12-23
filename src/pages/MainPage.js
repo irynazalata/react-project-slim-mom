@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyCaloriesForm';
-import Modal from '../shared/Modal/Modal';
+import Modal from '../shared/Modal/Modal.js';
 import Header from '../components/Header/Header';
 import {pageContainer} from './MainPage.module.css';
 
