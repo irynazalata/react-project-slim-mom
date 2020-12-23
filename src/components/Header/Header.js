@@ -1,27 +1,41 @@
 import React, { Component } from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
-import "../../App.css";
-// import { connect } from "react-redux";
-export default class Header extends Component {
+import { connect } from "react-redux";
+import Navigation from "../Navigation/Navigation";
+import { authSelectors } from "../../redux/auth";
+
+class Header extends Component {
   render() {
     return (
       <>
-        <Logo />
-        <div className="vectorOfHeader"></div>
-        <div className="navContainer">
-          <p className="loginLink">Вход</p>
-          <p className="loginLink">Регистрация</p>
-        </div>
+        {!this.props.isAuthenticated && (
+          <div className={styles.headerContainer}>
+            <Logo />
+
+            <div className={styles.navContainer}>
+              <NavLink className={styles.loginLink} to="/auth/login">
+                Вход
+              </NavLink>
+              <NavLink className={styles.loginLink} to="/auth/register">
+                Регистрация
+              </NavLink>
+            </div>
+          </div>
+        )}
+
+        {this.props.isAuthenticated && <Navigation />}
       </>
     );
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   isAuth: state.auth.token,
-// });
+const mapStateToProps = (state) => ({
+  isAuthenticated: authSelectors.isAuthenticated(state),
+});
+
+export default connect(mapStateToProps, null)(Header);
 
 // {
 //   !this.props.isAuth ? (
@@ -30,7 +44,7 @@ export default class Header extends Component {
 //     </NavLink>
 //   ) : (
 //     <NavLink className="loginLink" to="/">
-//       Name
+//       Дневник
 //     </NavLink>
 //   );
 // }
@@ -41,7 +55,14 @@ export default class Header extends Component {
 //     </NavLink>
 //   ) : (
 //     <NavLink className="loginLink" to="/">
-//       Выйти
+//       Калькулятор
 //     </NavLink>
 //   );
 // }
+
+{
+  /* <div className="headerContainer">
+            <Header />
+          </div>
+          <div className="bottomVectorOfHeader"></div> */
+}

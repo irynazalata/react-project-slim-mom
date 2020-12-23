@@ -17,11 +17,21 @@ const LoginForm = ({ onSubmit }) => {
       >
         <Form className={styles.form}>
           <label className={styles.label}>
-            <Field type="text" name="email" placeholder=" " className={styles.input} />
+            <Field
+              type="text"
+              name="email"
+              placeholder=" "
+              className={styles.input}
+            />
             <p className={styles.name}>Логин *</p>
           </label>
           <label className={styles.label}>
-            <Field type="password" name="password" placeholder=" " className={styles.inputPass} />
+            <Field
+              type="password"
+              name="password"
+              placeholder=" "
+              className={styles.inputPass}
+            />
             <p className={styles.name}>Пароль *</p>
           </label>
           <button type="submit" className={styles.buttonReg}>
@@ -29,7 +39,7 @@ const LoginForm = ({ onSubmit }) => {
           </button>
         </Form>
       </Formik>
-      <Link to="/" className={styles.buttonEnter}>
+      <Link to="/auth/register" className={styles.buttonEnter}>
         Регистрация
       </Link>
     </>

@@ -17,15 +17,30 @@ const RegistrationForm = ({ handleSubmit }) => {
       >
         <Form className={styles.form}>
           <label className={styles.label}>
-            <Field type="text" name="username" placeholder=" " className={styles.input} />
+            <Field
+              type="text"
+              name="username"
+              placeholder=" "
+              className={styles.input}
+            />
             <p className={styles.name}>Имя *</p>
           </label>
           <label className={styles.label}>
-            <Field type="text" name="email" placeholder=" " className={styles.input} />
+            <Field
+              type="text"
+              name="email"
+              placeholder=" "
+              className={styles.input}
+            />
             <p className={styles.name}>Логин *</p>
           </label>
           <label className={styles.label}>
-            <Field type="password" name="password" placeholder=" " className={styles.inputPass} />
+            <Field
+              type="password"
+              name="password"
+              placeholder=" "
+              className={styles.inputPass}
+            />
             <p className={styles.name}>Пароль *</p>
           </label>
           <button type="submit" className={styles.buttonReg}>
@@ -33,7 +48,7 @@ const RegistrationForm = ({ handleSubmit }) => {
           </button>
         </Form>
       </Formik>
-      <Link to="/" className={styles.buttonEnter}>
+      <Link to="/auth/login" className={styles.buttonEnter}>
         Вход
       </Link>
     </>
@@ -41,7 +56,7 @@ const RegistrationForm = ({ handleSubmit }) => {
 };
 
 RegistrationForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func,
 };
 
 export default RegistrationForm;

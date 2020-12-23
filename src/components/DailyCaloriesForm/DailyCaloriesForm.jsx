@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import styles from "./DailyCaloriesForm.module.css"
+import React, { Component } from "react";
+import styles from "./DailyCaloriesForm.module.css";
 
 class DailyCaloriesForm extends Component {
   state = {
@@ -7,15 +7,14 @@ class DailyCaloriesForm extends Component {
     age: "",
     currentWeight: "",
     targetWeight: "",
+  };
 
-  }
-  
   handleChange = ({ target: { value, name } }) => {
-    this.setState({ [name]: value })
-  }
+    this.setState({ [name]: value });
+  };
   handleSubmit = (event) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+  };
 
   render() {
     return (
@@ -51,32 +50,35 @@ class DailyCaloriesForm extends Component {
                   value={this.state.age}
                   onChange={this.handleChange}
                   required
-                /><p className={styles.labelValue}>Возраст*</p>
+                />
+                <p className={styles.labelValue}>Возраст*</p>
               </label>
 
               <label className={styles.label}>
                 <input
-                placeholder=" "
+                  placeholder=" "
                   className={styles.input}
                   name="currentWeight"
                   type="number"
                   value={this.state.currentWeight}
-                    onChange={this.handleChange}
+                  onChange={this.handleChange}
                   required
-                /><p className={styles.labelValue}>Текущий вес*</p>
+                />
+                <p className={styles.labelValue}>Текущий вес*</p>
               </label>
             </div>
             <div className={styles.inputBlock}>
               <label className={styles.label}>
                 <input
-                placeholder=" "
+                  placeholder=" "
                   className={styles.input}
                   name="targetWeight"
                   type="number"
                   value={this.state.targetWeight}
-                    onChange={this.handleChange}
+                  onChange={this.handleChange}
                   required
-                /><p className={styles.labelValue}>Желаемый вес*</p>
+                />
+                <p className={styles.labelValue}>Желаемый вес*</p>
               </label>
               <p className={styles.radioTitle}>Группа крови*</p>
               <div className={styles.radioWrapper}>
@@ -104,8 +106,8 @@ class DailyCaloriesForm extends Component {
           </button>
         </form>
       </>
-    )
+    );
   }
 }
 
-export default DailyCaloriesForm
+export default DailyCaloriesForm;

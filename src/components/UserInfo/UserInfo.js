@@ -3,26 +3,31 @@ import React from "react";
 import styles from "./UserInfo.module.css";
 import verticalLine from "../../images/vertical-line.png";
 import goBack from "../../images/go-back.png";
-
-// import { connect } from "react-redux";
+// import { NavLink } from "react-router-dom";
+import { authOperations, authSelectors } from "../../redux/auth";
+import { connect } from "react-redux";
 
 const UserInfo = ({ name, onLogout }) => (
   <div className={styles.userBox}>
     <img className={styles.goBack} src={goBack} alt="go-back" />
     <div className={styles.userInfo}>
-      <span className={styles.name}>Nic</span>
-      <img className={styles.verticalLine} src={verticalLine} alt="vertical-line" />
-      <span className={styles.logout} onClick={onLogout}>
+      <span className={styles.name}>{name}</span>
+      <img
+        className={styles.verticalLine}
+        src={verticalLine}
+        alt="vertical-line"
+      />
+      <button type="button" className={styles.logout} onClick={onLogout}>
         Выйти
-      </span>
+      </button>
     </div>
   </div>
 );
 
-// const mapStateToProps = (state) => ({
-//   name: authSelectors.getUserName(state),
-//   avatar: "https://icon-library.net/images/avatar-icon-images/avatar-icon-images-7.jpg",
-// });
+const mapStateToProps = (state) => ({
+  name: authSelectors.getUserName(state),
+});
 
-// export default connect(mapStateToProps, { onLogout: authOperations.logOut })(UserInfo);
-export default UserInfo;
+export default connect(mapStateToProps, { onLogout: authOperations.logOut })(
+  UserInfo
+);

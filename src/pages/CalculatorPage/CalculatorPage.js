@@ -1,18 +1,20 @@
-import React from "react"
-import CalculatorCalorieForm from "../../components/CalculatorCalorieForm/CalculatorCalorieForm.js"
-
-import "./calculator.module.css"
+import React from "react";
+import CalculatorCalorieForm from "../../components/DailyCaloriesForm/DailyCaloriesForm";
+import Header from "../../components/Header/Header";
+import "./calculator.module.css";
 
 const CalculatorPage = () => {
   return (
-    <div className='container'>
-      <div className='CalculatorCalorieFormBox'>
-        <CalculatorCalorieForm />
+    <>
+      <Header />
+      <div className="container">
+        <div className="CalculatorCalorieFormBox">
+          <CalculatorCalorieForm />
+        </div>
+        <div className="SideBarBox"></div>
       </div>
-      <div className="SideBarBox">
-      </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default CalculatorPage
+export default CalculatorPage;
