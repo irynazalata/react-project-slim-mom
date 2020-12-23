@@ -79,19 +79,19 @@ class DailyCaloriesForm extends Component {
                 <p className={styles.radioTitle}>Группа крови*</p>
                 <div className={styles.radioWrapper}>
                   <Field id="first" type="radio" name="bloodType" value="1" />
-                  <label for="first" className={styles.radioLabel}>
+                  <label htmlFor="first" className={styles.radioLabel}>
                     1
                   </label>
                   <Field id="second" type="radio" name="bloodType" value="2" />
-                  <label for="second" className={styles.radioLabel}>
+                  <label htmlFor="second" className={styles.radioLabel}>
                     2
                   </label>
                   <Field id="third" type="radio" name="bloodType" value="3" />
-                  <label for="third" className={styles.radioLabel}>
+                  <label htmlFor="third" className={styles.radioLabel}>
                     3
                   </label>
                   <Field id="fourth" type="radio" name="bloodType" value="4" />
-                  <label for="fourth" className={styles.radioLabel}>
+                  <label htmlFor="fourth" className={styles.radioLabel}>
                     4
                   </label>
                 </div>

@@ -8,7 +8,7 @@ export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
   const DisplayingErrorMessagesSchema = Yup.object().shape({
-    username: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
+    // username: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
     email: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
     password: Yup.string().min(8, "Too Short!").max(50, "Too Long!").required("Required"),
   });
