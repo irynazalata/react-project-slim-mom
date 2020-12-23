@@ -1,12 +1,12 @@
 import React from 'react';
 import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyCaloriesForm';
-// import Header from '../components/Header/Header';
+import Header from '../components/Header/Header';
 import {pageContainer} from './MainPage.module.css';
 
 const MainPage = () => (
     <>
         <div className={pageContainer}>
-            {/* <Header/> */}
+            <Header/>
             <DailyCaloriesForm />
       </div>
     </>
