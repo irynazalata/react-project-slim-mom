@@ -16,7 +16,7 @@ class App extends Component {
         <h1>Hello world</h1>
         {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
         <LoginForm/>
-        {/* <DiaryAddProductForm/> */}
+        <DiaryAddProductForm/>
       </>
     );
   }

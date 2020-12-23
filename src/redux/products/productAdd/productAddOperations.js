@@ -17,14 +17,14 @@ const fetchProducts = (date) => dispatch => {
     .catch(err => dispatch(productAddActions.fetchProductError(err)))
 }
 
-const searchProducts = (query) => dispatch => {
-  dispatch(productAddActions.searchProductRequest())
-  axios.get(`/product?search=${query}`)
-    .then(resp => dispatch(productAddActions.searchProductSuccess(resp)))
-  .cath(err => dispatch(productAddActions.searchProductError(err)))
-}
+// const searchProducts = (query) => dispatch => {
+//   dispatch(productAddActions.searchProductRequest())
+//   axios.get(`/product?search=${query}`)
+//     .then(resp => dispatch(productAddActions.searchProductSuccess(resp)))
+//   .cath(err => dispatch(productAddActions.searchProductError(err)))
+// }
 export default {
   addProduct,
   fetchProducts,
-  searchProducts
+  // searchProducts
 }
