@@ -1,8 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
-import calendarAction from './calendarAction';
+import setDate from './calendarAction';
 
 const dateReducer = createReducer('', {
-  [calendarAction]: (state, action) => action.payload
+  [setDate]: (state, action) => action.payload
 })
 
 export default dateReducer

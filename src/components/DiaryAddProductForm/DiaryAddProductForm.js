@@ -27,7 +27,9 @@ class DiaryAddProductForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log("this.props.date", this.props.date);
     this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight)
+    this.setState({product: ''})
     
   }
   searchProducts = (query) => {
