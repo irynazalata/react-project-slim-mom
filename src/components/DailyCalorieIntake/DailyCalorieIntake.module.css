@@ -58,6 +58,8 @@ padding-top: 30px
 }
 
 .productsList{
+    overflow-y: scroll;
+    height: 100px;
     font-size: 14px;
 line-height: 17px;
 letter-spacing: 0.04em;
