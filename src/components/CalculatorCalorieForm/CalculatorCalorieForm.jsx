@@ -4,7 +4,7 @@ import styles from "./CalculatorCalorieForm.module.css"
 import dailyRateOperations from "../../redux/dailyRate/dailyRateOperations"
 import { Formik, Form, Field } from "formik"
 import authSelectors from "../../redux/auth/authSelectors"
-
+import * as Yup from "yup";
 
 function CalculatorCalorieForm() {
   const dispatch = useDispatch()
@@ -13,10 +13,18 @@ function CalculatorCalorieForm() {
     values.bloodType = Number(values.bloodType)
     dispatch(dailyRateOperations.onFetchDailyRatesAuthorised(values, userId))
   }
+  const DisplayingErrorMessagesSchema = Yup.object().shape({
+    height: Yup.number().min(100, "At least 100 cm!").max(260, "Max height is 260 cm!").required("Required"),
+    age: Yup.number().min(12, "Too young for a diet!").max(100, "Diet after 100?").required("Required"),
+    weight: Yup.number().min(40, "You should be at least 40 kg!").max(330, "Max weight is 330!").required("Required"),
+    desiredWeight: Yup.number().min(40, "Enter at least 40 kg").max(250, "Wow! Are you sure?").required("Required"),
+
+  });
 
   return (
     <>
       <Formik
+      validationSchema={DisplayingErrorMessagesSchema}
         initialValues={{
           height: "",
           age: "",
@@ -26,9 +34,10 @@ function CalculatorCalorieForm() {
         }}
         onSubmit={(values, { resetForm }) => {
           handleSubmit(values)
-          // resetForm({});
+          resetForm({});
         }}
       >
+          {({ errors, touched }) => ( 
         <Form className={styles.form}>
           <h2 className={styles.title}>Узнай свою суточную норму калорий</h2>
           <div className={styles.inputWrapper}>
@@ -42,6 +51,7 @@ function CalculatorCalorieForm() {
                   required
                 />{" "}
                 <p className={styles.labelValue}>Рост*</p>
+                {touched.height && errors.height && <div className={styles.error}>{errors.height}</div>} 
               </label>
               <label className={styles.label}>
                 {" "}
@@ -53,6 +63,7 @@ function CalculatorCalorieForm() {
                   required
                 />
                 <p className={styles.labelValue}>Возраст*</p>
+                {touched.age && errors.age && <div className={styles.error}>{errors.age}</div>} 
               </label>
 
               <label className={styles.label}>
@@ -64,6 +75,7 @@ function CalculatorCalorieForm() {
                   required
                 />
                 <p className={styles.labelValue}>Текущий вес*</p>
+                {touched.weight && errors.weight && <div className={styles.error}>{errors.weight}</div>} 
               </label>
             </div>
             <div className={styles.inputBlock}>
@@ -76,6 +88,7 @@ function CalculatorCalorieForm() {
                   required
                 />
                 <p className={styles.labelValue}>Желаемый вес*</p>
+                {touched.desiredWeight && errors.desiredWeight && <div className={styles.error}>{errors.desiredWeight}</div>} 
               </label>
               <p className={styles.radioTitle}>Группа крови*</p>
               <div className={styles.radioWrapper}>
@@ -102,6 +115,7 @@ function CalculatorCalorieForm() {
             Похудеть
           </button>
         </Form>
+          )}
       </Formik>
     </>
   )

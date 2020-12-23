@@ -4,6 +4,7 @@ import styles from "./DailyCaloriesForm.module.css"
 import dailyRateOperations from "../../redux/dailyRate/dailyRateOperations"
 import { Formik, Form, Field } from "formik";
 import DailyCalorieIntake from '../DailyCalorieIntake'
+import * as Yup from "yup";
 
 class DailyCaloriesForm extends Component {
 
@@ -16,6 +17,8 @@ values.bloodType = Number(values.bloodType)
    
   }
 
+
+  
   render() {
     return (
       <>
