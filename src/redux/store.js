@@ -12,6 +12,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import productsReducer from './products/productAdd/productAddReducer';
+import dateReducer from './calendar/calendarReducer';
 
 const persistConfig = {
   key: 'auth',
@@ -21,8 +23,10 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
+    products: productsReducer,
     auth: persistReducer(persistConfig, authReducer),
     dailyRate: userDataDiet,
+    date: dateReducer
   },
   middleware: [
     ...getDefaultMiddleware({

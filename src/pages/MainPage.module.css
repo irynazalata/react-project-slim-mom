@@ -1,6 +1,6 @@
 .pageContainer {
-  width: 320px;
   padding: 0 15px;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -15,7 +15,7 @@
       url(../images/tablet-webP/leaves-tablet-x1.webp),
       url(../images/tablet-webP/greybcg-tablet-x1.webp);
     background-repeat: no-repeat;
-    background-position: bottom right, top 503px right 96px, bottom left,
+    background-position: bottom right, top 553px right, bottom 20px left 30px,
       bottom right;
   }
 }
@@ -30,7 +30,7 @@
       url(../images/desktop-webP/strawberry-desktop-x1.webp),
       url(../images/desktop-webP/greybcg-desktop-x1.webp);
     background-repeat: no-repeat;
-    background-position: top right, bottom 30px right 195px, bottom right 36px,
+    background-position: top right, bottom 30px left 339px, bottom right,
       bottom right;
   }
 }
@@ -42,7 +42,7 @@
       url(../images/tablet-webP/leaves-tablet-x2.webp),
       url(../images/tablet-webP/greybcg-tablet-x2.webp);
     background-repeat: no-repeat;
-    background-position: bottom right, top 503px right 96px, bottom left,
+    background-position: bottom right, top 553px right, bottom 20px left 30px,
       bottom right;
   }
 }
@@ -54,7 +54,7 @@
       url(../images/desktop-webP/strawberry-desktop-x2.webp),
       url(../images/desktop-webP/greybcg-desktop-x2.webp);
     background-repeat: no-repeat;
-    background-position: top right, bottom 30px right 195px, bottom right 36px,
+    background-position: top right, bottom 30px left 339px, bottom right,
       bottom right;
   }
 }
