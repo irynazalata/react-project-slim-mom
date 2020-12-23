@@ -1,12 +1,21 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import authReducer from "./auth/authReducer";
-import { persistStore, persistReducer, FLUSH, PAUSE, PERSIST, PURGE, REHYDRATE, REGISTER } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import authReducer from './auth/authReducer';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REHYDRATE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
 const persistConfig = {
-  key: "auth",
+  key: 'auth',
   storage,
-  whitelist: ["token"],
+  whitelist: ['token'],
 };
 
 export const store = configureStore({
@@ -23,3 +32,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+

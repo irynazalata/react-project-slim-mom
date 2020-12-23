@@ -1,17 +1,14 @@
-/* ?SIGNUP/LOGIN */
-.container {
+.pageContainer {
   width: 320px;
   padding: 0 15px;
-  margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .pageContainer {
     display: inline-block;
-    /* width: 768px; */
     width: 100%;
     height: 1024px;
-    padding: 0 87px;
+    padding: 0 69px;
     position: relative;
     background-image: url(../images/tablet-webP/banana-tablet-x1.webp),
       url(../images/tablet/Strawberry-Big-PNG.svg),
@@ -23,12 +20,11 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .container {
-    /* width: 1280px; */
+@media screen and (min-width: 1280px) {
+  .pageContainer {
     width: 100%;
     height: 850px;
-    padding: 0 115px;
+    padding: 0 90px;
     background-image: url(../images/desktop/banana-desktop-x1-min-login.png),
       url(../images/desktop/strawberry-desktop-x1-min-login.svg),
       url(../images/desktop/Strawberry-Big-PNG.svg),
@@ -39,16 +35,8 @@
   }
 }
 
-/* ?SIGNUP/LOGIN-x2 */
-
 @media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
-  .container {
-    display: inline-block;
-    /* width: 768px;*/
-    width: 100%;
-    height: 1024px;
-    padding: 0 87px;
-    position: relative;
+  .pageContainer {
     background-image: url(../images/tablet-webP/banana-tablet-x2.webp),
       url(../images/tablet/strawberry-tablet-x2-min.png),
       url(../images/tablet/leaves-tablet-x2-min-login.png),
@@ -59,12 +47,8 @@
   }
 }
 
-@media screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2) {
-  .container {
-    /* width: 1280px; */
-    width: 100%;
-    height: 850px;
-    padding: 0 115px;
+@media screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+  .pageContainer {
     background-image: url(../images/desktop/banana-desktop-x2-min-login.png),
       url(../images/desktop/leaves-desktop-x2-min-login.png),
       url(../images/desktop/strawberry-desktop-x2-min-login.png),
