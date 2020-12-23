@@ -3,14 +3,14 @@ import { createReducer } from '@reduxjs/toolkit';
 import productAddActions from './productAddActions.js';
 
 const toAddProduct = (state, action) => {
-  return [...state, action.payload]
+  return action.payload
 }
 
-const items = createReducer([], {
+const products = createReducer({}, {
   [productAddActions.fetchProductSuccess]: (state, action) => action.payload,
   [productAddActions.addProductSuccess]: toAddProduct,
 })
 
 
 
-export default combineReducers ({items})
+export default products

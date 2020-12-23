@@ -59,6 +59,7 @@
   color: rgba(252, 132, 45, 1);
   border: 2px solid rgba(252, 132, 45, 1);
 }
+
 @media screen and (min-width: 768px) {
   .form {
     display: flex;
