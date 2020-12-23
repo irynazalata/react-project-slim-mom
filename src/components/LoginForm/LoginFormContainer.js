@@ -8,8 +8,8 @@ export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
   const DisplayingErrorMessagesSchema = Yup.object().shape({
-    email: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
-    password: Yup.string().min(8, "Too Short!").max(50, "Too Long!").required("Required"),
+    email: Yup.string().min(3, "Минимум 3 символа!").max(50, "Слишком длинный!").required("Обязательно"),
+    password: Yup.string().min(8, "Минимум 8 символов!").max(50, "Слишком длинный!").required("Обязательно"),
   });
 
   useEffect(() => {
@@ -20,5 +20,5 @@ export default function LoginFormContainer() {
     dispatch(authOperations.login(value));
   };
 
-  return <LoginForm onSubmit={handleSubmit} DisplayingErrorMessagesSchema={DisplayingErrorMessagesSchema}/>;
+  return <LoginForm onSubmit={handleSubmit} DisplayingErrorMessagesSchema={DisplayingErrorMessagesSchema} />;
 }
