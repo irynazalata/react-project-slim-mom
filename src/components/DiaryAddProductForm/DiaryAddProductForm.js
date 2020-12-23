@@ -72,7 +72,7 @@ class DiaryAddProductForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  products: state.products,
+  // products: state.products.items,
   date: state.date
 })
 
