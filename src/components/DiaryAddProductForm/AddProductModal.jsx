@@ -36,7 +36,7 @@ class Modal extends Component {
             >
               X
             </button>
-            <DiaryAddProductFormygit />
+            <DiaryAddProductForm />
           </div>
         </div>
       </>
