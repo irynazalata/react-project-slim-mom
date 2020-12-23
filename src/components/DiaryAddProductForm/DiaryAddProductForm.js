@@ -13,7 +13,8 @@ class DiaryAddProductForm extends Component {
   state = {
     product: '',
     weight: '',
-    productsQuery: []
+    productsQuery: [],
+    productId:''
 }
 
   handleChange = (e) => {
@@ -26,6 +27,7 @@ class DiaryAddProductForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight)
     
   }
   searchProducts = (query)  => {
@@ -34,6 +36,10 @@ class DiaryAddProductForm extends Component {
   .catch(err => console.log(err));
 }
 
+  getCurrentProduct = (e) => {
+    
+  }
+  
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.product !== this.state.product) {
       this.setState({
@@ -58,7 +64,8 @@ class DiaryAddProductForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-products: state.products.items
+  products: state.products.items,
+  date: state.date
 })
 
 const mapDispatchToProps = dispatch => {
