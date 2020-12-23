@@ -9,7 +9,6 @@ class DailyCaloriesForm extends Component {
   handleSubmit = values => {
     values.bloodType = Number(values.bloodType);
     this.props.onFetchDailyRates(values);
-
     this.props.onShowModal();
   };
 
@@ -56,7 +55,6 @@ class DailyCaloriesForm extends Component {
                   />
                   <p className={styles.labelValue}>Возраст*</p>
                 </label>
-
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
@@ -109,6 +107,7 @@ class DailyCaloriesForm extends Component {
     );
   }
 }
+
 const mapDispatchToProps = {
   onFetchDailyRates: dailyRateOperations.onFetchDailyRates,
 };

@@ -11,7 +11,7 @@ class DiaryDateCalendar extends Component {
   handleTap = (someDate, setSomeDate) => {
     setSomeDate(someDate);
 
-    const result = `${someDate.getFullYear()}-${someDate.getMonth() + 1}-${someDate.getDate()}`;
+    const result = someDate ? `${someDate.getFullYear()}-${someDate.getMonth() + 1}-${someDate.getDate()}` : 0;
     console.log(result);
     this.setState({ date: result });
   };

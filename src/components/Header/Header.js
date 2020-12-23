@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import styles from "./Header.module.css";
-import { NavLink } from "react-router-dom";
-import Logo from "../Logo/Logo";
-import { connect } from "react-redux";
-import Navigation from "../Navigation/Navigation";
-import { authSelectors } from "../../redux/auth";
+import React, { Component } from 'react';
+import styles from './Header.module.css';
+import { NavLink } from 'react-router-dom';
+import Logo from '../Logo/Logo';
+import { connect } from 'react-redux';
+import Navigation from '../Navigation/Navigation';
+import { authSelectors } from '../../redux/auth';
 
 class Header extends Component {
   render() {
@@ -31,38 +31,8 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isAuthenticated: authSelectors.isAuthenticated(state),
 });
 
 export default connect(mapStateToProps, null)(Header);
-
-// {
-//   !this.props.isAuth ? (
-//     <NavLink className="loginLink" to="/login">
-//       Вход
-//     </NavLink>
-//   ) : (
-//     <NavLink className="loginLink" to="/">
-//       Дневник
-//     </NavLink>
-//   );
-// }
-// {
-//   !this.props.isAuth ? (
-//     <NavLink className="loginLink" to="/registration ">
-//       Регистрация
-//     </NavLink>
-//   ) : (
-//     <NavLink className="loginLink" to="/">
-//       Калькулятор
-//     </NavLink>
-//   );
-// }
-
-{
-  /* <div className="headerContainer">
-            <Header />
-          </div>
-          <div className="bottomVectorOfHeader"></div> */
-}

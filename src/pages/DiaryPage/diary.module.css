@@ -46,3 +46,18 @@
     width: 715px;
   }
 }
+.CalculatorCalorieFormBox {
+  padding: 40px 15px 60px 15px;
+}
+@media screen and (min-width: 768px) {
+  .CalculatorCalorieFormBox {
+    padding: 100px 87px 74px 87px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .CalculatorCalorieFormBox {
+    width: 720px;
+    padding: 137px 0 111px 115px;
+    margin-right: 25px;
+  }
+}

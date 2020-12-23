@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import img from "../../images/plus.png"
+import img from "../../images/plus.png";
+import { connect } from 'react-redux';
+import axios from 'axios';
+import productAddOperations from '../../redux/products/productAdd/productAddOperations';
+import axiosList from './axiosList';
 
 import style from './DiaryAddProductForm.module.css'
 
@@ -8,16 +12,37 @@ class DiaryAddProductForm extends Component {
 
   state = {
     product: '',
-    weight: ''
+    weight: '',
+    productsQuery: []
 }
 
   handleChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value,
+      weight: 100,
+    });
   }
 
   handleSubmit = (e) => {
-   e.preventDefault();
+    e.preventDefault();
+    
+  }
+  searchProducts = (query)  => {
+  axios.get(`/product?search=${query}`)
+    .then(resp => console.log(resp))
+  .catch(err => console.log(err));
+}
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.product !== this.state.product) {
+      this.setState({
+      productsQuery: this.searchProducts(this.state.product) 
+    })
+      
+
+    // this.setState this.props.toFindProducts(this.state.product)
+    }
   }
 
   render() {
@@ -32,4 +57,14 @@ class DiaryAddProductForm extends Component {
   }
 }
 
-export default DiaryAddProductForm;
+const mapStateToProps = (state) => ({
+products: state.products.items
+})
+
+const mapDispatchToProps = dispatch => {
+ 
+  return {
+    toAddProducts: (date, productId, weight) => dispatch(productAddOperations.addProduct(date, productId, weight)),
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps) (DiaryAddProductForm);

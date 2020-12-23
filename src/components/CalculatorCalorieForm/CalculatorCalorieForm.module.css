@@ -9,7 +9,7 @@
 }
 
 .form {
-  margin-top: 48px;
+  width: 240px;
 }
 .inputWrapper {
   margin-bottom: 40px;
@@ -150,14 +150,13 @@ input:checked + label {
     margin-bottom: 60px;
   }
   .form {
-    margin-left: 18px;
-    margin-top: 119px;
+    /* margin-left: 18px; */
     width: 605px;
   }
 
   .inputWrapper {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
   }
   .inputBlock:not(:last-child) {
     margin-right: 30px;
@@ -169,8 +168,7 @@ input:checked + label {
 
 @media screen and (min-width: 1280px) {
   .form {
-    margin-left: 25px;
-    margin-top: 137px;
+    margin: 0;
   }
   .title {
     font-size: 34px;
@@ -178,7 +176,7 @@ input:checked + label {
     margin-bottom: 68px;
   }
   .inputWrapper {
-    margin-bottom: 44px;
+    margin-bottom: 64px;
   }
   .button {
     margin-left: 346px;
