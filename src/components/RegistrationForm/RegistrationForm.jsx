@@ -39,7 +39,7 @@ const RegistrationForm = ({ handleSubmit, DisplayingErrorMessagesSchema }) => {
           </Form>
         )}
       </Formik>
-      <Link to="/" className={styles.buttonEnter}>
+      <Link to="/auth/login" className={styles.buttonEnter}>
         Вход
       </Link>
     </>
