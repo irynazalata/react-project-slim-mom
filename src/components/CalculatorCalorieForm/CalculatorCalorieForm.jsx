@@ -9,6 +9,7 @@ import * as Yup from "yup"
 function CalculatorCalorieForm() {
   const dispatch = useDispatch()
   const userId = useSelector(authSelectors.getUserId)
+  const userData = useSelector(authSelectors.getUserData)
   const handleSubmit = (values) => {
     values.bloodType = Number(values.bloodType)
     dispatch(dailyRateOperations.onFetchDailyRatesAuthorised(values, userId))
@@ -32,17 +33,20 @@ function CalculatorCalorieForm() {
       .required("Required"),
   })
 
+  // const{height, age, weight, desiredWeight, bloodType} = userData;
+
   return (
     <>
       <Formik
         validationSchema={DisplayingErrorMessagesSchema}
         initialValues={{
-          height: "",
-          age: "",
-          weight: "",
-          desiredWeight: "",
-          bloodType: "",
+          height: userData && userData.height ? userData.height : "",
+          age: userData && userData.age ? userData.age : "",
+          weight: userData && userData.weight ? userData.weight : "",
+          desiredWeight: userData && userData.desiredWeight ? userData.desiredWeight : "",
+          bloodType: userData && userData.bloodType ? userData.bloodType.toString() : "",
         }}
+        enableReinitialize
         onSubmit={(values, { resetForm }) => {
           handleSubmit(values)
           // resetForm({})
