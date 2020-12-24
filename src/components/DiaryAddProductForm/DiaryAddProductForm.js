@@ -3,7 +3,7 @@ import img from "../../images/plus.png";
 import { connect } from "react-redux";
 import axios from "axios";
 import productAddOperations from "../../redux/products/productAdd/productAddOperations";
-import AxiosList from "./AxiosList";
+import AxiosList from "./axiosList";
 
 import style from "./DiaryAddProductForm.module.css";
 
