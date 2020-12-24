@@ -3,6 +3,7 @@ import DiaryAddProductForm from './DiaryAddProductForm.js';
 import styles from '../../shared/Modal/Modal.module.css';
 
 class Modal extends Component {
+ 
   componentDidMount() {
     window.addEventListener('keydown', this.closeModal);
     document
@@ -15,7 +16,11 @@ class Modal extends Component {
       .getElementById('overlay')
       .removeEventListener('click', this.closeModal);
   }
+
+  
+
   closeModal = event => {
+    console.log(event.target.nodeName);
     if (event.target.nodeName === "INPUT" || event.target.nodeName === "LI" || event.target.innerText === "Добавить") {
       return
     }

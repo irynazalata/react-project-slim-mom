@@ -13,6 +13,7 @@ class DiaryAddProductForm extends Component {
     weight: "",
     productsQuery: [],
     productId: "",
+    error: "",
   };
 
   componentDidMount() {
@@ -29,7 +30,6 @@ class DiaryAddProductForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("this.props.date", this.props.date);
     this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight);
     this.setState({ product: "" });
   };
@@ -42,8 +42,15 @@ class DiaryAddProductForm extends Component {
           productsQuery: resp.data.length > 2 ? [...resp.data] : [],
         })
       )
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => {
+        if (err.response.status == 401 || err.response.status == 403 || err.response.status == 404) {
+         alert ("Ошибка при аутентификации!")
+        }
+        if (err.response.status == 400 ) {
+         alert ("Такого продукта не существует! Попробуйте скорректировать ввод")
+        }
+      } 
+      )};
 
   getCurrentProduct = (e) => {
     
@@ -61,8 +68,6 @@ class DiaryAddProductForm extends Component {
   };
 
   render() {
-    console.log("this.state.product", this.state.product);
-    console.log("this.state.weight", this.state.weight);
     return (
       <form className={style.form} onSubmit={this.handleSubmit}>
         <input
@@ -95,7 +100,6 @@ class DiaryAddProductForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  // products: state.products.items,
   date: state.date,
 });
 
