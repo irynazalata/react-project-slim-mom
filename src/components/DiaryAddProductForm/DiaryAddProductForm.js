@@ -3,7 +3,7 @@ import img from "../../images/plus.png";
 import { connect } from "react-redux";
 import axios from "axios";
 import productAddOperations from "../../redux/products/productAdd/productAddOperations";
-import AxiosList from "./axiosList";
+import AxiosList from "./AxiosList";
 
 import style from "./DiaryAddProductForm.module.css";
 
@@ -16,17 +16,9 @@ class DiaryAddProductForm extends Component {
   };
 
   componentDidMount() {
-    // console.log("this.props", this.props);
   this.props.toFetchProducts(this.props.date)
 }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("hello");
-    console.log("prevProps.date", prevProps);
-  //   if (prevProps.date !== this.props.date) {
-  //   this.props.toFetchProducts(this.props.date)
-  // }
-}  
   
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +41,7 @@ class DiaryAddProductForm extends Component {
       .get(`/product?search=${query}`)
       .then((resp) =>
         this.setState({
-          productsQuery: resp.data.length > 1 ? [...resp.data] : [],
+          productsQuery: resp.data.length > 2 ? [...resp.data] : [],
         })
       )
       .catch((err) => console.log(err));
@@ -81,6 +73,7 @@ class DiaryAddProductForm extends Component {
           value={this.state.product}
           placeholder="Введите название продукта"
           type="text"
+          autocomplete="off"
           onChange={this.handleChange}
         />
         <input
