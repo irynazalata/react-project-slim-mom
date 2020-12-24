@@ -34,6 +34,7 @@ class DiaryAddProductForm extends Component {
     this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight);
     this.setState({ product: "" });
   };
+  
   searchProducts = (query) => {
     console.log(query);
     axios

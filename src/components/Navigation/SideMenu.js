@@ -14,7 +14,6 @@ const Menu = styled.nav`
   width: 1280px;
   max-width: 100%;
   margin-top: 0px;
-  padding-top: 100px;
   padding-right: 0px;
   align-items: stretch;
   background-color: #264061;
@@ -41,10 +40,10 @@ SideMenu.propTypes = {
 SideMenu.defaultProps = {
   children: (
     <>
-      <a className={styles.link} href="/daily-rate">
+      <a className={styles.linkDiary} href="/daily-rate">
         ДНЕВНИК
       </a>
-      <a className={styles.link} href="/calculator">
+      <a className={styles.linkCalc} href="/calculator">
         КАЛЬКУЛЯТОР
       </a>
     </>
