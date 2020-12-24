@@ -1,6 +1,5 @@
 .logoTextSlim {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
   font-weight: 100;
 }
 .logoTextMom {
@@ -76,10 +75,9 @@
   .logoImage {
     width: 70px;
     height: 66px;
-    margin-right: 10px;
     position: absolute;
-    right: 57px;
-    bottom: 10px;
+    right: 65px;
+    bottom: 0;
   }
   .logoTextSlimAuth {
     height: 16px;
@@ -90,11 +88,11 @@
     color: #fc842d;
   }
   .logoTextSlim {
-    height: 16px;
+    margin: 0;
     color: #212121;
   }
   .logoTextMom {
-    height: 15.41px;
+    margin: 0;
     color: #fc842d;
   }
 }
