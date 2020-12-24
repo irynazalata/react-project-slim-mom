@@ -3,9 +3,7 @@ import {useSelector} from "react-redux"
 import dailyRateActions from "./dailyRateActions"
 import authSelectors from "../auth/authSelectors"
 
-axios.defaults.baseURL = "https://slimmom-backend.herokuapp.com";
-
-
+axios.defaults.baseURL = "https://slimmom-backend.goit.global";
 
 const onFetchDailyRates = (values) => (dispatch) => {
     dispatch(dailyRateActions.fetchDailyRateRequest())

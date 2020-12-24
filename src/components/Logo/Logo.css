@@ -14,7 +14,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 100;
 }
-@media screen and (min-width: 0px) and (max-width: 767px) {
+@media screen and (min-width: 0px) and (max-width: 768px) {
   .logoTextSlimAuth {
     margin-right: 1px;
     height: 16px;
@@ -77,23 +77,31 @@
     height: 66px;
     position: absolute;
     right: 65px;
-    bottom: 0;
+    bottom: 5px;
   }
   .logoTextSlimAuth {
     height: 16px;
     color: #212121;
+    margin-top: 0;
+    padding-top: 5px;
   }
   .logoTextMomAuth {
     height: 15.41px;
     color: #fc842d;
+    margin-top: 0;
+    padding-top: 5px;
   }
   .logoTextSlim {
-    margin: 0;
+    height: 16px;
     color: #212121;
+    margin-top: 0;
+    padding-top: 5px;
   }
   .logoTextMom {
-    margin: 0;
+    height: 16px;
     color: #fc842d;
+    margin-top: 0;
+    padding-top: 5px;
   }
 }
 
