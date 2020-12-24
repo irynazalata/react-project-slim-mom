@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Notification = ({ message }) => {
   return (
     <CSSTransition
-      in={true}
+      in={false}
       appear={true}
       timeout={250}
       classNames={styles}
