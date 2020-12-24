@@ -153,13 +153,16 @@ input:checked + label {
     margin-bottom: 60px;
   }
   .form {
-    /* margin-left: 18px; */
+    
     width: 605px;
   }
 
   .inputWrapper {
     display: flex;
     margin-bottom: 60px;
+  }
+  .inputBlock {
+    width: 50%;
   }
   .inputBlock:not(:last-child) {
     margin-right: 30px;
@@ -187,6 +190,7 @@ input:checked + label {
 }
 
 .error {
+    width: 300px;
     position: absolute;
     top: 28px;
     left: 0;
