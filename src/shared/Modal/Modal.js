@@ -17,21 +17,23 @@ class Modal extends Component {
       .removeEventListener('click', this.closeModal);
   }
   closeModal = event => {
+    const { onModalToggle } = this.props;
     if (event.code === 'Escape') {
-      this.props.onModalToggle();
+      onModalToggle();
     } else {
-      this.props.onModalToggle();
+      onModalToggle();
     }
   };
 
   render() {
+    const { onModalToggle } = this.props;
     return (
       <>
         <div id="overlay" className={styles.overlay}>
           <div className={styles.modal}>
             <button
               type="button"
-              onClick={this.props.onModalToggle}
+              onClick={onModalToggle}
               className={styles.closeModalBtn}
               type="button"
             >

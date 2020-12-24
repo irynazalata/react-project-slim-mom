@@ -1,5 +1,5 @@
 import React from 'react';
-import CalculatorCalorieForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
+import CalculatorCalorieForm from '../../components/CalculatorCalorieForm';
 import Header from '../../components/Header/Header';
 import RightSideBar from '../../components/RightSideBar/RightSideBar.js';
 

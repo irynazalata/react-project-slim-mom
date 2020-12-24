@@ -1,38 +1,39 @@
-import axios from "axios";
-import authActions from "./authActions";
+import axios from 'axios';
+import authActions from './authActions';
 
-axios.defaults.baseURL = "https://slimmom-backend.herokuapp.com/";
+
+axios.defaults.baseURL = "https://slimmom-backend.goit.global/";
 
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorization = "";
+    axios.defaults.headers.common.Authorization = '';
   },
 };
 
-const register = (credentials) => (dispatch) => {
+const register = credentials => dispatch => {
   dispatch(authActions.registerRequest());
 
   axios
-    .post("auth/register", credentials)
+    .post('auth/register', credentials)
     .then(({ data }) => {
       dispatch(authActions.registerSuccess(data));
     })
-    .catch((error) => dispatch(authActions.registerError(error)));
+    .catch(error => dispatch(authActions.registerError(error)));
 };
 
-const login = (credentials) => (dispatch) => {
+const login = credentials => dispatch => {
   dispatch(authActions.loginRequest());
 
   axios
-    .post("auth/login", credentials)
+    .post('auth/login', credentials)
     .then(({ data }) => {
       token.set(data.accessToken);
       dispatch(authActions.loginSuccess(data));
     })
-    .catch((error) => dispatch(authActions.loginError(error)));
+    .catch(error => dispatch(authActions.loginError(error)));
 };
 
 const getCurrentUser = () => (dispatch, getState) => {
@@ -48,23 +49,33 @@ const getCurrentUser = () => (dispatch, getState) => {
   dispatch(authActions.getCurrentUserRequest());
 
   axios
-    .get("user")
+    .get('user')
     .then(({ data }) => {
       dispatch(authActions.getCurrentUserSuccess(data));
     })
-    .catch((error) => dispatch(authActions.getCurrentUserError(error)));
+    .catch(error => {
+      if (error.response.status === 401) {
+        dispatch(authActions.tokenUnset());
+      }
+      dispatch(authActions.getCurrentUserError(error));
+    });
 };
 
-const logOut = (credentials) => (dispatch) => {
+const logOut = credentials => dispatch => {
   dispatch(authActions.logoutRequest());
 
   axios
-    .post("auth/logout")
+    .post('auth/logout')
     .then(() => {
       token.unset();
       dispatch(authActions.logoutSuccess());
     })
-    .catch((error) => dispatch(authActions.logoutError(error)));
+    .catch(error => {
+      if (error.response.status === 401) {
+        dispatch(authActions.tokenUnset());
+      }
+      dispatch(authActions.logoutError(error));
+    });
 };
 
 export default {
