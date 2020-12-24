@@ -14,7 +14,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 100;
 }
-@media screen and (min-width: 0px) and (max-width: 767px) {
+@media screen and (min-width: 0px) and (max-width: 768px) {
   .logoTextSlimAuth {
     margin-right: 1px;
     height: 16px;

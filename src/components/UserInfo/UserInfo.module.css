@@ -9,8 +9,10 @@
 }
 .userInfo {
   display: flex;
+  width: 290px;
   align-items: center;
-  margin-left: auto;
+  justify-content: flex-end ;
+  margin: 0 auto;
 }
 .name {
   font-family: Gotham Pro;
