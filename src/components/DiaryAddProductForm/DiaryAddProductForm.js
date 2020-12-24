@@ -16,17 +16,9 @@ class DiaryAddProductForm extends Component {
   };
 
   componentDidMount() {
-    // console.log("this.props", this.props);
   this.props.toFetchProducts(this.props.date)
 }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("hello");
-    console.log("prevProps.date", prevProps);
-  //   if (prevProps.date !== this.props.date) {
-  //   this.props.toFetchProducts(this.props.date)
-  // }
-}  
   
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +40,7 @@ class DiaryAddProductForm extends Component {
       .get(`/product?search=${query}`)
       .then((resp) =>
         this.setState({
-          productsQuery: resp.data.length > 1 ? [...resp.data] : [],
+          productsQuery: resp.data.length > 2 ? [...resp.data] : [],
         })
       )
       .catch((err) => console.log(err));
