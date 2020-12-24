@@ -18,7 +18,7 @@ const DailyCaloriesForm = ({ onShowModal }) => {
 
   const DisplayingErrorMessagesSchema = Yup.object().shape({
     height: Yup.number()
-      .min(100, "Минимальное значение 100 см")
+      .min(100, "Минимально 100 см")
       .max(260, "Максимальное значение 260 см")
       .required("Required"),
     age: Yup.number()
