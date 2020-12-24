@@ -18,6 +18,9 @@
   padding: 80px 15px 80px;
   background-color: white;
 }
+.closeModalBtn {
+  display: none;
+}
 @media screen and (min-width: 768px) {
   .modal {
     width: 594px;
@@ -28,6 +31,16 @@
   .overlay {
     top: 0;
   }
+  .closeModalBtn {
+    display: block;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    color: #000000;
+  }
 }
 @media screen and (min-width: 1024px) {
   .modal {
@@ -36,16 +49,4 @@
     padding: 64px 90px 81px;
     top: 135px;
   }
-}
-
-.closeModalBtn {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  border-radius: 50%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.closeModalBtn:hover {
-  background-color: rgba(37, 37, 37, 0.12);
 }
