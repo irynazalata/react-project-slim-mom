@@ -48,7 +48,7 @@ const DailyCaloriesForm = ({ onShowModal }) => {
         }}
         onSubmit={(values, { resetForm }) => {
           handleSubmit(values)
-          resetForm({})
+          // resetForm({})
         }}
       >
         {({ errors, touched }) => (

@@ -45,7 +45,7 @@ function CalculatorCalorieForm() {
         }}
         onSubmit={(values, { resetForm }) => {
           handleSubmit(values)
-          resetForm({})
+          // resetForm({})
         }}
       >
         {({ errors, touched }) => (
