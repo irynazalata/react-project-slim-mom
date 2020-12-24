@@ -21,7 +21,12 @@ const RegistrationPage = () => {
   return (
     <>
       <div className={bgContainer}>
-        <Header />
+      <div className={headerHide}>
+          <Header />
+      </div>
+            <div className={logoHide}>
+          <Logo />
+      </div>
         <div className={pageContainer}>
           <RegistrationForm />
         </div>
