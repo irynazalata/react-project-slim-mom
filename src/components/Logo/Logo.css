@@ -67,7 +67,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1800px) {
+@media screen and (min-width: 1280px) {
   .logoContainer {
     display: flex;
     position: relative;

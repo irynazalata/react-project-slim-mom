@@ -1,5 +1,5 @@
 .title {
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
@@ -8,9 +8,6 @@
   color: #212121;
 }
 
-.form {
-  margin-top: 48px;
-}
 .inputWrapper {
   margin-bottom: 40px;
 }
@@ -147,14 +144,11 @@ input:checked + label {
   .title {
     font-size: 30px;
     line-height: 36px;
-    margin-bottom: 60px;
+    margin: 0 0 60px 0;
   }
   .form {
-    margin-left: 18px;
-    margin-top: 119px;
     width: 605px;
   }
-
   .inputWrapper {
     display: flex;
     margin-bottom: 20px;
@@ -168,14 +162,10 @@ input:checked + label {
 }
 
 @media screen and (min-width: 1280px) {
-  .form {
-    margin-left: 25px;
-    margin-top: 137px;
-  }
   .title {
     font-size: 34px;
     line-height: 41px;
-    margin-bottom: 68px;
+    margin: 0 0 68px 0;
   }
   .inputWrapper {
     margin-bottom: 44px;

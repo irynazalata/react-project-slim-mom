@@ -61,7 +61,7 @@
     left: 0;
   }
 }
-@media screen and (min-width: 1280px) and (max-width: 1800px) {
+@media screen and (min-width: 1280px) {
   .headerContainer {
     display: flex;
     align-items: center;
