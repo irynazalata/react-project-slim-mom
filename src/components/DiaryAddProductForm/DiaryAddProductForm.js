@@ -3,7 +3,7 @@ import img from '../../images/plus.png';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import productAddOperations from '../../redux/products/productAdd/productAddOperations';
-import AxiosList from './axiosList';
+import AxiosList from './AxiosList';
 
 import style from './DiaryAddProductForm.module.css';
 
@@ -17,16 +17,7 @@ class DiaryAddProductForm extends Component {
   };
 
   componentDidMount() {
-    // console.log("this.props", this.props);
     this.props.toFetchProducts(this.props.date);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('hello');
-    console.log('prevProps.date', prevProps);
-    //   if (prevProps.date !== this.props.date) {
-    //   this.props.toFetchProducts(this.props.date)
-    // }
   }
 
   handleChange = e => {

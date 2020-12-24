@@ -8,8 +8,16 @@ import dailyRateSelector from "../../redux/dailyRate/dailyRateSelector"
 
 const DailyCalorieIntake = () => {
     const calories = useSelector(dailyRateSelector.getCalories);
-    const products = useSelector(dailyRateSelector.getProducts);
-console.log(products);
+  const products = useSelector(dailyRateSelector.getProducts);
+
+  // let arr = [],
+
+  // getArr = (axiosArr) => {
+  //   return arr = [...arr, ...axiosArr]
+  // }
+    
+  // getArr(products)
+  // console.log(arr);
 
   return (
     <div className={styles.wrapper}>
