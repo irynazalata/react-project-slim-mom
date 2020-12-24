@@ -9,14 +9,9 @@ import { connect } from "react-redux";
 
 const UserInfo = ({ name, onLogout }) => (
   <div className={styles.userBox}>
-    <img className={styles.goBack} src={goBack} alt="go-back" />
     <div className={styles.userInfo}>
       <span className={styles.name}>{name}</span>
-      <img
-        className={styles.verticalLine}
-        src={verticalLine}
-        alt="vertical-line"
-      />
+      <img className={styles.verticalLine} src={verticalLine} alt="vertical-line" />
       <button type="button" className={styles.logout} onClick={onLogout}>
         Выйти
       </button>
@@ -28,6 +23,4 @@ const mapStateToProps = (state) => ({
   name: authSelectors.getUserName(state),
 });
 
-export default connect(mapStateToProps, { onLogout: authOperations.logOut })(
-  UserInfo
-);
+export default connect(mapStateToProps, { onLogout: authOperations.logOut })(UserInfo);
