@@ -41,6 +41,8 @@
   line-height: 1.21;
   letter-spacing: 0.04em;
   color: #9b9faa;
+
+  transition: 0.3s;
 }
 
 .input:not(:placeholder-shown) ~ .labelValue {
@@ -99,7 +101,7 @@ input[type="radio"] + label {
   position: relative;
   padding-left: 30px;
   margin-right: 15px;
-  font-size: 13px;
+  font-size: 14px;
 }
 input[type="radio"] + label:before {
   content: "";
@@ -122,8 +124,8 @@ input[type="radio"]:checked + label:after {
   content: "";
   display: block;
   position: absolute;
-  top: 3px;
-  left: 6px;
+  top: 2px;
+    left: 5px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -131,6 +133,7 @@ input[type="radio"]:checked + label:after {
 }
 
 .radioLabel {
+
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
