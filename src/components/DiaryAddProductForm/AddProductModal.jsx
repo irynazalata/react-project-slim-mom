@@ -16,7 +16,6 @@ class Modal extends Component {
       .removeEventListener('click', this.closeModal);
   }
   closeModal = event => {
-    console.dir(event.target);
     if (event.target.nodeName === "INPUT" || event.target.nodeName === "LI" || event.target.innerText === "Добавить") {
       return
     }
