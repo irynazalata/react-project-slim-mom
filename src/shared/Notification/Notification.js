@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import styles from '../Notification/Notification.module.css';
 import PropTypes from 'prop-types';
 
-const Notification = ({ message }) => {
+const Notification = ({ children }) => {
   return (
     <CSSTransition
       in={false}
@@ -12,17 +12,17 @@ const Notification = ({ message }) => {
       classNames={styles}
       unmountOnExit
     >
-      <p className={styles.notification}>{message}</p>
+      <div className={styles.notification}>{children}</div>
     </CSSTransition>
   );
 };
 
 Notification.propTypes = {
-  message: PropTypes.string,
+  children: PropTypes.string.isRequired,
 };
 
 Notification.defaultProps = {
-  message: 'Регистрация прошла успешно',
+  children: 'Регистрация прошла успешно',
 };
 
 export default Notification;

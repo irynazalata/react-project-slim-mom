@@ -101,7 +101,7 @@
 }
 
 /* custom radio-styles */
-input[type="radio"] + label {
+input[type='radio'] + label {
   display: inline-block;
   cursor: pointer;
   position: relative;
@@ -109,8 +109,8 @@ input[type="radio"] + label {
   margin-right: 15px;
   font-size: 14px;
 }
-input[type="radio"] + label:before {
-  content: "";
+input[type='radio'] + label:before {
+  content: '';
   display: block;
   width: 22px;
   height: 22px;
@@ -122,12 +122,12 @@ input[type="radio"] + label:before {
   background-color: #fff;
   border-radius: 50%;
 }
-input[type="radio"] {
+input[type='radio'] {
   display: none !important;
   *display: inline;
 }
-input[type="radio"]:checked + label:after {
-  content: "";
+input[type='radio']:checked + label:after {
+  content: '';
   display: block;
   position: absolute;
   top: 2px;
@@ -185,4 +185,3 @@ input:checked + label {
     margin-left: 346px;
   }
 }
-
