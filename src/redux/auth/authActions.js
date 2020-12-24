@@ -16,6 +16,7 @@ const logoutRequest = createAction("auth/logoutRequest");
 const logoutSuccess = createAction("auth/logoutSuccess");
 const logoutError = createAction("auth/logoutError");
 
+const unsetUserName = createAction("auth/unsetUserName");
 const tokenUnset=createAction("token/tokenUnset");
 
 export default {
@@ -31,5 +32,6 @@ export default {
   logoutRequest,
   logoutSuccess,
   logoutError,
+  unsetUserName
   tokenUnset
 };
