@@ -77,23 +77,31 @@
     height: 66px;
     position: absolute;
     right: 65px;
-    bottom: 0;
+    bottom: 5px;
   }
   .logoTextSlimAuth {
     height: 16px;
     color: #212121;
+    margin-top: 0;
+    padding-top: 5px;
   }
   .logoTextMomAuth {
     height: 15.41px;
     color: #fc842d;
+    margin-top: 0;
+    padding-top: 5px;
   }
   .logoTextSlim {
-    margin: 0;
+    height: 16px;
     color: #212121;
+    margin-top: 0;
+    padding-top: 5px;
   }
   .logoTextMom {
-    margin: 0;
+    height: 16px;
     color: #fc842d;
+    margin-top: 0;
+    padding-top: 5px;
   }
 }
 
