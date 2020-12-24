@@ -12,10 +12,11 @@
 
 @media screen and (min-width: 1280px) {
   .container {
-    width: 1280px;
-    margin: 0 auto;
-    padding-right: 0;
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding-right: 0;
   }
 }
 .containerInformation {
@@ -43,5 +44,20 @@
     padding-left: 115px;
     margin-right: 30px;
     width: 715px;
+  }
+}
+.CalculatorCalorieFormBox {
+  padding: 40px 15px 60px 15px;
+}
+@media screen and (min-width: 768px) {
+  .CalculatorCalorieFormBox {
+    padding: 100px 87px 74px 87px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .CalculatorCalorieFormBox {
+    width: 720px;
+    padding: 137px 0 111px 115px;
+    margin-right: 25px;
   }
 }

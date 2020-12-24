@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyCaloriesForm';
-import Modal from '../shared/Modal/Modal';
 import Notification from '../shared/Notification/Notification';
-// import Header from '../components/Header/Header';
-import { pageContainer } from './MainPage.module.css';
+import Modal from '../shared/Modal/Modal.js';
+import Header from '../components/Header/Header';
+import { pageContainer, bgContainer } from './MainPage.module.css';
 
 class MainPage extends Component {
   state = {
@@ -16,11 +16,13 @@ class MainPage extends Component {
   render() {
     return (
       <>
-        <Notification />
-        <div className={pageContainer}>
-          {/* <Header/> */}
-          <DailyCaloriesForm onShowModal={this.modalToggle} />
-          {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
+      <Notification />
+        <div className={bgContainer}>
+          <Header />
+          <div className={pageContainer}>
+            <DailyCaloriesForm onShowModal={this.modalToggle} />
+            {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
+          </div>
         </div>
       </>
     );

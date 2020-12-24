@@ -41,10 +41,10 @@ SideMenu.propTypes = {
 SideMenu.defaultProps = {
   children: (
     <>
-      <a className={styles.link} href="/">
+      <a className={styles.link} href="/daily-rate">
         ДНЕВНИК
       </a>
-      <a className={styles.link} href="/articles">
+      <a className={styles.link} href="/calculator">
         КАЛЬКУЛЯТОР
       </a>
     </>

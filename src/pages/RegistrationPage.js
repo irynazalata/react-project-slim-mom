@@ -1,15 +1,18 @@
 import React from 'react';
-// import Header from '../components/Header/Header';
-import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
-import {pageContainer} from './LoginRegistrationPage.module.css';
+import Header from '../components/Header/Header';
+import RegistrationForm from '../components/RegistrationForm/RegistrationFormContainer';
+import { pageContainer, bgContainer } from './LoginRegistrationPage.module.css';
+
 
 const RegistrationPage = () => (
     <>
+      <div className={bgContainer}>
+        <Header />  
         <div className={pageContainer}>
-            {/* <Header/> */}
-            <RegistrationForm/>
+          <RegistrationForm />
         </div>
-    </>
+    </div>
+  </>
 );
 
 export default RegistrationPage;

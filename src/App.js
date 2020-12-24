@@ -6,7 +6,7 @@ import { authOperations } from './redux/auth';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Header from './components/Header/Header';
-// import Loader from "./shared/Loader/Loader";
+import Loader from "./shared/Loader/Loader";
 import './App.css';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Suspense fallback={<h1>Loading</h1>}>
+         <Suspense fallback={<Loader/>}>
           <Switch>
             {routes.map(route =>
               route.private ? (
@@ -26,10 +26,6 @@ class App extends Component {
               ),
             )}
           </Switch>
-          <div className="headerContainer">
-            <Header />
-          </div>
-          <div className="bottomVectorOfHeader"></div>
         </Suspense>
       </BrowserRouter>
     );
