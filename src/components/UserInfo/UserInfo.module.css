@@ -7,11 +7,6 @@
   margin: 0 auto;
   background-color: #eff1f3;
 }
-.goBack {
-  width: 12px;
-  height: 7px;
-  margin: 0;
-}
 .userInfo {
   display: flex;
   align-items: center;
@@ -34,15 +29,13 @@
   color: #9b9faa;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 @media screen and (min-width: 768px) {
   .userBox {
     padding: 0;
     margin-right: 50px;
     background-color: white;
-  }
-  .goBack {
-    display: none;
   }
 }
 @media screen and (min-width: 1280px) {
