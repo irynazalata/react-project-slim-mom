@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import authSelectors from "../redux/auth/authSelectors";
-import Header from "../components/Header/Header";
-import RegistrationForm from "../components/RegistrationForm/RegistrationFormContainer";
-import { pageContainer, bgContainer } from "./LoginRegistrationPage.module.css";
-import authActions from "../redux/auth/authActions";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import authSelectors from '../redux/auth/authSelectors';
+import Header from '../components/Header/Header';
+import Logo from '../components/Logo/Logo';
+import RegistrationForm from '../components/RegistrationForm/RegistrationFormContainer';
+import {
+  pageContainer,
+  bgContainer,
+  headerHide,
+  logoHide,
+} from './LoginRegistrationPage.module.css';
+import authActions from '../redux/auth/authActions';
 
 const RegistrationPage = () => {
   const name = useSelector(authSelectors.getUserName);
@@ -15,18 +21,18 @@ const RegistrationPage = () => {
   useEffect(() => {
     if (name) {
       dispatch(authActions.unsetUserName());
-      history.push("/auth/login");
+      history.push('/auth/login');
     }
   }, [name, history]);
   return (
     <>
       <div className={bgContainer}>
-      <div className={headerHide}>
+        <div className={headerHide}>
           <Header />
-      </div>
-            <div className={logoHide}>
+        </div>
+        <div className={logoHide}>
           <Logo />
-      </div>
+        </div>
         <div className={pageContainer}>
           <RegistrationForm />
         </div>
