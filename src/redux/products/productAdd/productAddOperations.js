@@ -1,7 +1,7 @@
 import axios from 'axios';
 import productAddActions from './productAddActions.js';
 
-axios.defaults.baseURL = 'http://slimmom-backend.herokuapp.com';
+axios.defaults.baseURL = 'https://slimmom-backend.goit.global/';
 
 const addProduct = (date, productId, weight) => dispatch => {
   dispatch(productAddActions.addProductRequest())
