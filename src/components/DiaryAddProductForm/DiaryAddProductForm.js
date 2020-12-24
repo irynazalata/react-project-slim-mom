@@ -24,7 +24,6 @@ class DiaryAddProductForm extends Component {
     const { name, value } = e.target;
     this.setState({
       [name]: value,
-      weight: 100,
     });
   };
 
@@ -36,7 +35,6 @@ class DiaryAddProductForm extends Component {
   };
   
   searchProducts = (query) => {
-    console.log(query);
     axios
       .get(`/product?search=${query}`)
       .then((resp) =>
@@ -48,9 +46,8 @@ class DiaryAddProductForm extends Component {
   };
 
   getCurrentProduct = (e) => {
-    console.log(e.target.textContent);
-    console.log(e.target.dataset.id);
-    this.setState({ product: e.target.textContent, productId: e.target.dataset.id, productsQuery: [] });
+    
+    this.setState({ product: e.target.textContent, productId: e.target.dataset.id, productsQuery: [], weight: 100 });
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -64,7 +61,8 @@ class DiaryAddProductForm extends Component {
   };
 
   render() {
-    console.log(this.state.productsQuery);
+    console.log("this.state.product", this.state.product);
+    console.log("this.state.weight", this.state.weight);
     return (
       <form className={style.form} onSubmit={this.handleSubmit}>
         <input
@@ -73,13 +71,13 @@ class DiaryAddProductForm extends Component {
           value={this.state.product}
           placeholder="Введите название продукта"
           type="text"
-          autocomplete="off"
+          autoComplete="off"
           onChange={this.handleChange}
         />
         <input
           className={style.input}
           name="weight"
-          value={this.state.weight}
+          value={this.state.product ? this.state.weight : ""}
           placeholder="Граммы"
           type="number"
           onChange={this.handleChange}
