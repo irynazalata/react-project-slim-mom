@@ -24,8 +24,4 @@ Notification.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
-Notification.defaultProps = {
-  children: 'Регистрация прошла успешно',
-};
-
 export default Notification;
