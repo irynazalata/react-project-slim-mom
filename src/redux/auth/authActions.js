@@ -32,6 +32,6 @@ export default {
   logoutRequest,
   logoutSuccess,
   logoutError,
-  unsetUserName
+  unsetUserName,
   tokenUnset
 };
