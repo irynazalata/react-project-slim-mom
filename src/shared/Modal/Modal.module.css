@@ -43,6 +43,8 @@
   top: 7px;
   right: 7px;
   border-radius: 50%;
+  width: 30px;
+  height: 30px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }

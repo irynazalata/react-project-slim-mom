@@ -1,0 +1,30 @@
+.notification {
+  position: absolute;
+  right: 100px;
+  top: 15px;
+  max-width: 220px;
+  background-color: #8ff168;
+  border-radius: 4px;
+  color: rgb(19, 17, 17);
+  font-weight: 500;
+  padding: 10px;
+}
+
+.enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.enterActive {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 250ms linear;
+}
+.exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.exitActive {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 250ms linear;
+}
