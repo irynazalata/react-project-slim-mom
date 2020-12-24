@@ -5,6 +5,7 @@ import moment from 'moment';
 import img from "../../images/calendar.png";
 import Calendar from "./Calendar";
 import setDate from '../../redux/calendar/calendarAction';
+import productAddOperations from '../../redux/products/productAdd/productAddOperations';
 
 import style from "./DiaryDateCalendar.module.css";
 
@@ -15,8 +16,16 @@ class DiaryDateCalendar extends Component {
 
   componentDidMount() {
     this.props.setDate(moment(Date.now()).format("YYYY-MM-DD"))
+
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("hello");
+    if (prevState.date !== this.state.date) {
+    this.props.toFetchProducts(this.state.date)
+  }
+  } 
+  
   handleTap = (someDate, setSomeDate) => {
     setSomeDate(someDate);
     
@@ -37,6 +46,9 @@ class DiaryDateCalendar extends Component {
 
 
 
-const mapDispatchToProps = {setDate}
+const mapDispatchToProps =  {
+  setDate,
+  toFetchProducts: productAddOperations.fetchProducts
+}
 
 export default connect(null, mapDispatchToProps) (DiaryDateCalendar);

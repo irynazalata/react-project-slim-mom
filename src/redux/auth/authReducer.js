@@ -14,12 +14,14 @@ const user = createReducer(
     [authActions.loginSuccess]: loginUser,
     [authActions.getCurrentUserSuccess]: getUser,
     [authActions.logoutSuccess]: () => ({}),
+    [authActions.unsetUserName]: () => ({}),
   }
 );
 
 const token = createReducer("", {
   [authActions.loginSuccess]: addToken,
   [authActions.logoutSuccess]: () => "",
+  [authActions.tokenUnset]: () => "",
 });
 
 export default combineReducers({

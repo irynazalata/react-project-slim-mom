@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../Modal/Modal.module.css';
+import closeModalBtn from '../../images/close-burger-menu.png';
 import DailyCalorieIntake from '../../components/DailyCalorieIntake/DailyCalorieIntake';
 
 class Modal extends Component {
@@ -16,25 +17,31 @@ class Modal extends Component {
       .removeEventListener('click', this.closeModal);
   }
   closeModal = event => {
+    const { onModalToggle } = this.props;
     if (event.code === 'Escape') {
-      this.props.onModalToggle();
+      onModalToggle();
     } else {
-      this.props.onModalToggle();
+      onModalToggle();
     }
   };
 
   render() {
+    const { onModalToggle } = this.props;
     return (
       <>
         <div id="overlay" className={styles.overlay}>
           <div className={styles.modal}>
             <button
               type="button"
-              onClick={this.props.onModalToggle}
+              onClick={onModalToggle}
               className={styles.closeModalBtn}
               type="button"
             >
-              X
+              <img
+                src={closeModalBtn}
+                alt="close-modal"
+                className={closeModalBtn}
+              />
             </button>
             <DailyCalorieIntake />
           </div>
