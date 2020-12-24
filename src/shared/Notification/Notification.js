@@ -1,28 +1,31 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from '../Notification/Notification.module.css';
+import { useSelector } from 'react-redux';
+import getNotification from '../../redux/notification/notificationSelectors';
 import PropTypes from 'prop-types';
 
-const Notification = ({ message }) => {
+const Notification = ({ children }) => {
+  const isNotification = useSelector(getNotification);
   return (
     <CSSTransition
-      in={false}
+      in={isNotification}
       appear={true}
       timeout={250}
       classNames={styles}
       unmountOnExit
     >
-      <p className={styles.notification}>{message}</p>
+      <div className={styles.notification}>{children}</div>
     </CSSTransition>
   );
 };
 
 Notification.propTypes = {
-  message: PropTypes.string,
+  children: PropTypes.string.isRequired,
 };
 
 Notification.defaultProps = {
-  message: 'Регистрация прошла успешно',
+  children: 'Регистрация прошла успешно',
 };
 
 export default Notification;
