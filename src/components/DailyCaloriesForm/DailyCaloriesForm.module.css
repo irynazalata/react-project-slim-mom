@@ -48,6 +48,14 @@
   font-size: 12px;
 }
 
+.error {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  color: #e11616;
+  font-size: 15px;
+}
+
 .button {
   padding: 13px 0;
   display: block;
@@ -184,3 +192,4 @@ input:checked + label {
     margin-left: 346px;
   }
 }
+
