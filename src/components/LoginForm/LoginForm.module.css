@@ -1,7 +1,6 @@
 .title {
   font-family: "Gotham Pro";
   margin-bottom: 80px;
-  margin-top: 40px;
   font-size: 14px;
   font-weight: 700;
   text-align: center;
@@ -14,7 +13,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  margin: 20px auto;
+  margin: 0;
   min-width: 290px;
 }
 
@@ -88,6 +87,7 @@
   background-color: #ffffff;
   color: #fc842d;
   text-decoration: none;
+  margin: 30px auto;
 }
 
 .error {
@@ -100,13 +100,12 @@
 
 @media screen and (min-width: 768px) {
   .title {
-    margin: 191px 0 60px 23px;
     text-align: start;
+    padding-top: 34px;
   }
 
   .form {
     position: relative;
-    margin-left: 18px;
     margin-bottom: 60px;
     width: 239px;
   }
@@ -122,21 +121,18 @@
   }
   .buttonEnter {
     position: static;
-  }
-
-  .buttonEnter {
-    margin-left: 230px;
+    margin-left: 200px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .title {
-    margin: 213px 0 70px 25px;
+    margin-bottom: 91px;
+    padding-top: 118px;
   }
 
   .form {
     margin-bottom: 60px;
-    margin-left: 25px;
   }
 
   .buttonReg {

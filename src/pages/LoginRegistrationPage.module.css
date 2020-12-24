@@ -1,6 +1,9 @@
 .pageContainer {
-  padding: 0 15px;
-  margin: 0 auto;
+  padding: 40px 15px 0 15px;
+  margin: 0;
+}
+.logoHide {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -8,7 +11,7 @@
     display: inline-block;
     width: 100%;
     height: 944px;
-    padding: 0 69px;
+    padding: 157px 0 0 87px;
     position: relative;
   }
   .bgContainer {
@@ -18,7 +21,7 @@
       url(../images/tablet-webP/greybcg-tablet-x1.webp);
     background-repeat: no-repeat;
     background-position: bottom right, bottom 200px right,
-      bottom 279px left 12px, bottom right;
+      bottom 250px left 12px, bottom right;
   }
 }
 
@@ -26,7 +29,7 @@
   .pageContainer {
     width: 100%;
     height: 701px;
-    padding: 0 90px;
+    padding: 95px 0 0 115px;
   }
   .bgContainer {
     background-image: url(../images/desktop/banana-desktop-x1-min-login.png),
@@ -34,12 +37,22 @@
       url(../images/desktop/Strawberry-Big-PNG.svg),
       url(../images/desktop/greybcg-desktop-login-x1.png);
     background-repeat: no-repeat;
-    background-position: bottom right, bottom 19px right 250px, top 193px right,
+    background-position: bottom right, bottom right 250px, top 193px right,
       bottom right;
+  }
+  .headerHide {
+    display: none;
+  }
+  .logoHide {
+    display: inline-block;
+    padding-top: 125px;
+    padding-left: 148px;
   }
 }
 
-@media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .bgContainer {
     background-image: url(../images/tablet-webP/banana-tablet-x2.webp),
       url(../images/tablet/strawberry-tablet-x2-min.png),
@@ -51,14 +64,16 @@
   }
 }
 
-@media screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .bgContainer {
     background-image: url(../images/desktop/banana-desktop-x2-min-login.png),
       url(../images/desktop/leaves-desktop-x2-min-login.png),
       url(../images/desktop/strawberry-desktop-x2-min-login.png),
       url(../images/desktop/greybcg-desktop-x2-min.png);
     background-repeat: no-repeat;
-    background-position: bottom right, bottom 19px right 200px, top 193px right,
+    background-position: bottom right, bottom right 200px, top 193px right,
       bottom right;
   }
 }
