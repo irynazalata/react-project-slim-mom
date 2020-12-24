@@ -1,9 +1,7 @@
 import axios from "axios";
 import authActions from "./authActions";
 
-// axios.defaults.baseURL = "https://slimmom-backend.herokuapp.com/";
-axios.defaults.baseURL = "https://slimmom-backend.goit.global/api-docs/";
-
+axios.defaults.baseURL = "https://slimmom-backend.goit.global/";
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;

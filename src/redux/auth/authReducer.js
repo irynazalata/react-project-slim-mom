@@ -14,6 +14,7 @@ const user = createReducer(
     [authActions.loginSuccess]: loginUser,
     [authActions.getCurrentUserSuccess]: getUser,
     [authActions.logoutSuccess]: () => ({}),
+    [authActions.unsetUserName]: () => ({}),
   }
 );
 
