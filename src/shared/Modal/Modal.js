@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../Modal/Modal.module.css';
+import closeModalBtn from '../../images/close-burger-menu.png';
 import DailyCalorieIntake from '../../components/DailyCalorieIntake/DailyCalorieIntake';
 
 class Modal extends Component {
@@ -36,7 +37,11 @@ class Modal extends Component {
               className={styles.closeModalBtn}
               type="button"
             >
-              X
+              <img
+                src={closeModalBtn}
+                alt="close-modal"
+                className={closeModalBtn}
+              />
             </button>
             <DailyCalorieIntake />
           </div>
