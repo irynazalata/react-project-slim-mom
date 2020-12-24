@@ -52,7 +52,12 @@ const getCurrentUser = () => (dispatch, getState) => {
     .then(({ data }) => {
       dispatch(authActions.getCurrentUserSuccess(data));
     })
-    .catch((error) => dispatch(authActions.getCurrentUserError(error)));
+    .catch((error) => {
+      if (error.response.status === 401) {
+        dispatch(authActions.tokenUnset());
+      }
+      dispatch(authActions.getCurrentUserError(error));
+    });
 };
 
 const logOut = (credentials) => (dispatch) => {
@@ -64,7 +69,12 @@ const logOut = (credentials) => (dispatch) => {
       token.unset();
       dispatch(authActions.logoutSuccess());
     })
-    .catch((error) => dispatch(authActions.logoutError(error)));
+    .catch((error) => {
+      if (error.response.status === 401) {
+        dispatch(authActions.tokenUnset());
+      }
+      dispatch(authActions.logoutError(error));
+    });
 };
 
 export default {

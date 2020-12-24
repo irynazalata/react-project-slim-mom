@@ -20,6 +20,7 @@ const user = createReducer(
 const token = createReducer("", {
   [authActions.loginSuccess]: addToken,
   [authActions.logoutSuccess]: () => "",
+  [authActions.tokenUnset]: () => "",
 });
 
 export default combineReducers({
