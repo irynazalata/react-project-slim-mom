@@ -1,32 +1,57 @@
-import React, { useState, Component } from 'react';
-import { connect } from 'react-redux';
-import styles from './DailyCaloriesForm.module.css';
-import dailyRateOperations from '../../redux/dailyRate/dailyRateOperations';
-import { Formik, Form, Field } from 'formik';
-import DailyCalorieIntake from '../DailyCalorieIntake';
+import React, { useState, Component } from "react"
+import { connect, useDispatch } from "react-redux"
+import styles from "./DailyCaloriesForm.module.css"
+import dailyRateOperations from "../../redux/dailyRate/dailyRateOperations"
+import { Formik, Form, Field } from "formik"
+import DailyCalorieIntake from "../DailyCalorieIntake"
+import * as Yup from "yup"
 
-class DailyCaloriesForm extends Component {
-  handleSubmit = values => {
-    values.bloodType = Number(values.bloodType);
-    this.props.onFetchDailyRates(values);
-    this.props.onShowModal();
-  };
-  render() {
-    return (
-      <>
-        <Formik
-          initialValues={{
-            height: '',
-            age: '',
-            weight: '',
-            desiredWeight: '',
-            bloodType: '',
-          }}
-          onSubmit={(values, { resetForm }) => {
-            this.handleSubmit(values);
-            // resetForm({});
-          }}
-        >
+const DailyCaloriesForm = ({ onShowModal }) => {
+  const dispatch = useDispatch()
+
+  const handleSubmit = (values) => {
+    values.bloodType = Number(values.bloodType)
+    dispatch(dailyRateOperations.onFetchDailyRates(values))
+
+    onShowModal()
+  }
+
+  const DisplayingErrorMessagesSchema = Yup.object().shape({
+    height: Yup.number()
+      .min(100, "Минимальное значение 100 см")
+      .max(260, "Максимальное значение 260 см")
+      .required("Required"),
+    age: Yup.number()
+      .min(12, "Минимум 12 лет")
+      .max(100, "Максимум 100 лет")
+      .required("Required"),
+    weight: Yup.number()
+      .min(40, "Минимальный вес 40 кг")
+      .max(200, "Максимальный вес 200 кг")
+      .required("Required"),
+    desiredWeight: Yup.number()
+      .min(40, "Минимальный вес 40 кг")
+      .max(150, "Максимальный вес 150 кг")
+      .required("Required"),
+  })
+
+  return (
+    <>
+      <Formik
+        validationSchema={DisplayingErrorMessagesSchema}
+        initialValues={{
+          height: "",
+          age: "",
+          weight: "",
+          desiredWeight: "",
+          bloodType: "",
+        }}
+        onSubmit={(values, { resetForm }) => {
+          handleSubmit(values)
+          // resetForm({})
+        }}
+      >
+        {({ errors, touched }) => (
           <Form className={styles.form}>
             <h2 className={styles.title}>
               Просчитай свою суточную норму калорий прямо сейчас
@@ -40,11 +65,14 @@ class DailyCaloriesForm extends Component {
                     name="height"
                     type="number"
                     required
-                  />{' '}
+                  />{" "}
                   <p className={styles.labelValue}>Рост*</p>
+                  {touched.height && errors.height && (
+                    <div className={styles.error}>{errors.height}</div>
+                  )}
                 </label>
                 <label className={styles.label}>
-                  {' '}
+                  {" "}
                   <Field
                     placeholder=" "
                     className={styles.input}
@@ -53,7 +81,11 @@ class DailyCaloriesForm extends Component {
                     required
                   />
                   <p className={styles.labelValue}>Возраст*</p>
+                  {touched.age && errors.age && (
+                    <div className={styles.error}>{errors.age}</div>
+                  )}
                 </label>
+
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
@@ -63,6 +95,9 @@ class DailyCaloriesForm extends Component {
                     required
                   />
                   <p className={styles.labelValue}>Текущий вес*</p>
+                  {touched.weight && errors.weight && (
+                    <div className={styles.error}>{errors.weight}</div>
+                  )}
                 </label>
               </div>
               <div className={styles.inputBlock}>
@@ -75,7 +110,11 @@ class DailyCaloriesForm extends Component {
                     required
                   />
                   <p className={styles.labelValue}>Желаемый вес*</p>
+                  {touched.desiredWeight && errors.desiredWeight && (
+                    <div className={styles.error}>{errors.desiredWeight}</div>
+                  )}
                 </label>
+
                 <p className={styles.radioTitle}>Группа крови*</p>
                 <div className={styles.radioWrapper}>
                   <Field id="first" type="radio" name="bloodType" value="1" />
@@ -101,13 +140,14 @@ class DailyCaloriesForm extends Component {
               Похудеть
             </button>
           </Form>
-        </Formik>
-      </>
-    );
-  }
+        )}
+      </Formik>
+    </>
+  )
 }
 
-const mapDispatchToProps = {
-  onFetchDailyRates: dailyRateOperations.onFetchDailyRates,
-};
-export default connect(null, mapDispatchToProps)(DailyCaloriesForm);
+// const mapDispatchToProps = {
+//   onFetchDailyRates: dailyRateOperations.onFetchDailyRates,
+// }
+
+export default DailyCaloriesForm

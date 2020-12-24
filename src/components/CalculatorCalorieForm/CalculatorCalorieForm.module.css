@@ -182,3 +182,11 @@ input:checked + label {
     margin-left: 346px;
   }
 }
+
+.error {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    color: #e11616;
+    font-size: 15px;
+  }
