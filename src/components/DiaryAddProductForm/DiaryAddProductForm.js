@@ -15,6 +15,19 @@ class DiaryAddProductForm extends Component {
     productId: "",
   };
 
+  componentDidMount() {
+    // console.log("this.props", this.props);
+  this.props.toFetchProducts(this.props.date)
+}
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("hello");
+    console.log("prevProps.date", prevProps);
+  //   if (prevProps.date !== this.props.date) {
+  //   this.props.toFetchProducts(this.props.date)
+  // }
+}  
+  
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
@@ -97,6 +110,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     toAddProducts: (date, productId, weight) => dispatch(productAddOperations.addProduct(date, productId, weight)),
+    toFetchProducts: (date) => dispatch(productAddOperations.fetchProducts(date))
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(DiaryAddProductForm);
