@@ -13,13 +13,29 @@
 
 .modal {
   position: absolute;
-  top: 40px;
+  top: 35px;
   width: 100%;
   padding: 80px 15px 80px;
   background-color: white;
 }
 .closeModalBtn {
+  display: block;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  color: #000000;
+}
+.closeModalImg {
   display: none;
+}
+.goBackImg {
+  display: block;
+  position: absolute;
+  top: -45px;
+  left: -265px;
 }
 @media screen and (min-width: 768px) {
   .modal {
@@ -31,15 +47,12 @@
   .overlay {
     top: 0;
   }
-  .closeModalBtn {
+
+  .goBackImg {
+    display: none;
+  }
+  .closeModalImg {
     display: block;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    border-radius: 50%;
-    background-color: white;
-    border: none;
-    color: #000000;
   }
 }
 @media screen and (min-width: 1024px) {

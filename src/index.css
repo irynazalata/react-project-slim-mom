@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Gotham Pro";
+  font-family: 'Gotham Pro';
   font-weight: 700;
   scrollbar-color: #264061 #f0f1f3;
   scrollbar-width: 6px;
@@ -50,5 +50,11 @@ body {
     width: 1280px;
     padding: 0 115px;
     margin: 0;
+  }
+}
+/* Стили для body */
+@media screen and (max-width: 767px) {
+  .stopScroll {
+    overflow-y: hidden;
   }
 }

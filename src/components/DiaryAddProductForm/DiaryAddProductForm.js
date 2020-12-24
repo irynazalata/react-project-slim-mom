@@ -1,34 +1,42 @@
-import React, { Component } from "react";
-import img from "../../images/plus.png";
-import { connect } from "react-redux";
-import axios from "axios";
-import productAddOperations from "../../redux/products/productAdd/productAddOperations";
-import AxiosList from "./AxiosList";
+import React, { Component } from 'react';
+import img from '../../images/plus.png';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import productAddOperations from '../../redux/products/productAdd/productAddOperations';
+import AxiosList from './axiosList';
 
-import style from "./DiaryAddProductForm.module.css";
+import style from './DiaryAddProductForm.module.css';
 
 class DiaryAddProductForm extends Component {
   state = {
-    product: "",
-    weight: "",
+    product: '',
+    weight: '',
     productsQuery: [],
     productId: "",
     error: "",
   };
 
   componentDidMount() {
-  this.props.toFetchProducts(this.props.date)
-}
+    // console.log("this.props", this.props);
+    this.props.toFetchProducts(this.props.date);
+  }
 
-  
-  handleChange = (e) => {
+  componentDidUpdate(prevProps, prevState) {
+    console.log('hello');
+    console.log('prevProps.date', prevProps);
+    //   if (prevProps.date !== this.props.date) {
+    //   this.props.toFetchProducts(this.props.date)
+    // }
+  }
+
+  handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value,
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight);
     this.setState({ product: "" });
@@ -37,10 +45,10 @@ class DiaryAddProductForm extends Component {
   searchProducts = (query) => {
     axios
       .get(`/product?search=${query}`)
-      .then((resp) =>
+      .then(resp =>
         this.setState({
-          productsQuery: resp.data.length > 2 ? [...resp.data] : [],
-        })
+          productsQuery: resp.data.length > 1 ? [...resp.data] : [],
+        }),
       )
       .catch((err) => {
         if (err.response.status == 401 || err.response.status == 403 || err.response.status == 404) {
@@ -54,13 +62,18 @@ class DiaryAddProductForm extends Component {
 
   getCurrentProduct = (e) => {
     
-    this.setState({ product: e.target.textContent, productId: e.target.dataset.id, productsQuery: [], weight: 100 });
+    this.setState({
+      product: e.target.textContent,
+      productId: e.target.dataset.id,
+      productsQuery: [],
+      weight: 100
+    });
   };
 
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.product !== this.state.product) {
       if (this.state.product.length < 3) {
-        this.setState({ productsQuery: [], weight: "" });
+        this.setState({ productsQuery: [], weight: '' });
         return;
       }
       this.searchProducts(this.state.product);
@@ -93,7 +106,12 @@ class DiaryAddProductForm extends Component {
         <button className={style.roundBtn} type="submit">
           <img className={style.img} src={img} alt="add" />
         </button>
-        {this.state.productsQuery && <AxiosList toGetProduct={this.getCurrentProduct} arr={this.state.productsQuery} />}
+        {this.state.productsQuery && (
+          <AxiosList
+            toGetProduct={this.getCurrentProduct}
+            arr={this.state.productsQuery}
+          />
+        )}
       </form>
     );
   }
@@ -103,10 +121,14 @@ const mapStateToProps = (state) => ({
   date: state.date,
 });
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    toAddProducts: (date, productId, weight) => dispatch(productAddOperations.addProduct(date, productId, weight)),
-    toFetchProducts: (date) => dispatch(productAddOperations.fetchProducts(date))
+    toAddProducts: (date, productId, weight) =>
+      dispatch(productAddOperations.addProduct(date, productId, weight)),
+    toFetchProducts: date => dispatch(productAddOperations.fetchProducts(date)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(DiaryAddProductForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(DiaryAddProductForm);
