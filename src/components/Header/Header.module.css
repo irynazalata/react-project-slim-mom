@@ -42,10 +42,8 @@
   .headerContainer {
     display: flex;
     align-items: center;
-    margin-left: 62px;
-    margin-right: 15px;
     padding-top: 123px;
-    padding-left: 90px;
+    padding-left: 152px;
   }
   .navContainer {
     height: 32px;
