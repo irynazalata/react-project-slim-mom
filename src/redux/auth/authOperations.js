@@ -72,5 +72,5 @@ export default {
   register,
   login,
   getCurrentUser,
-  logOut
+  logOut,
 };
