@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import authSelectors from "../redux/auth/authSelectors";
 import Header from "../components/Header/Header";
+import Logo from '../components/Logo/Logo';
 import RegistrationForm from "../components/RegistrationForm/RegistrationFormContainer";
-import { pageContainer, bgContainer } from "./LoginRegistrationPage.module.css";
+import { pageContainer, bgContainer, headerHide, logoHide } from './LoginRegistrationPage.module.css';
 import authActions from "../redux/auth/authActions";
 
 const RegistrationPage = () => {
