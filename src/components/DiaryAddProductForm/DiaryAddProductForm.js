@@ -72,6 +72,7 @@ class DiaryAddProductForm extends Component {
           value={this.state.product}
           placeholder="Введите название продукта"
           type="text"
+          autocomplete="off"
           onChange={this.handleChange}
         />
         <input
