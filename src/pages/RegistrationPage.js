@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import authSelectors from '../redux/auth/authSelectors';
 import Header from '../components/Header/Header';
 import Logo from '../components/Logo/Logo';
+import Notification from '../shared/Notification/Notification';
 import RegistrationForm from '../components/RegistrationForm/RegistrationFormContainer';
 import {
   pageContainer,
@@ -37,6 +38,7 @@ const RegistrationPage = () => {
           <RegistrationForm />
         </div>
       </div>
+      <Notification>Произошла ошибка, повторите попытку еще раз</Notification>
     </>
   );
 };
