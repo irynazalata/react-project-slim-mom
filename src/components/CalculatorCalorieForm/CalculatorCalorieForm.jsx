@@ -30,7 +30,13 @@ function CalculatorCalorieForm() {
     desiredWeight: Yup.number()
       .min(40, "Минимальный вес 40 кг")
       .max(150, "Максимальный вес 150 кг")
-      .required("Обязательно"),
+      .required("Обязательно")
+      .when('weight', (weight, schema) => {
+        return schema.test({
+          test: desiredWeight => !!weight && desiredWeight < weight,
+          message: "Желаемый вес должен быть меньше текущего"
+        })
+      })
   })
 
   // const{height, age, weight, desiredWeight, bloodType} = userData;
