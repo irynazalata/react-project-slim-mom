@@ -1,7 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styles from './DiaryProductsListItem.module.css';
+import productAddOperations from '../../../redux/products/productAdd/productAddOperations';
 
-const DiaryProductsListItem = ({ title, weight, kcal }) => {
+const DiaryProductsListItem = ({
+  title,
+  weight,
+  kcal,
+  deleteProduct,
+  dayId,
+  a,
+}) => {
   const calories = Math.round(kcal);
   return (
     <li className={styles.listItem}>
@@ -10,13 +19,31 @@ const DiaryProductsListItem = ({ title, weight, kcal }) => {
       <p className={styles.listItemCalorie}>
         {calories} <span>ккал</span>
       </p>
-      <button type="button" className={styles.button}>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => deleteProduct(dayId, a)}
+      >
         X
       </button>
     </li>
   );
 };
 
-export default DiaryProductsListItem;
+const mapStateToProps = state => ({
+  dayId: state.products.id,
+  a: state.products.eatenProducts,
+});
 
-// onClick = { deleteProduct };
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    deleteProduct: (dayId, a) => {
+      return dispatch(productAddOperations.deleteProduct(dayId, ownProps.id));
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(DiaryProductsListItem);

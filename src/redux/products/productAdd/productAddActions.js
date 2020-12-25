@@ -11,9 +11,9 @@ const fetchProductError = createAction('Product/fetchError');
 // const searchProductSuccess = createAction('Product/searchSuccess');
 // const searchProductError = createAction('Product/searchError');
 
-const deleteProductRequest = createAction('DELETE_PRODUCT_REQUEST');
-const deleteProductSuccess = createAction('DELETE_PRODUCT_SUCCESS');
-const deleteProductError = createAction('DELETE_PRODUCT_ERROR');
+const deleteProductRequest = createAction('Product/deleteRequest');
+const deleteProductSuccess = createAction('Product/deleteSuccess');
+const deleteProductError = createAction('Product/deleteError');
 export default {
   addProductRequest,
   addProductSuccess,
@@ -21,6 +21,9 @@ export default {
   fetchProductRequest,
   fetchProductSuccess,
   fetchProductError,
+  deleteProductRequest,
+  deleteProductSuccess,
+  deleteProductError,
   // searchProductRequest,
   // searchProductSuccess,
   // searchProductError
