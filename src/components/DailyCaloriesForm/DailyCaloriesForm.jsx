@@ -21,19 +21,19 @@ const DailyCaloriesForm = ({ onShowModal }) => {
     height: Yup.number()
       .min(100, 'Минимальное значение 100 см')
       .max(260, 'Максимальное значение 260 см')
-      .required('Required'),
+      .required('Обязательно'),
     age: Yup.number()
       .min(12, 'Минимум 12 лет')
       .max(100, 'Максимум 100 лет')
-      .required('Required'),
+      .required('Обязательно'),
     weight: Yup.number()
       .min(40, 'Минимальный вес 40 кг')
       .max(200, 'Максимальный вес 200 кг')
-      .required('Required'),
+      .required('Обязательно'),
     desiredWeight: Yup.number()
       .min(40, 'Минимальный вес 40 кг')
       .max(150, 'Максимальный вес 150 кг')
-      .required('Required'),
+      .required('Обязательно'),
   });
 
   return (
