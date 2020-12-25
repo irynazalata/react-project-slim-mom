@@ -12,43 +12,28 @@ class DiaryAddProductForm extends Component {
     product: '',
     weight: '',
     productsQuery: [],
-    productId: '',
+    productId: "",
+    error: "",
   };
 
   componentDidMount() {
-    // console.log("this.props", this.props);
     this.props.toFetchProducts(this.props.date);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('hello');
-    console.log('prevProps.date', prevProps);
-    //   if (prevProps.date !== this.props.date) {
-    //   this.props.toFetchProducts(this.props.date)
-    // }
   }
 
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value,
-      weight: 100,
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log('this.props.date', this.props.date);
-    this.props.toAddProducts(
-      this.props.date,
-      this.state.productId,
-      this.state.weight,
-    );
-    this.setState({ product: '' });
+    this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight);
+    this.setState({ product: "" });
   };
-
-  searchProducts = query => {
-    console.log(query);
+  
+  searchProducts = (query) => {
     axios
       .get(`/product?search=${query}`)
       .then(resp =>
@@ -56,16 +41,23 @@ class DiaryAddProductForm extends Component {
           productsQuery: resp.data.length > 1 ? [...resp.data] : [],
         }),
       )
-      .catch(err => console.log(err));
-  };
+      .catch((err) => {
+        if (err.response.status == 401 || err.response.status == 403 || err.response.status == 404) {
+         alert ("Ошибка при аутентификации!")
+        }
+        if (err.response.status == 400 ) {
+         alert ("Такого продукта не существует! Попробуйте скорректировать ввод")
+        }
+      } 
+      )};
 
-  getCurrentProduct = e => {
-    console.log(e.target.textContent);
-    console.log(e.target.dataset.id);
+  getCurrentProduct = (e) => {
+    
     this.setState({
       product: e.target.textContent,
       productId: e.target.dataset.id,
       productsQuery: [],
+      weight: 100
     });
   };
 
@@ -80,7 +72,6 @@ class DiaryAddProductForm extends Component {
   };
 
   render() {
-    console.log(this.state.productsQuery);
     return (
       <form className={style.form} onSubmit={this.handleSubmit}>
         <input
@@ -89,13 +80,13 @@ class DiaryAddProductForm extends Component {
           value={this.state.product}
           placeholder="Введите название продукта"
           type="text"
-          autocomplete="off"
+          autoComplete="off"
           onChange={this.handleChange}
         />
         <input
           className={style.input}
           name="weight"
-          value={this.state.weight}
+          value={this.state.product ? this.state.weight : ""}
           placeholder="Граммы"
           type="number"
           onChange={this.handleChange}
@@ -117,8 +108,7 @@ class DiaryAddProductForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  // products: state.products.items,
+const mapStateToProps = (state) => ({
   date: state.date,
 });
 

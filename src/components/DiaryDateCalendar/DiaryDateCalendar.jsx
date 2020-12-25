@@ -36,10 +36,12 @@ class DiaryDateCalendar extends Component {
   };
   render() {
     return (
-      <div className={style.CalendarContainer}>
-        <Calendar onTap={this.handleTap} />
-        <img className={style.img} src={img} alt="" />
-      </div>
+     
+        <label className={style.CalendarContainer}>
+          <Calendar onTap={this.handleTap} />
+          <img className={style.img} src={img} alt="" />
+        </label>
+      
     );
   }
 }
