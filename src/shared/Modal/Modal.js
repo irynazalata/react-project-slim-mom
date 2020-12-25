@@ -9,24 +9,26 @@ class Modal extends Component {
     window.addEventListener('keydown', this.closeModal);
     document
       .getElementById('overlay')
-      .addEventListener('click', this.closeModalOverlay);
+      .addEventListener('click', this.closeModal);
   }
   componentWillUnmount() {
     window.removeEventListener('keydown', this.closeModal);
     document
       .getElementById('overlay')
-      .removeEventListener('click', this.closeModalOverlay);
+      .removeEventListener('click', this.closeModal);
   }
   closeModal = event => {
     this.removeScroll();
     const { onModalToggle } = this.props;
     if (event.code === 'Escape') {
       onModalToggle();
+    } else {
+      onModalToggle();
     }
   };
-  closeModalOverlay = () => this.props.onModalToggle();
 
   removeScroll = () => {
+    console.log('Hi');
     document.body.classList.remove('stopScroll');
   };
 
