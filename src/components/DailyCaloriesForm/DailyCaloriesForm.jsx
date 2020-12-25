@@ -15,7 +15,7 @@ const DailyCaloriesForm = ({ onShowModal }) => {
     dispatch(dailyRateOperations.onFetchDailyRates(values));
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.body.classList.add('stopScroll');
-    onShowModal();
+    setTimeout(()=>onShowModal(), 500);
   };
 
   const DisplayingErrorMessagesSchema = Yup.object().shape({
@@ -41,7 +41,8 @@ const DailyCaloriesForm = ({ onShowModal }) => {
           test: desiredWeight => !!weight && desiredWeight < weight,
           message: "Желаемый вес должен быть меньше текущего"
         })
-      })
+      }),
+    bloodType: Yup.number().required('Обязательно'),
   });
 
   return (
@@ -125,8 +126,11 @@ const DailyCaloriesForm = ({ onShowModal }) => {
                 </label>
 
                 <p className={styles.radioTitle}>Группа крови*</p>
-                <div className={styles.radioWrapper}>
-                  <Field id="first" type="radio" name="bloodType" value="1" />
+                {touched.bloodType && errors.bloodType && (
+                    <div className={styles.error}>{errors.bloodType}</div>
+                  )}
+                <div className={styles.radioWrapper} role = "group">
+                  <Field id="first" type="radio" name="bloodType" value="1" required/>
                   <label htmlFor="first" className={styles.radioLabel}>
                     1
                   </label>
