@@ -57,7 +57,12 @@
   background-position: 90% 50%;
   color: white;
 }
+.mobileLinkActive{
+color: white;
+}
+
 .boxTablet {
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,6 +116,9 @@
   .container {
     border-bottom: 1px solid #e0e0e0;
   }
+  .mobileLinkActive{
+    color: white;
+    }
 }
 @media screen and (min-width: 1280px) {
   .navContainer {

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { MenuContext } from "./NavState";
 import styles from "./Navigation.module.css";
+import { NavLink } from "react-router-dom";
 
 const Menu = styled.nav`
   position: absolute;
@@ -40,12 +41,12 @@ SideMenu.propTypes = {
 SideMenu.defaultProps = {
   children: (
     <>
-      <a className={styles.linkDiary} href="/daily-rate">
+      <NavLink className={styles.linkDiary} activeClassName={styles.mobileLinkActive} to="/daily-rate">
         ДНЕВНИК
-      </a>
-      <a className={styles.linkCalc} href="/calculator">
+      </NavLink>
+      <NavLink className={styles.linkCalc} activeClassName={styles.mobileLinkActive} to="/calculator">
         КАЛЬКУЛЯТОР
-      </a>
+      </NavLink>
     </>
   ),
 };
