@@ -5,7 +5,7 @@ import Modal from '../shared/Modal/Modal.js';
 import Header from '../components/Header/Header';
 import { pageContainer, bgContainer } from './MainPage.module.css';
 import styles from '../shared/Modal/Modal.module.css';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 class MainPage extends Component {
   state = {
@@ -19,21 +19,27 @@ class MainPage extends Component {
     const { showModal } = this.state;
     return (
       <>
-        <Notification />
         <div className={bgContainer}>
           <Header />
           <div className={pageContainer}>
             <DailyCaloriesForm onShowModal={this.modalToggle} />
-            <CSSTransition
-              in={showModal}
-              timeout={500}
-              classNames={styles}
-              unmountOnExit
+
+            <div
+              id="overlay"
+              className={showModal ? styles.overlay : styles.notShow}
             >
-              {showModal && <Modal onModalToggle={this.modalToggle} />}
-            </CSSTransition>
+              <CSSTransition
+                in={showModal}
+                timeout={300}
+                classNames={styles}
+                unmountOnExit
+              >
+                <Modal onModalToggle={this.modalToggle} />
+              </CSSTransition>
+            </div>
           </div>
         </div>
+        <Notification>Выход выполнен успешно</Notification>
       </>
     );
   }

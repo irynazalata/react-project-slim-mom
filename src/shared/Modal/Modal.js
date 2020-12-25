@@ -34,28 +34,26 @@ class Modal extends Component {
     const { onModalToggle } = this.props;
     return (
       <>
-        <div id="overlay" className={styles.overlay}>
-          <div className={styles.modal}>
-            <button
-              type="button"
-              onClick={onModalToggle}
-              className={styles.closeModalBtn}
-              type="button"
-            >
-              <img
-                src={closeModalBtn}
-                alt="close-modal"
-                className={styles.closeModalImg}
-              />
-              <img
-                src={goBackBtn}
-                alt="close-modal"
-                className={styles.goBackImg}
-              />
-            </button>
+        <div className={styles.modal}>
+          <button
+            type="button"
+            onClick={onModalToggle}
+            className={styles.closeModalBtn}
+            type="button"
+          >
+            <img
+              src={closeModalBtn}
+              alt="close-modal"
+              className={styles.closeModalImg}
+            />
+            <img
+              src={goBackBtn}
+              alt="close-modal"
+              className={styles.goBackImg}
+            />
+          </button>
 
-            <DailyCalorieIntake />
-          </div>
+          <DailyCalorieIntake />
         </div>
       </>
     );

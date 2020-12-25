@@ -1,6 +1,6 @@
 .notification {
   position: absolute;
-  left: 0;
+  left: 15px;
   top: 105px;
   max-width: 200px;
   min-height: 50px;
@@ -11,30 +11,41 @@
   font-weight: 500;
   padding: 10px;
 }
-/* .errorNotification {
+.errorNotification {
   position: absolute;
-  left: 100px;
-  top: 170px;
+  left: 15px;
+  top: 105px;
   max-width: 220px;
-  background-color: #ee300f;
+  background-color: #f15135;
   border-radius: 4px;
   color: rgb(19, 17, 17);
   color: aliceblue;
   font-weight: 500;
   padding: 10px;
-} */
+}
+
+@media screen and (min-width: 768px) {
+  .notification {
+    left: 80px;
+    top: 120px;
+    max-width: 230px;
+  }
+  .errorNotification {
+    left: 80px;
+    top: 120px;
+    max-width: 230px;
+  }
+}
 @media screen and (min-width: 1024px) {
   .notification {
     left: 100px;
     top: 200px;
     max-width: 280px;
   }
-}
-@media screen and (min-width: 768px) {
-  .notification {
-    left: 80px;
-    top: 120px;
-    max-width: 230px;
+  .errorNotification {
+    left: 100px;
+    top: 200px;
+    max-width: 280px;
   }
 }
 .enter {
