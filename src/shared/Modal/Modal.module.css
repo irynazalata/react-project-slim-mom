@@ -1,6 +1,6 @@
 .overlay {
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100%;
@@ -10,16 +10,47 @@
   overflow-y: scroll;
   background-color: rgba(33, 33, 33, 0.12);
 }
+.notShow {
+  opacity: 0;
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  pointer-events: none;
+  background-color: rgba(33, 33, 33, 0.12);
+}
 
 .modal {
   position: absolute;
-  top: 40px;
+  top: 35px;
   width: 100%;
   padding: 80px 15px 80px;
   background-color: white;
 }
 .closeModalBtn {
+  display: block;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  color: #000000;
+}
+.closeModalImg {
   display: none;
+}
+.goBackImg {
+  display: block;
+  position: absolute;
+  top: -45px;
+  left: -265px;
 }
 @media screen and (min-width: 768px) {
   .modal {
@@ -31,15 +62,12 @@
   .overlay {
     top: 0;
   }
-  .closeModalBtn {
+
+  .goBackImg {
+    display: none;
+  }
+  .closeModalImg {
     display: block;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    border-radius: 50%;
-    background-color: white;
-    border: none;
-    color: #000000;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -49,4 +77,22 @@
     padding: 64px 90px 81px;
     top: 135px;
   }
+}
+.enter {
+  opacity: 0;
+  transform: scale(0.3);
+}
+.enterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms linear;
+}
+.exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.exitActive {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 300ms linear;
 }

@@ -9,7 +9,6 @@ const DiaryProductsListItem = ({
   kcal,
   deleteProduct,
   dayId,
-  a,
 }) => {
   const calories = Math.round(kcal);
   return (
@@ -22,7 +21,7 @@ const DiaryProductsListItem = ({
       <button
         type="button"
         className={styles.button}
-        onClick={() => deleteProduct(dayId, a)}
+        onClick={() => deleteProduct(dayId)}
       >
         X
       </button>
@@ -32,12 +31,11 @@ const DiaryProductsListItem = ({
 
 const mapStateToProps = state => ({
   dayId: state.products.id,
-  a: state.products.eatenProducts,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    deleteProduct: (dayId, a) => {
+    deleteProduct: (dayId) => {
       return dispatch(productAddOperations.deleteProduct(dayId, ownProps.id));
     },
   };

@@ -110,12 +110,19 @@
   font-size: 14px;
   margin-bottom: 5px;
 }
+.productListItem:hover,
+.productListItem:focus {
+  cursor: pointer;
+  background-color: rgb(241, 245, 243);
+}
 .productList {
   position: absolute;
   top: 160px;
   left: -23px;
   z-index: 100;
   background-color: white;
+  max-height: 300px;
+  overflow-y: scroll
  
 }
 @media screen and (min-width: 768px){

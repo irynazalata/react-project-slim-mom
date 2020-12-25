@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from '../Modal/Modal.module.css';
 import closeModalBtn from '../../images/close-burger-menu.png';
+import goBackBtn from '../../images/go-back.png';
 import DailyCalorieIntake from '../../components/DailyCalorieIntake/DailyCalorieIntake';
 
 class Modal extends Component {
@@ -17,6 +18,7 @@ class Modal extends Component {
       .removeEventListener('click', this.closeModal);
   }
   closeModal = event => {
+    this.removeScroll();
     const { onModalToggle } = this.props;
     if (event.code === 'Escape') {
       onModalToggle();
@@ -24,27 +26,34 @@ class Modal extends Component {
       onModalToggle();
     }
   };
+  removeScroll = () => {
+    document.body.classList.remove('stopScroll');
+  };
 
   render() {
     const { onModalToggle } = this.props;
     return (
       <>
-        <div id="overlay" className={styles.overlay}>
-          <div className={styles.modal}>
-            <button
-              type="button"
-              onClick={onModalToggle}
-              className={styles.closeModalBtn}
-              type="button"
-            >
-              <img
-                src={closeModalBtn}
-                alt="close-modal"
-                className={closeModalBtn}
-              />
-            </button>
-            <DailyCalorieIntake />
-          </div>
+        <div className={styles.modal}>
+          <button
+            type="button"
+            onClick={onModalToggle}
+            className={styles.closeModalBtn}
+            type="button"
+          >
+            <img
+              src={closeModalBtn}
+              alt="close-modal"
+              className={styles.closeModalImg}
+            />
+            <img
+              src={goBackBtn}
+              alt="close-modal"
+              className={styles.goBackImg}
+            />
+          </button>
+
+          <DailyCalorieIntake />
         </div>
       </>
     );

@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import DiaryAddProductForm from './DiaryAddProductForm.js';
+import closeModalBtn from '../../images/close-burger-menu.png';
+import goBackBtn from '../../images/go-back.png';
+
 import styles from '../../shared/Modal/Modal.module.css';
 
 class Modal extends Component {
+ 
   componentDidMount() {
     window.addEventListener('keydown', this.closeModal);
     document
@@ -15,7 +19,11 @@ class Modal extends Component {
       .getElementById('overlay')
       .removeEventListener('click', this.closeModal);
   }
+
+  
+
   closeModal = event => {
+    console.log(event.target.nodeName);
     if (event.target.nodeName === "INPUT" || event.target.nodeName === "LI" || event.target.innerText === "Добавить") {
       return
     }
@@ -25,6 +33,10 @@ class Modal extends Component {
     else {
       this.props.onModalToggle();
     }
+  };
+
+  removeScroll = () => {
+    document.body.classList.remove('stopScroll');
   };
 
   render() {
@@ -38,7 +50,16 @@ class Modal extends Component {
               className={styles.closeModalBtn}
               type="button"
             >
-              X
+              <img
+                src={closeModalBtn}
+                alt="close-modal"
+                className={styles.closeModalImg}
+              />
+              <img
+                src={goBackBtn}
+                alt="close-modal"
+                className={styles.goBackImg}
+              />
             </button>
             <DiaryAddProductForm />
           </div>

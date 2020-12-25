@@ -1,18 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { Formik, Form, Field } from "formik";
-import styles from "./LoginForm.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Formik, Form, Field } from 'formik';
+import styles from './LoginForm.module.css';
 
 const LoginForm = ({ onSubmit, DisplayingErrorMessagesSchema }) => {
   return (
     <>
       <h1 className={styles.title}>Вход</h1>
       <Formik
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ email: '', password: '' }}
         validationSchema={DisplayingErrorMessagesSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log("hello");
+          console.log('hello');
           onSubmit(values);
           resetForm({});
         }}
@@ -20,14 +20,28 @@ const LoginForm = ({ onSubmit, DisplayingErrorMessagesSchema }) => {
         {({ errors, touched }) => (
           <Form className={styles.form}>
             <label className={styles.label}>
-              <Field type="text" name="email" placeholder=" " className={styles.input} />
+              <Field
+                type="text"
+                name="email"
+                placeholder=" "
+                className={styles.input}
+              />
               <p className={styles.name}>Логин *</p>
-              {touched.email && errors.email && <div className={styles.error}>{errors.email}</div>}
+              {touched.email && errors.email && (
+                <div className={styles.error}>{errors.email}</div>
+              )}
             </label>
             <label className={styles.label}>
-              <Field type="password" name="password" placeholder=" " className={styles.inputPass} />
+              <Field
+                type="password"
+                name="password"
+                placeholder=" "
+                className={styles.inputPass}
+              />
               <p className={styles.name}>Пароль *</p>
-              {touched.password && errors.password && <div className={styles.error}>{errors.password}</div>}
+              {touched.password && errors.password && (
+                <div className={styles.error}>{errors.password}</div>
+              )}
             </label>
             <button type="submit" className={styles.buttonReg}>
               Вход

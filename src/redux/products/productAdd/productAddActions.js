@@ -14,6 +14,7 @@ const fetchProductError = createAction('Product/fetchError');
 const deleteProductRequest = createAction('Product/deleteRequest');
 const deleteProductSuccess = createAction('Product/deleteSuccess');
 const deleteProductError = createAction('Product/deleteError');
+
 export default {
   addProductRequest,
   addProductSuccess,
