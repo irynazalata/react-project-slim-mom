@@ -56,8 +56,12 @@ class DiaryAddProductForm extends Component {
           this.props.errorToTrue()
           setTimeout(() => {
             this.props.NotificationToFalse()
-            this.props.errorToFalse()
+          
           }, 2000)
+          setTimeout(() => {
+            
+            this.props.errorToFalse()
+          }, 3000)
           
         }
       } 
