@@ -6,45 +6,12 @@
   margin: 0;
 }
 
-.listItem {
-  display: flex;
-  font-family: Verdana;
-  font-weight: 400;
-  font-style: normal;
+.title {
+  width: 90%;
+  font-family: 'Gotham Pro';
+  font-weight: 500;
   font-size: 14px;
-  line-height: 1.22;
-}
-.listItem p {
-  border-bottom: 1px solid #e0e0e0;
-}
-.listItemWeight {
-  margin-right: 10px;
-}
-.listItemCalorie {
-  margin-right: 10px;
-}
-.listItemName {
-  width: 138px;
-  margin-right: 10px;
-}
-.button {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  margin: auto 0;
-  color: #9b9faa;
-  background-color: transparent;
-  border: none;
-  outline: none;
-}
-@media screen and (max-width: 767px) {
-  .listItem span {
-    font-family: Verdana;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 10px;
-    line-height: 1.22;
-  }
+  line-height: 1.5;
 }
 @media screen and (min-width: 768px) {
   .list {
@@ -52,25 +19,9 @@
     height: 240px;
     /* margin-bottom: 61px; */
   }
-
-  .listItem p {
-    margin-right: 30px;
-  }
-  .listItemName {
-    width: 240px;
-    text-align: left;
-  }
-  .listItemWeight {
-    width: 105px;
-    text-align: right;
-  }
-  .listItemCalorie {
-    width: 105px;
-    text-align: right;
-  }
-  .button {
-    width: 12px;
-    height: 12px;
+  .title {
+    width: 90%;
+    font-size: 16px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -79,11 +30,8 @@
     height: 239px;
     padding-bottom: 0;
   }
-  .listItem p {
-    margin-right: 30px;
-  }
-  .button {
-    width: 12px;
-    height: 12px;
+  .title {
+    width: 70%;
+    font-size: 18px;
   }
 }
