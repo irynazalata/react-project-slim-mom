@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import DailyCaloriesForm from "../components/DailyCaloriesForm/DailyCaloriesForm";
-import Notification from "../shared/Notification/Notification";
 import Modal from "../shared/Modal/Modal.js";
 import Header from "../components/Header/Header";
 import { pageContainer, bgContainer } from "./MainPage.module.css";
@@ -37,7 +36,6 @@ const MainPage = function () {
           {loader && <Loader />}
         </div>
       </div>
-      <Notification>Выход выполнен успешно</Notification>
     </>
   );
 };

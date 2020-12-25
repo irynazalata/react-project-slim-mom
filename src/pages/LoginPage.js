@@ -4,7 +4,6 @@ import Logo from "../components/Logo/Logo";
 import LoginForm from "../components/LoginForm/LoginFormContainer";
 import Notification from "../shared/Notification/Notification";
 import { useSelector } from "react-redux";
-import authSelectors from "../redux/auth/authSelectors";
 import getError from "../redux/error/errorSelectors";
 import Loader from "../shared/Loader/Loader";
 import getLoader from "../redux/loader/loaderSelectors";

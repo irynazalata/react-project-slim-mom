@@ -9,23 +9,23 @@ class Modal extends Component {
     window.addEventListener('keydown', this.closeModal);
     document
       .getElementById('overlay')
-      .addEventListener('click', this.closeModal);
+      .addEventListener('click', this.closeModalOverlay);
   }
   componentWillUnmount() {
     window.removeEventListener('keydown', this.closeModal);
     document
       .getElementById('overlay')
-      .removeEventListener('click', this.closeModal);
+      .removeEventListener('click', this.closeModalOverlay);
   }
   closeModal = event => {
     this.removeScroll();
     const { onModalToggle } = this.props;
     if (event.code === 'Escape') {
       onModalToggle();
-    } else {
-      onModalToggle();
     }
   };
+  closeModalOverlay = () => this.props.onModalToggle();
+
   removeScroll = () => {
     document.body.classList.remove('stopScroll');
   };
@@ -39,7 +39,6 @@ class Modal extends Component {
             type="button"
             onClick={onModalToggle}
             className={styles.closeModalBtn}
-            type="button"
           >
             <img
               src={closeModalBtn}

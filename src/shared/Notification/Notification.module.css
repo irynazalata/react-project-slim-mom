@@ -15,7 +15,8 @@
   position: absolute;
   left: 15px;
   top: 105px;
-  max-width: 220px;
+  max-width: 200px;
+  text-align: center;
   background-color: #f15135;
   border-radius: 4px;
   color: rgb(19, 17, 17);

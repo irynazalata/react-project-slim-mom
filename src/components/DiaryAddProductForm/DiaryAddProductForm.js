@@ -22,7 +22,6 @@ class DiaryAddProductForm extends Component {
 
   componentDidMount() {
     this.props.toFetchProducts(this.props.date);
-    
   }
 
   handleChange = e => {
@@ -68,7 +67,6 @@ class DiaryAddProductForm extends Component {
       )};
 
   getCurrentProduct = (e) => {
-    
     this.setState({
       product: e.target.textContent,
       productId: e.target.dataset.id,

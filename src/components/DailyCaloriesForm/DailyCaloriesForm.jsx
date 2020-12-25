@@ -1,10 +1,9 @@
-import React, { useState, Component } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./DailyCaloriesForm.module.css";
 import dailyRateOperations from "../../redux/dailyRate/dailyRateOperations";
 import { Formik, Form, Field } from "formik";
 import authSelectors from "../../redux/auth/authSelectors";
-import DailyCalorieIntake from "../DailyCalorieIntake";
 import * as Yup from "yup";
 
 const DailyCaloriesForm = ({ onShowModal }) => {
@@ -34,10 +33,11 @@ const DailyCaloriesForm = ({ onShowModal }) => {
       .required("Обязательно")
       .when("weight", (weight, schema) => {
         return schema.test({
-          test: (desiredWeight) => !!weight && desiredWeight < weight,
-          message: "Желаемый вес должен быть меньше текущего",
-        });
+          test: desiredWeight => !!weight && desiredWeight < weight,
+          message: "Желаемый вес должен быть меньше текущего"
+        })
       }),
+    bloodType: Yup.number().required('Обязательно'),
   });
 
   return (
@@ -89,8 +89,11 @@ const DailyCaloriesForm = ({ onShowModal }) => {
                 </label>
 
                 <p className={styles.radioTitle}>Группа крови*</p>
-                <div className={styles.radioWrapper}>
-                  <Field id="first" type="radio" name="bloodType" value="1" />
+                {touched.bloodType && errors.bloodType && (
+                    <div className={styles.error}>{errors.bloodType}</div>
+                  )}
+                <div className={styles.radioWrapper} role = "group">
+                  <Field id="first" type="radio" name="bloodType" value="1" required/>
                   <label htmlFor="first" className={styles.radioLabel}>
                     1
                   </label>
