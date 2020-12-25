@@ -36,11 +36,12 @@ class DiaryAddProductForm extends Component {
   searchProducts = (query) => {
     axios
       .get(`/product?search=${query}`)
-      .then(resp =>
+      .then(resp => {
+        console.log(resp.data);
         this.setState({
           productsQuery: resp.data.length > 1 ? [...resp.data] : [],
-        }),
-      )
+        })
+      })
       .catch((err) => {
         if (err.response.status == 401 || err.response.status == 403 || err.response.status == 404) {
          alert ("Ошибка при аутентификации!")
@@ -97,7 +98,7 @@ class DiaryAddProductForm extends Component {
         <button className={style.roundBtn} type="submit">
           <img className={style.img} src={img} alt="add" />
         </button>
-        {this.state.productsQuery && (
+        {this.state.productsQuery.length >1 && (
           <AxiosList
             toGetProduct={this.getCurrentProduct}
             arr={this.state.productsQuery}
