@@ -15,6 +15,9 @@ class MainPage extends Component {
   modalToggle = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
   };
+  modalClose = () => {
+    this.setState({ showModal: false });
+  };
   render() {
     const { showModal } = this.state;
     return (
@@ -34,7 +37,7 @@ class MainPage extends Component {
                 classNames={styles}
                 unmountOnExit
               >
-                <Modal onModalToggle={this.modalToggle} />
+                <Modal onModalToggle={this.modalClose} />
               </CSSTransition>
             </div>
           </div>

@@ -68,7 +68,6 @@ class DiaryAddProductForm extends Component {
       )};
 
   getCurrentProduct = (e) => {
-    
     this.setState({
       product: e.target.textContent,
       productId: e.target.dataset.id,

@@ -36,7 +36,8 @@ function CalculatorCalorieForm() {
           test: desiredWeight => !!weight && desiredWeight < weight,
           message: "Желаемый вес должен быть меньше текущего"
         })
-      })
+      }),
+      bloodType: Yup.number().required('Обязательно'),
   })
 
   // const{height, age, weight, desiredWeight, bloodType} = userData;
@@ -120,7 +121,7 @@ function CalculatorCalorieForm() {
                   )}
                 </label>
                 <p className={styles.radioTitle}>Группа крови*</p>
-                <div className={styles.radioWrapper}>
+                <div className={styles.radioWrapper} role = "group">
                   <Field
                     id="first"
                     type="radio"
@@ -128,19 +129,19 @@ function CalculatorCalorieForm() {
                     value="1"
                     required
                   />
-                  <label for="first" className={styles.radioLabel}>
+                  <label htmlFor="first" className={styles.radioLabel}>
                     1
                   </label>
                   <Field id="second" type="radio" name="bloodType" value="2" />
-                  <label for="second" className={styles.radioLabel}>
+                  <label htmlFor="second" className={styles.radioLabel}>
                     2
                   </label>
                   <Field id="third" type="radio" name="bloodType" value="3" />
-                  <label for="third" className={styles.radioLabel}>
+                  <label htmlFor="third" className={styles.radioLabel}>
                     3
                   </label>
                   <Field id="fourth" type="radio" name="bloodType" value="4" />
-                  <label for="fourth" className={styles.radioLabel}>
+                  <label htmlFor="fourth" className={styles.radioLabel}>
                     4
                   </label>
                 </div>
