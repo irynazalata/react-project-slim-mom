@@ -53,8 +53,7 @@ body {
   }
 }
 /* Стили для body */
-@media screen and (max-width: 767px) {
-  .stopScroll {
-    overflow-y: hidden;
-  }
+
+.stopScroll {
+  overflow-y: hidden;
 }

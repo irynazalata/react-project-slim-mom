@@ -13,8 +13,6 @@ import {
   logoHide,
 } from './LoginRegistrationPage.module.css';
 
-// const isLogin = useSelector(authSelector.isAuthenticated);
-
 const LoginPage = () => {
   const isError = useSelector(getError);
   return (
