@@ -13,6 +13,7 @@ const onFetchDailyRates = (values) => (dispatch) => {
   axios
     .post("/daily-rate", values)
     .then((receivedData) => {
+
       console.log(receivedData.data)
       dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
     })
@@ -28,15 +29,15 @@ const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
   axios
     .post(`/daily-rate/${userId}`, values)
     .then((receivedData) =>
-   { 
-      dispatch(dailyRateActions.fetchDailyRateSuccessAuth(receivedData.data))}
+   {console.log(receivedData.data);
+      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))}
     )
     .catch((error) => {
-       
-        
+
+
         dispatch(dailyRateActions.fetchDailyRateErrorAuth(error))
     })
-    
+
 }
 
 export default {
