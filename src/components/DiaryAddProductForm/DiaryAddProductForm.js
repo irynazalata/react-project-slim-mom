@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import productAddOperations from '../../redux/products/productAdd/productAddOperations';
 import AxiosList from './AxiosList';
+import getNotification from '../../redux/notification/notificationSelectors';
+import notificationActions from '../../redux/notification/notificationActions';
+import Notification from '../../shared/Notification/Notification';
+import errorActions from '../../redux/error/errorActions';
 
 import style from './DiaryAddProductForm.module.css';
 
@@ -18,6 +22,7 @@ class DiaryAddProductForm extends Component {
 
   componentDidMount() {
     this.props.toFetchProducts(this.props.date);
+    
   }
 
   handleChange = e => {
@@ -47,7 +52,13 @@ class DiaryAddProductForm extends Component {
          alert ("Ошибка при аутентификации!")
         }
         if (err.response.status == 400 ) {
-         alert ("Такого продукта не существует! Попробуйте скорректировать ввод")
+          this.props.NotificationToTrue()
+          this.props.errorToTrue()
+          setTimeout(() => {
+            this.props.NotificationToFalse()
+            this.props.errorToFalse()
+          }, 2000)
+          
         }
       } 
       )};
@@ -74,6 +85,7 @@ class DiaryAddProductForm extends Component {
 
   render() {
     return (
+      <>
       <form className={style.form} onSubmit={this.handleSubmit}>
         <input
           className={style.input}
@@ -104,20 +116,27 @@ class DiaryAddProductForm extends Component {
             arr={this.state.productsQuery}
           />
         )}
-      </form>
+        </form>
+        <Notification> Такого продукта нет! </Notification>
+        </>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
   date: state.date,
+  // notification: getNotification(state)
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     toAddProducts: (date, productId, weight) =>
-      dispatch(productAddOperations.addProduct(date, productId, weight)),
+    dispatch(productAddOperations.addProduct(date, productId, weight)),
     toFetchProducts: date => dispatch(productAddOperations.fetchProducts(date)),
+    NotificationToTrue: () => dispatch(notificationActions.notificationTrue()),
+    NotificationToFalse: () => dispatch(notificationActions.notificationFalse()),
+    errorToTrue: () => dispatch(errorActions.errorTrue()),
+    errorToFalse: () => dispatch(errorActions.errorFalse()),
   };
 };
 export default connect(

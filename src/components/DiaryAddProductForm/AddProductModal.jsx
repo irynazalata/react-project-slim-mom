@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import DiaryAddProductForm from './DiaryAddProductForm.js';
+import closeModalBtn from '../../images/close-burger-menu.png';
+import goBackBtn from '../../images/go-back.png';
+
 import styles from '../../shared/Modal/Modal.module.css';
 
 class Modal extends Component {
@@ -32,6 +35,10 @@ class Modal extends Component {
     }
   };
 
+  removeScroll = () => {
+    document.body.classList.remove('stopScroll');
+  };
+
   render() {
     return (
       <>
@@ -43,7 +50,16 @@ class Modal extends Component {
               className={styles.closeModalBtn}
               type="button"
             >
-              X
+              <img
+                src={closeModalBtn}
+                alt="close-modal"
+                className={styles.closeModalImg}
+              />
+              <img
+                src={goBackBtn}
+                alt="close-modal"
+                className={styles.goBackImg}
+              />
             </button>
             <DiaryAddProductForm />
           </div>
