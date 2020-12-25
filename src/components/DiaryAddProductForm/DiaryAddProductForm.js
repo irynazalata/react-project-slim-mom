@@ -129,7 +129,6 @@ class DiaryAddProductForm extends Component {
 
 const mapStateToProps = (state) => ({
   date: state.date,
-  // notification: getNotification(state)
 });
 
 const mapDispatchToProps = dispatch => {

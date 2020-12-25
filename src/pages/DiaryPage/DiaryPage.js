@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import DiaryDateCalendar from '../../components/DiaryDateCalendar/DiaryDateCalendar.jsx';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm/DiaryAddProductForm.js';
 import DiaryAddProductList from '../../components/DiaryProductsList/DiaryProductList.js';
@@ -6,9 +6,9 @@ import RightSideBar from '../../components/RightSideBar/RightSideBar.js';
 import Header from '../../components/Header/Header';
 import img from '../../images/plus.png';
 import Modal from '../../components/DiaryAddProductForm/AddProductModal.jsx';
+import { CSSTransition } from 'react-transition-group';
 
 import styles from './diary.module.css';
-import { Component } from 'react';
 
 class DiaryPage extends Component {
   state = {
@@ -37,7 +37,9 @@ class DiaryPage extends Component {
             >
               <img className={styles.img} src={img} alt="add" />
             </button>
-            {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
+            
+                {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
+              
           </div>
           <RightSideBar />
         </div>
