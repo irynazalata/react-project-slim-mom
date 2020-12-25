@@ -1,14 +1,15 @@
 import React, { useState, Component } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './DailyCaloriesForm.module.css';
 import dailyRateOperations from '../../redux/dailyRate/dailyRateOperations';
 import { Formik, Form, Field } from 'formik';
+import authSelectors from "../../redux/auth/authSelectors"
 import DailyCalorieIntake from '../DailyCalorieIntake';
 import * as Yup from 'yup';
 
 const DailyCaloriesForm = ({ onShowModal }) => {
   const dispatch = useDispatch();
-
+  const userData = useSelector(authSelectors.getUserData)
   const handleSubmit = values => {
     values.bloodType = Number(values.bloodType);
     dispatch(dailyRateOperations.onFetchDailyRates(values));
@@ -21,19 +22,26 @@ const DailyCaloriesForm = ({ onShowModal }) => {
     height: Yup.number()
       .min(100, 'Минимальное значение 100 см')
       .max(260, 'Максимальное значение 260 см')
-      .required('Required'),
+      .required('Обязательно'),
     age: Yup.number()
       .min(12, 'Минимум 12 лет')
       .max(100, 'Максимум 100 лет')
-      .required('Required'),
+      .required('Обязательно'),
     weight: Yup.number()
       .min(40, 'Минимальный вес 40 кг')
       .max(200, 'Максимальный вес 200 кг')
-      .required('Required'),
-    desiredWeight: Yup.number()
+      .required('Обязательно'),
+    desiredWeight: Yup.number() 
+
       .min(40, 'Минимальный вес 40 кг')
       .max(150, 'Максимальный вес 150 кг')
-      .required('Required'),
+      .required('Обязательно')
+      .when('weight', (weight, schema) => {
+        return schema.test({
+          test: desiredWeight => !!weight && desiredWeight < weight,
+          message: "Желаемый вес должен быть меньше текущего"
+        })
+      })
   });
 
   return (
@@ -41,11 +49,11 @@ const DailyCaloriesForm = ({ onShowModal }) => {
       <Formik
         validationSchema={DisplayingErrorMessagesSchema}
         initialValues={{
-          height: '',
-          age: '',
-          weight: '',
-          desiredWeight: '',
-          bloodType: '',
+          height: userData && userData.height ? userData.height : "",
+          age: userData && userData.age ? userData.age : "",
+          weight: userData && userData.weight ? userData.weight : "",
+          desiredWeight: userData && userData.desiredWeight ? userData.desiredWeight : "",
+          bloodType: userData && userData.bloodType ? userData.bloodType.toString() : "",
         }}
         onSubmit={(values, { resetForm }) => {
           handleSubmit(values);

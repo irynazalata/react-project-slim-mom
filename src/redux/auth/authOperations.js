@@ -1,7 +1,6 @@
 import axios from 'axios';
 import authActions from './authActions';
 import notificationActions from '../notification/notificationActions';
-import errorActions from '../error/errorActions';
 
 axios.defaults.baseURL = 'https://slimmom-backend.goit.global/';
 
@@ -20,36 +19,30 @@ const register = credentials => dispatch => {
   axios
     .post('auth/register', credentials)
     .then(({ data }) => {
-      dispatch(notificationActions.notificationTrue());
       dispatch(authActions.registerSuccess(data));
     })
     .catch(error => {
-      dispatch(notificationActions.notificationTrue());
       dispatch(authActions.registerError(error));
     })
     .finally(() =>
-      setTimeout(() => dispatch(notificationActions.notificationFalse()), 5000),
+      setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500),
     );
 };
 
 const login = credentials => dispatch => {
   dispatch(authActions.loginRequest());
-  dispatch(errorActions.errorFalse());
 
   axios
     .post('auth/login', credentials)
     .then(({ data }) => {
       token.set(data.accessToken);
-      dispatch(notificationActions.notificationTrue());
       dispatch(authActions.loginSuccess(data));
     })
     .catch(error => {
-      dispatch(errorActions.errorTrue());
-      dispatch(notificationActions.notificationTrue());
       dispatch(authActions.loginError(error));
     })
     .finally(() =>
-      setTimeout(() => dispatch(notificationActions.notificationFalse()), 5000),
+      setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500),
     );
 };
 
@@ -92,7 +85,10 @@ const logOut = credentials => dispatch => {
         dispatch(authActions.tokenUnset());
       }
       dispatch(authActions.logoutError(error));
-    });
+    })
+    .finally(() =>
+      setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500),
+    );
 };
 
 export default {
