@@ -3,6 +3,7 @@ import classes from "./RightSideBar.module.css";
 import { connect } from "react-redux";
 import axios from "axios";
 import moment from "moment";
+import otAllowedProducts from "./otAllowedProducts";
 
 const date = moment(Date.now()).format("DD.MM.YYYY");
 
@@ -14,29 +15,31 @@ class SideBar extends Component {
     dailyRate: 0,
     percentsOfDailyRate: "",
     eatenProducts: [],
-    notAllowedProducts: [],
+    // notAllowedProducts: [],
+    bloodTypes: 0,
   };
   componentDidMount() {
     this.information(this.props.date);
-    this.list(this.props.date);
+    this.bloodType(this.props.date);
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.newDailyRate !== this.props.newDailyRate) {
       this.information(this.props.date);
-      this.list(this.props.date);
+      this.bloodType(this.props.date);
     }
     if (prevProps.products !== this.props.products) {
       this.information(this.props.date);
-      this.list(this.props.date);
+      this.bloodType(this.props.date);
     }
   }
-  list = (userData) => {
+  bloodType = (userData) => {
     axios.defaults.baseURL = "https://slimmom-backend.goit.global";
     axios.get("/user", { userData }).then((response) => {
       if (response.data.userData.notAllowedProducts !== false) {
         this.setState({
-          notAllowedProducts:response.data.userData.notAllowedProducts
-        })
+          notAllowedProducts: response.data.userData.notAllowedProducts,
+          bloodTypes: response.data.userData.bloodType,
+        });
       }
     });
   };
@@ -70,10 +73,33 @@ class SideBar extends Component {
       }
     });
   };
+  notAllowed() {
+    if (this.state.bloodTypes == 0) {
+      return <p className={classes.defaultText}>Здесь будет отображаться Ваш рацион</p>;
+    } else if (this.state.bloodTypes == 1) {
+      return otAllowedProducts.bloodTypeOne.map((e) =>
+        otAllowedProducts.bloodTypeOne.length !== otAllowedProducts.bloodTypeOne.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
+      );
+    } else if (this.state.bloodTypes == 2) {
+      return otAllowedProducts.bloodTypeTwo.map((e) =>
+        otAllowedProducts.bloodTypeTwo.length !== otAllowedProducts.bloodTypeTwo.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
+      );
+    } else if (this.state.bloodTypes == 3) {
+      return otAllowedProducts.bloodTypeThree.map((e) =>
+        otAllowedProducts.bloodTypeThree.length !== otAllowedProducts.bloodTypeThree.indexOf(e) + 1
+          ? ` ${e},`
+          : ` ${e}.`
+      );
+    } else {
+      return otAllowedProducts.bloodTypeFour.map((e) =>
+        otAllowedProducts.bloodTypeFour.length !== otAllowedProducts.bloodTypeFour.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
+      );
+    }
+  }
 
   render() {
     const { data, kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = this.state;
-    const dateNow = moment(data).format( "DD.MM.YYYY");
+    const dateNow = moment(data).format("DD.MM.YYYY");
 
     return (
       <div className={classes.container}>
@@ -99,7 +125,9 @@ class SideBar extends Component {
         <div className={classes.meny}>
           <h2 className={classes.title}>Нерекомендуемые продукты</h2>
           <div className={classes.products}>
-            {this.state.notAllowedProducts == false ? (
+            <p className={classes.defaultText}>{this.notAllowed()}</p>
+
+            {/* {this.state.notAllowedProducts == false ? (
               <p className={classes.defaultText}>Здесь будет отображаться Ваш рацион</p>
             ) : (
               <p className={classes.menutext}>
@@ -107,7 +135,7 @@ class SideBar extends Component {
                  this.state.notAllowedProducts.length !== this.state.notAllowedProducts.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
                 )}
               </p>
-            )}
+            )} */}
           </div>
         </div>
       </div>
@@ -117,7 +145,7 @@ class SideBar extends Component {
 const mapStateToProps = (state) => ({
   date: state.date,
   newDailyRate: state.dailyRate.dailyRate,
-  products: state.products.eatenProducts,
+  products: state,
 });
 
 export default connect(mapStateToProps)(SideBar);
