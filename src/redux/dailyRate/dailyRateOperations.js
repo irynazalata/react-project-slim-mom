@@ -1,39 +1,48 @@
 import axios from "axios"
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 import dailyRateActions from "./dailyRateActions"
 import authSelectors from "../auth/authSelectors"
+import notificationActions from "../notification/notificationActions"
+import errorActions from "../error/errorActions"
 
-axios.defaults.baseURL = "https://slimmom-backend.goit.global";
+axios.defaults.baseURL = "https://slimmom-backend.goit.global"
 
 const onFetchDailyRates = (values) => (dispatch) => {
-    dispatch(dailyRateActions.fetchDailyRateRequest())
-  
-    axios
-      .post("/daily-rate", values)
-      .then((receivedData) =>
-        {console.log(receivedData.data);
-            dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))}
-      )
-      .catch((error) => dispatch(dailyRateActions.fetchDailyRateError(error)))
-  }
+  dispatch(dailyRateActions.fetchDailyRateRequest())
 
+  axios
+    .post("/daily-rate", values)
+    .then((receivedData) => {
+      console.log(receivedData.data)
+      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
+    })
+    .catch((error) => {
+      dispatch(dailyRateActions.fetchDailyRateError(error))
+    })
 
-  const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
-    dispatch(dailyRateActions.fetchDailyRateRequestAuth())
-  
-    axios
-      .post(`/daily-rate/${userId}`, values)
-      .then((receivedData) =>
-        dispatch(dailyRateActions.fetchDailyRateSuccessAuth(receivedData.data))
-      )
-      .catch((error) => dispatch(dailyRateActions.fetchDailyRateErrorAuth(error)))
-  }
+}
 
-  export default {
-    onFetchDailyRates,
-    onFetchDailyRatesAuthorised
-  }
+const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
+  dispatch(dailyRateActions.fetchDailyRateRequestAuth())
 
+  axios
+    .post(`/daily-rate/${userId}`, values)
+    .then((receivedData) =>
+   { 
+      dispatch(dailyRateActions.fetchDailyRateSuccessAuth(receivedData.data))}
+    )
+    .catch((error) => {
+       
+        
+        dispatch(dailyRateActions.fetchDailyRateErrorAuth(error))
+    })
+    
+}
+
+export default {
+  onFetchDailyRates,
+  onFetchDailyRatesAuthorised,
+}
 
 //*Before error handling
 
@@ -46,7 +55,7 @@ const onFetchDailyRates = (values) => (dispatch) => {
 
 // const onFetchDailyRates = (values) => (dispatch) => {
 //     dispatch(dailyRateActions.fetchDailyRateRequest())
-  
+
 //     axios
 //       .post("/daily-rate", values)
 //       .then((receivedData) =>
@@ -56,10 +65,9 @@ const onFetchDailyRates = (values) => (dispatch) => {
 //       .catch((error) => dispatch(dailyRateActions.fetchDailyRateError(error)))
 //   }
 
-
 //   const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
 //     dispatch(dailyRateActions.fetchDailyRateRequest())
-  
+
 //     axios
 //       .post(`/daily-rate/${userId}`, values)
 //       .then((receivedData) =>
