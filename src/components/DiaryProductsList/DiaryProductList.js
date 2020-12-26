@@ -7,18 +7,6 @@ import styles from "./DiaryProductsList.module.css";
 import { Component } from "react";
 
 class DiaryProductsList extends Component {
-  componentDidMount() {
-    this.props.toFetchProducts(this.props.date);
-  }
-
-  componentDidUpdate(prevProps, PrevState) {
-    const countPrev = prevProps.products ? prevProps.products.length : 0;
-    const countNow = this.props.products ? this.props.products.length : 0;
-
-    if (countPrev !== countNow) {
-      this.props.toFetchProducts(this.props.date);
-    }
-  }
   render() {
     return (
       <>

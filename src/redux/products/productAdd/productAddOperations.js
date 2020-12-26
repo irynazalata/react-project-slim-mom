@@ -27,8 +27,8 @@ const deleteProduct = (dayId, eatenProductId) => dispatch => {
   dispatch(productAddActions.deleteProductRequest());
   axios
     .delete('/day', { data: { dayId, eatenProductId } })
-    .then(resp => {
-      dispatch(productAddActions.deleteProductSuccess(resp.data));
+    .then(() => {
+      dispatch(productAddActions.deleteProductSuccess(eatenProductId));
     })
     .catch(error => {
       dispatch(productAddActions.deleteProductError(error));
