@@ -31,15 +31,14 @@ function CalculatorCalorieForm() {
       .min(40, "Минимальный вес 40 кг")
       .max(150, "Максимальный вес 150 кг")
       .required("Обязательно")
-      .when('weight', (weight, schema) => {
+      .when("weight", (weight, schema) => {
         return schema.test({
-          test: desiredWeight => !!weight && desiredWeight < weight,
-          message: "Желаемый вес должен быть меньше текущего"
+          test: (desiredWeight) => !!weight && desiredWeight < weight,
+          message: "Желаемый вес должен быть меньше текущего",
         })
       }),
-      bloodType: Yup.number().required('Обязательно'),
+    bloodType: Yup.number().required("Обязательно"),
   })
-
 
   return (
     <>
@@ -49,13 +48,14 @@ function CalculatorCalorieForm() {
           height: userData && userData.height ? userData.height : "",
           age: userData && userData.age ? userData.age : "",
           weight: userData && userData.weight ? userData.weight : "",
-          desiredWeight: userData && userData.desiredWeight ? userData.desiredWeight : "",
-          bloodType: userData && userData.bloodType ? userData.bloodType.toString() : "",
+          desiredWeight:
+            userData && userData.desiredWeight ? userData.desiredWeight : "",
+          bloodType:
+            userData && userData.bloodType ? userData.bloodType.toString() : "",
         }}
         enableReinitialize
         onSubmit={(values) => {
           handleSubmit(values)
-        
         }}
       >
         {({ errors, touched }) => (
@@ -128,7 +128,7 @@ function CalculatorCalorieForm() {
                   )}
                 </label>
                 <p className={styles.radioTitle}>Группа крови*</p>
-                <div className={styles.radioWrapper} role = "group">
+                <div className={styles.radioWrapper} role="group">
                   <Field
                     id="first"
                     type="radio"
@@ -163,7 +163,5 @@ function CalculatorCalorieForm() {
     </>
   )
 }
-
-
 
 export default CalculatorCalorieForm

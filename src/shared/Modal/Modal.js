@@ -25,7 +25,7 @@ class Modal extends Component {
   }
 
   closeModal = (event) => {
-    console.log(event.target);
+  
     
     this.removeScroll();
     const { onModalToggle } = this.props;

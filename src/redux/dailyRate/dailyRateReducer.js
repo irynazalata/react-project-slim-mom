@@ -1,25 +1,5 @@
-
 import { createReducer } from "@reduxjs/toolkit"
 import dailyRateActions from "./dailyRateActions"
-
-// const setCalories = (_, { payload }) => payload.dailyRate;
-// const setNotAllowedProducts = (_, { payload }) => payload.notAllowedProducts;
-
-// const calories = createReducer(
-//   "",
-//   {
-//     [dailyRateActions.fetchDailyRateSuccess]: setCalories,
-//   }
-// );
-
-// const notAllowedProducts = createReducer([], {
-//     [dailyRateActions.fetchDailyRateSuccess]: setNotAllowedProducts,
-// });
-
-// export default combineReducers({
-//     calories,
-//     notAllowedProducts,
-// });
 
 const initialState = {
   id: "",
@@ -43,6 +23,5 @@ const setDiet = (_, { payload }) => payload
 const userDataDiet = createReducer(initialState, {
   [dailyRateActions.fetchDailyRateSuccess]: setDiet,
 })
-
 
 export default userDataDiet
