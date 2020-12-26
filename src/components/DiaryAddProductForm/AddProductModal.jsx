@@ -48,7 +48,6 @@ class Modal extends Component {
               type="button"
               onClick={this.props.onModalToggle}
               className={styles.closeModalBtn}
-              type="button"
             >
               <img
                 src={closeModalBtn}

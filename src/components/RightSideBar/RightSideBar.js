@@ -74,17 +74,17 @@ class SideBar extends Component {
     });
   };
   notAllowed() {
-    if (this.state.bloodTypes == 0) {
-      return <p className={classes.defaultText}>Здесь будет отображаться Ваш рацион</p>;
-    } else if (this.state.bloodTypes == 1) {
+    if (this.state.bloodTypes === 0) {
+      return "Здесь будет отображаться Ваш рацион";
+    } else if (this.state.bloodTypes === 1) {
       return otAllowedProducts.bloodTypeOne.map((e) =>
         otAllowedProducts.bloodTypeOne.length !== otAllowedProducts.bloodTypeOne.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
       );
-    } else if (this.state.bloodTypes == 2) {
+    } else if (this.state.bloodTypes === 2) {
       return otAllowedProducts.bloodTypeTwo.map((e) =>
         otAllowedProducts.bloodTypeTwo.length !== otAllowedProducts.bloodTypeTwo.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
       );
-    } else if (this.state.bloodTypes == 3) {
+    } else if (this.state.bloodTypes === 3) {
       return otAllowedProducts.bloodTypeThree.map((e) =>
         otAllowedProducts.bloodTypeThree.length !== otAllowedProducts.bloodTypeThree.indexOf(e) + 1
           ? ` ${e},`

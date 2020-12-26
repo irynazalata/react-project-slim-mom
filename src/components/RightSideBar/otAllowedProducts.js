@@ -29,5 +29,5 @@ export default {
   bloodTypeOne,
   bloodTypeTwo,
   bloodTypeThree,
-  bloodTypeFour,
+  bloodTypeFour
 };
