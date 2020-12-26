@@ -13,13 +13,14 @@ const MainPage = function () {
   const [showModal, setShowModal] = useState(false);
   const loader = useSelector(getLoader);
 
-  const modalToggle = () => {
+modalToggle = () => {
     setShowModal((prevState) => !prevState.showModal);
   };
 
   modalClose = () => {
     this.setState({ showModal: false });
   };
+
   render() {
     const { showModal } = this.state;
     return (
