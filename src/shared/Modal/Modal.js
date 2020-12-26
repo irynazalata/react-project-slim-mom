@@ -7,14 +7,26 @@ import DailyCalorieIntake from "../../components/DailyCalorieIntake/DailyCalorie
 class Modal extends Component {
   componentDidMount() {
     window.addEventListener("keydown", this.closeModal);
-    document.getElementById("overlay").addEventListener("click", this.props.onModalToggle);
+    document.getElementById("overlay").addEventListener("click", this.closeOverlay);
   }
   componentWillUnmount() {
     this.removeScroll();
     window.removeEventListener("keydown", this.closeModal);
     document.getElementById("overlay").removeEventListener("click", this.closeModalOverlay);
   }
+
+
+
+  closeOverlay = (event) =>{
+    
+    if (event.target.className.includes("overlay")) {
+      this.props.onModalToggle()
+    }
+  }
+
   closeModal = (event) => {
+  
+    
     this.removeScroll();
     const { onModalToggle } = this.props;
     if (event.code === "Escape") {
