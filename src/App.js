@@ -5,7 +5,6 @@ import routes from './routes';
 import { authOperations } from './redux/auth';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
-import Header from './components/Header/Header';
 import Loader from './shared/Loader/Loader';
 import './App.css';
 

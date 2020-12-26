@@ -91,6 +91,7 @@ const logOut = credentials => dispatch => {
     );
 };
 
+// eslint-disable-next-line
 export default {
   register,
   login,

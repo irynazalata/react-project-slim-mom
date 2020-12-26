@@ -1,77 +1,36 @@
-import axios from "axios";
-import { useSelector } from "react-redux";
-import dailyRateActions from "./dailyRateActions";
-import authSelectors from "../auth/authSelectors";
-import notificationActions from "../notification/notificationActions";
-import errorActions from "../error/errorActions";
+import axios from "axios"
+import dailyRateActions from "./dailyRateActions"
 
-axios.defaults.baseURL = "https://slimmom-backend.goit.global";
+axios.defaults.baseURL = "https://slimmom-backend.goit.global"
 
 const onFetchDailyRates = (values) => (dispatch) => {
-  dispatch(dailyRateActions.fetchDailyRateRequest());
+  dispatch(dailyRateActions.fetchDailyRateRequest())
 
   axios
     .post("/daily-rate", values)
     .then((receivedData) => {
-      console.log(receivedData.data)
       dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
     })
     .catch((error) => {
-      dispatch(dailyRateActions.fetchDailyRateError(error));
-    });
-};
+      dispatch(dailyRateActions.fetchDailyRateError(error))
+    })
+}
 
 const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
-  dispatch(dailyRateActions.fetchDailyRateRequestAuth());
+  dispatch(dailyRateActions.fetchDailyRateRequestAuth())
 
   axios
     .post(`/daily-rate/${userId}`, values)
     .then((receivedData) => {
-      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data));
+      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
     })
     .catch((error) => {
-      dispatch(dailyRateActions.fetchDailyRateErrorAuth(error));
-    });
-};
+      dispatch(dailyRateActions.fetchDailyRateErrorAuth(error))
+    })
+}
 
+// eslint-disable-next-line
 export default {
   onFetchDailyRates,
   onFetchDailyRatesAuthorised,
-};
-
-//*Before error handling
-
-// import axios from "axios"
-// import {useSelector} from "react-redux"
-// import dailyRateActions from "./dailyRateActions"
-// import authSelectors from "../auth/authSelectors"
-
-// axios.defaults.baseURL = "https://slimmom-backend.goit.global";
-
-// const onFetchDailyRates = (values) => (dispatch) => {
-//     dispatch(dailyRateActions.fetchDailyRateRequest())
-
-//     axios
-//       .post("/daily-rate", values)
-//       .then((receivedData) =>
-//         {console.log(receivedData.data);
-//             dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))}
-//       )
-//       .catch((error) => dispatch(dailyRateActions.fetchDailyRateError(error)))
-//   }
-
-//   const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
-//     dispatch(dailyRateActions.fetchDailyRateRequest())
-
-//     axios
-//       .post(`/daily-rate/${userId}`, values)
-//       .then((receivedData) =>
-//         dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
-//       )
-//       .catch((error) => dispatch(dailyRateActions.fetchDailyRateError(error)))
-//   }
-
-//   export default {
-//     onFetchDailyRates,
-//     onFetchDailyRatesAuthorised
-//   }
+}

@@ -25,7 +25,7 @@ const Notification = ({ children }) => {
 };
 
 Notification.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export default Notification;

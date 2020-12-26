@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import productAddOperations from '../../redux/products/productAdd/productAddOperations';
 import AxiosList from './AxiosList';
-import getNotification from '../../redux/notification/notificationSelectors';
 import notificationActions from '../../redux/notification/notificationActions';
 import Notification from '../../shared/Notification/Notification';
 import errorActions from '../../redux/error/errorActions';
@@ -47,7 +46,7 @@ class DiaryAddProductForm extends Component {
         })
       })
       .catch((err) => {
-        if (err.response.status == 401 || err.response.status == 403 || err.response.status == 404) {
+        if (err.response.status === 401 || err.response.status === 403 || err.response.status === 404) {
          alert ("Ошибка при аутентификации!")
         }
         if (err.response.status === 400) {
@@ -123,7 +122,7 @@ class DiaryAddProductForm extends Component {
           />
         )}
         </form>
-        <Notification> Такого продукта нет! </Notification>
+        <Notification><span>Такого продукта нет!</span></Notification>
         </>
     );
   }
