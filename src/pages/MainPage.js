@@ -40,5 +40,4 @@ const MainPage = function () {
     </>
   );
 };
-
 export default MainPage;

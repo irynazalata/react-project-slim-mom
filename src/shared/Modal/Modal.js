@@ -1,33 +1,29 @@
-import React, { Component } from 'react';
-import styles from '../Modal/Modal.module.css';
-import closeModalBtn from '../../images/close-burger-menu.png';
-import goBackBtn from '../../images/go-back.png';
-import DailyCalorieIntake from '../../components/DailyCalorieIntake/DailyCalorieIntake';
+import React, { Component } from "react";
+import styles from "../Modal/Modal.module.css";
+import closeModalBtn from "../../images/close-burger-menu.png";
+import goBackBtn from "../../images/go-back.png";
+import DailyCalorieIntake from "../../components/DailyCalorieIntake/DailyCalorieIntake";
 
 class Modal extends Component {
   componentDidMount() {
-    window.addEventListener('keydown', this.closeModal);
-    document
-      .getElementById('overlay')
-      .addEventListener('click', this.closeModalOverlay);
+    window.addEventListener("keydown", this.closeModal);
+    document.getElementById("overlay").addEventListener("click", this.props.onModalToggle);
   }
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.closeModal);
-    document
-      .getElementById('overlay')
-      .removeEventListener('click', this.closeModalOverlay);
+    this.removeScroll();
+    window.removeEventListener("keydown", this.closeModal);
+    document.getElementById("overlay").removeEventListener("click", this.closeModalOverlay);
   }
-  closeModal = event => {
+  closeModal = (event) => {
     this.removeScroll();
     const { onModalToggle } = this.props;
-    if (event.code === 'Escape') {
+    if (event.code === "Escape") {
       onModalToggle();
     }
   };
 
   removeScroll = () => {
-    console.log('Hi');
-    document.body.classList.remove('stopScroll');
+    document.body.classList.remove("stopScroll");
   };
 
   render() {
@@ -35,21 +31,9 @@ class Modal extends Component {
     return (
       <>
         <div className={styles.modal}>
-          <button
-            type="button"
-            onClick={onModalToggle}
-            className={styles.closeModalBtn}
-          >
-            <img
-              src={closeModalBtn}
-              alt="close-modal"
-              className={styles.closeModalImg}
-            />
-            <img
-              src={goBackBtn}
-              alt="close-modal"
-              className={styles.goBackImg}
-            />
+          <button type="button" onClick={onModalToggle} className={styles.closeModalBtn}>
+            <img src={closeModalBtn} alt="close-modal" className={styles.closeModalImg} />
+            <img src={goBackBtn} alt="close-modal" className={styles.goBackImg} />
           </button>
 
           <DailyCalorieIntake />
