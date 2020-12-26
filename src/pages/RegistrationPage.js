@@ -16,7 +16,6 @@ const RegistrationPage = () => {
   const loader = useSelector(getLoader);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(name);
   useEffect(() => {
     if (name) {
       dispatch(authActions.unsetUserName());
@@ -37,7 +36,7 @@ const RegistrationPage = () => {
           {loader && <Loader/>}
         </div>
       </div>
-      <Notification>Произошла ошибка, повторите попытку еще раз</Notification>
+      <Notification><span>Произошла ошибка, повторите попытку еще раз</span></Notification>
     </>
   );
 };

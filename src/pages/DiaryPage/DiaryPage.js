@@ -6,7 +6,6 @@ import RightSideBar from '../../components/RightSideBar/RightSideBar.js';
 import Header from '../../components/Header/Header';
 import img from '../../images/plus.png';
 import Modal from '../../components/DiaryAddProductForm/AddProductModal.jsx';
-import { CSSTransition } from 'react-transition-group';
 
 import styles from './diary.module.css';
 

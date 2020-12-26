@@ -7,6 +7,8 @@ const fetchDailyRateError = createAction("dailyRate/fetchError")
 const fetchDailyRateRequestAuth = createAction("dailyRate/fetchRequestAuth")
 const fetchDailyRateSuccessAuth = createAction("dailyRate/fetchSuccessAuth")
 const fetchDailyRateErrorAuth = createAction("dailyRate/fetchErrorAuth")
+
+// eslint-disable-next-line
 export default {
 
     fetchDailyRateRequest,

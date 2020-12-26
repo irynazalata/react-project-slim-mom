@@ -16,7 +16,7 @@ const CalculatorPage = () => {
         </div>
         <RightSideBar />
       </div>
-      <Notification>Вход выполнен успешно</Notification>
+      <Notification><span>Вход выполнен успешно</span></Notification>
     </>
   );
 };

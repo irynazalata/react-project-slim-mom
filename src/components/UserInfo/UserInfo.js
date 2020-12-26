@@ -1,9 +1,6 @@
 import React from "react";
-// import { NavLink } from 'react-router-dom';
 import styles from "./UserInfo.module.css";
 import verticalLine from "../../images/vertical-line.png";
-import goBack from "../../images/go-back.png";
-// import { NavLink } from "react-router-dom";
 import { authOperations, authSelectors } from "../../redux/auth";
 import { connect } from "react-redux";
 

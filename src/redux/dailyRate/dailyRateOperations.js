@@ -1,9 +1,5 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 import dailyRateActions from "./dailyRateActions";
-import authSelectors from "../auth/authSelectors";
-import notificationActions from "../notification/notificationActions";
-import errorActions from "../error/errorActions";
 
 axios.defaults.baseURL = "https://slimmom-backend.goit.global";
 
@@ -34,6 +30,7 @@ const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
     });
 };
 
+// eslint-disable-next-line
 export default {
   onFetchDailyRates,
   onFetchDailyRatesAuthorised,
