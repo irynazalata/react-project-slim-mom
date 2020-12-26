@@ -35,7 +35,7 @@ const MainPage = function () {
           </div>
         </div>
       </div>
-      <Notification>Выход выполнен успешно</Notification>
+      <Notification><p>Выход выполнен успешно</p></Notification>
       {loader && <Loader />}
     </>
   );
