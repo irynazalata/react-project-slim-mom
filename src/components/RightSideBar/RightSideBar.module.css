@@ -39,6 +39,7 @@ html {
   composes: text;
   margin-bottom: 60px;
   width: 270px;
+  height: 200px;
 }
 .statistics {
   display: flex;
@@ -50,6 +51,13 @@ html {
   list-style-type: none;
   padding-inline-start: 0px;
   margin: 0px;
+  text-align: right;
+}
+.listName{
+  list-style-type: none;
+  padding-inline-start: 0px;
+  margin: 0px;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
@@ -91,7 +99,7 @@ html {
 @media screen and (min-width: 1280px) {
   .container {
     width: 535px;
-    padding: 137px 60px 192px 90px;
+    padding: 137px 60px 112px 90px;
     display: block;
     background-image: url("../../images/desktop/leaves-sidebar-desktop-x1-v2-min.png");
     background-position: 0px -135px;
@@ -112,4 +120,13 @@ html {
     background-image: url("../../images/desktop/leaves-sidebar-desktop-x2-v2-min.png");
     background-position: 0px -135px;
   }
+}
+
+.products {
+  width: 280px;
+  height: 170px;
+  overflow: scroll;
+}
+.percent {
+  margin-right: 20px;
 }

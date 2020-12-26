@@ -2,6 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import authReducer from './auth/authReducer';
 import notificationReducer from './notification/notificationReducer';
 import errorReducer from './error/errorReducer';
+import loaderReducer from './loader/loaderReducer';
 import userDataDiet from './dailyRate/dailyRateReducer';
 import {
   persistStore,
@@ -31,6 +32,7 @@ export const store = configureStore({
     date: dateReducer,
     notification: notificationReducer,
     error: errorReducer,
+    loader: loaderReducer,
   },
   middleware: [
     ...getDefaultMiddleware({
