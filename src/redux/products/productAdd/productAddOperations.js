@@ -34,17 +34,9 @@ const deleteProduct = (dayId, eatenProductId) => dispatch => {
       dispatch(productAddActions.deleteProductError(error));
     });
 };
-// const searchProducts = (query) => dispatch => {
-//   dispatch(productAddActions.searchProductRequest())
-//   axios.get(`/product?search=${query}`)
-//     .then(resp => dispatch(productAddActions.searchProductSuccess(resp)))
-//   .cath(err => dispatch(productAddActions.searchProductError(err)))
-// }
 
-// eslint-disable-next-line
 export default {
   addProduct,
   fetchProducts,
   deleteProduct,
-  // searchProducts
 };

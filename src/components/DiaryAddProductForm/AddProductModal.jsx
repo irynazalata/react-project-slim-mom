@@ -23,7 +23,6 @@ class Modal extends Component {
   
 
   closeModal = event => {
-    console.log(event.target.nodeName);
     if (event.target.nodeName === "INPUT" || event.target.nodeName === "LI" || event.target.innerText === "Добавить") {
       return
     }
