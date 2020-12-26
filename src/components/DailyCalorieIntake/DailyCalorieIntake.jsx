@@ -1,25 +1,27 @@
 import { render } from "@testing-library/react"
-import React from "react"
+import React, { useCallback, useState } from "react"
 import { Link } from "react-router-dom";
 import  {useSelector, useDispatch}  from "react-redux"
 import styles from "./DailyCalorieIntake.module.css"
 import dailyRateSelector from "../../redux/dailyRate/dailyRateSelector"
-import { useCallback } from "react";
+
 import changeFilter from "../../redux/dailyRate/dailyRateActions"
 
 
 const DailyCalorieIntake = () => {
     const calories = useSelector(dailyRateSelector.getCalories);
   const products = useSelector(dailyRateSelector.getProducts);
+  
 
   // filter part
 
-  const value = useSelector(dailyRateSelector.getFilter)
-  const dispatch = useDispatch();
-  const onChange = useCallback(event =>dispatch(changeFilter(event.target.value)), [dispatch])
+  // const value = useSelector(dailyRateSelector.getFilteredProducts)
+  // const dispatch = useDispatch();
+  const [value, setValue] = useState("")
+  const onChange = event => setValue(event.target.value)
 
   //end of filter part
-
+  const productsFinal = products.filter(product=>product.includes(value))
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>
@@ -42,7 +44,7 @@ const DailyCalorieIntake = () => {
       />
        {/* filter end*/}
         <ol className={styles.productsList}>
-  {products.map((product, id) => <li key = {id} className={styles.productsItem}>{product}</li>)}
+  {productsFinal.map((product, id) => <li key = {id} className={styles.productsItem}>{product}</li>)}
           
           
         </ol>

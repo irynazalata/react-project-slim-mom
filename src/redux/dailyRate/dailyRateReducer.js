@@ -1,4 +1,4 @@
-import { combineReducers } from "redux"
+
 import { createReducer } from "@reduxjs/toolkit"
 import dailyRateActions from "./dailyRateActions"
 
@@ -44,9 +44,5 @@ const userDataDiet = createReducer(initialState, {
   [dailyRateActions.fetchDailyRateSuccess]: setDiet,
 })
 
-const setFilter = (_, { payload }) => payload
-const filter = createReducer("", {
-  [dailyRateActions.changeFilter]: setFilter,
-})
 
-export default {userDataDiet, filter}
+export default userDataDiet

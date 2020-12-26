@@ -9,7 +9,7 @@ const Logo = ({ isAuthenticated }) => {
   return (
     <Link className="logoContainer" to="/daily-rate">
       {/* <NavLink  to="/diaryPage"> <img src={logo} className="logoImage" /></NavLink> */}
-      <img src={logo} className="logoImage" />
+      <img src={logo} alt= "logo" className="logoImage" />
       {isAuthenticated ? (
         <>
           <p className="logoTextSlimAuth">Slim </p>
