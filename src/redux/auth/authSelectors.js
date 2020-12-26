@@ -6,4 +6,5 @@ const getUserId = state => state.auth.user.id;
 
 const getUserData = state => state.auth.user.userData;
 
+// eslint-disable-next-line
 export default { isAuthenticated, getUserName, getUserId, getUserData};

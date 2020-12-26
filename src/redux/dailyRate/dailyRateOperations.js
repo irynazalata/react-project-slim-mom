@@ -30,6 +30,7 @@ const onFetchDailyRatesAuthorised = (values, userId) => (dispatch) => {
     });
 };
 
+// eslint-disable-next-line
 export default {
   onFetchDailyRates,
   onFetchDailyRatesAuthorised,
