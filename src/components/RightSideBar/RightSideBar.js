@@ -74,7 +74,7 @@ class SideBar extends Component {
   };
   notAllowed() {
     if (this.state.bloodTypes == 0) {
-      return <p className={classes.defaultText}>Здесь будет отображаться Ваш рацион</p>;
+      return "Здесь будет отображаться Ваш рацион";
     } else if (this.state.bloodTypes == 1) {
       return otAllowedProducts.bloodTypeOne.map((e) =>
         otAllowedProducts.bloodTypeOne.length !== otAllowedProducts.bloodTypeOne.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
