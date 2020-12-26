@@ -34,11 +34,16 @@ class DiaryPage extends Component {
               onClick={this.modalToggle}
               type="button"
             >
-              <img className={styles.img} src={img} alt="add" />
+              <img
+                className={styles.img}
+                src={img}
+                alt="add"
+                width="14"
+                height="14"
+              />
             </button>
-            
-                {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
-              
+
+            {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
           </div>
           <RightSideBar />
         </div>

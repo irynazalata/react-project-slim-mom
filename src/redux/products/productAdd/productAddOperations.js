@@ -35,6 +35,7 @@ const deleteProduct = (dayId, eatenProductId) => dispatch => {
     });
 };
 
+// eslint-disable-next-line
 export default {
   addProduct,
   fetchProducts,

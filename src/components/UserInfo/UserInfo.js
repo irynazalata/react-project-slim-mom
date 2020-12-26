@@ -1,14 +1,20 @@
-import React from "react";
-import styles from "./UserInfo.module.css";
-import verticalLine from "../../images/vertical-line.png";
-import { authOperations, authSelectors } from "../../redux/auth";
-import { connect } from "react-redux";
+import React from 'react';
+import styles from './UserInfo.module.css';
+import verticalLine from '../../images/vertical-line.png';
+import { authOperations, authSelectors } from '../../redux/auth';
+import { connect } from 'react-redux';
 
 const UserInfo = ({ name, onLogout }) => (
   <div className={styles.userBox}>
     <div className={styles.userInfo}>
       <span className={styles.name}>{name}</span>
-      <img className={styles.verticalLine} src={verticalLine} alt="vertical-line" />
+      <img
+        className={styles.verticalLine}
+        src={verticalLine}
+        alt="vertical-line"
+        width="2"
+        height="32"
+      />
       <button type="button" className={styles.logout} onClick={onLogout}>
         Выйти
       </button>
@@ -16,8 +22,10 @@ const UserInfo = ({ name, onLogout }) => (
   </div>
 );
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   name: authSelectors.getUserName(state),
 });
 
-export default connect(mapStateToProps, { onLogout: authOperations.logOut })(UserInfo);
+export default connect(mapStateToProps, { onLogout: authOperations.logOut })(
+  UserInfo,
+);

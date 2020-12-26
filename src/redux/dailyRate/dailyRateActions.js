@@ -1,15 +1,16 @@
-import { createAction } from "@reduxjs/toolkit"
+import { createAction } from '@reduxjs/toolkit';
 
-const fetchDailyRateRequest = createAction("dailyRate/fetchRequest")
-const fetchDailyRateSuccess = createAction("dailyRate/fetchSuccess")
-const fetchDailyRateError = createAction("dailyRate/fetchError")
+const fetchDailyRateRequest = createAction('dailyRate/fetchRequest');
+const fetchDailyRateSuccess = createAction('dailyRate/fetchSuccess');
+const fetchDailyRateError = createAction('dailyRate/fetchError');
 
-const fetchDailyRateRequestAuth = createAction("dailyRate/fetchRequestAuth")
-const fetchDailyRateSuccessAuth = createAction("dailyRate/fetchSuccessAuth")
-const fetchDailyRateErrorAuth = createAction("dailyRate/fetchErrorAuth")
+const fetchDailyRateRequestAuth = createAction('dailyRate/fetchRequestAuth');
+const fetchDailyRateSuccessAuth = createAction('dailyRate/fetchSuccessAuth');
+const fetchDailyRateErrorAuth = createAction('dailyRate/fetchErrorAuth');
 
-const changeFilter = createAction("dailyRate/changeFilter")
+const changeFilter = createAction('dailyRate/changeFilter');
 
+// eslint-disable-next-line
 export default {
   fetchDailyRateRequest,
   fetchDailyRateSuccess,
@@ -20,4 +21,4 @@ export default {
   fetchDailyRateErrorAuth,
 
   changeFilter,
-}
+};
