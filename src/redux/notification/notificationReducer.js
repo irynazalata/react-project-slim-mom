@@ -7,7 +7,6 @@ const notification = createReducer(false, {
   [authActions.registerSuccess]: () => true,
   [authActions.loginSuccess]: () => true,
   [authActions.registerError]: () => true,
-  [authActions.logoutSuccess]: () => true,
   [notificationActions.notificationFalse]: () => false,
   [authActions.loginError]: () => true,
 });

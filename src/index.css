@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Gotham Pro';
+  font-family: "Gotham Pro";
   font-weight: 700;
   scrollbar-color: #264061 #f0f1f3;
   scrollbar-width: 6px;
@@ -56,4 +56,9 @@ body {
 
 .stopScroll {
   overflow-y: hidden;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
 }
