@@ -15,7 +15,6 @@ class SideBar extends Component {
     dailyRate: 0,
     percentsOfDailyRate: "",
     eatenProducts: [],
-    // notAllowedProducts: [],
     bloodTypes: 0,
   };
   componentDidMount() {
@@ -126,16 +125,6 @@ class SideBar extends Component {
           <h2 className={classes.title}>Нерекомендуемые продукты</h2>
           <div className={classes.products}>
             <p className={classes.defaultText}>{this.notAllowed()}</p>
-
-            {/* {this.state.notAllowedProducts == false ? (
-              <p className={classes.defaultText}>Здесь будет отображаться Ваш рацион</p>
-            ) : (
-              <p className={classes.menutext}>
-                {this.state.notAllowedProducts.map((e) =>
-                 this.state.notAllowedProducts.length !== this.state.notAllowedProducts.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
-                )}
-              </p>
-            )} */}
           </div>
         </div>
       </div>
