@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyCaloriesForm';
-import Notification from '../shared/Notification/Notification';
-import Modal from '../shared/Modal/Modal.js';
-import Header from '../components/Header/Header';
-import { pageContainer, bgContainer } from './MainPage.module.css';
-import styles from '../shared/Modal/Modal.module.css';
-import { CSSTransition } from 'react-transition-group';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import DailyCaloriesForm from "../components/DailyCaloriesForm/DailyCaloriesForm";
+import Modal from "../shared/Modal/Modal.js";
+import Header from "../components/Header/Header";
+import { pageContainer, bgContainer } from "./MainPage.module.css";
+import Loader from "../shared/Loader/Loader";
+import getLoader from "../redux/loader/loaderSelectors";
+import styles from "../shared/Modal/Modal.module.css";
+import { CSSTransition } from "react-transition-group";
 
-class MainPage extends Component {
-  state = {
-    showModal: false,
+const MainPage = function () {
+  const [showModal, setShowModal] = useState(false);
+  const loader = useSelector(getLoader);
+
+  const modalToggle = () => {
+    setShowModal((prevState) => !prevState.showModal);
   };
 
-  modalToggle = () => {
-    this.setState(prevState => ({ showModal: !prevState.showModal }));
-  };
   modalClose = () => {
     this.setState({ showModal: false });
   };
