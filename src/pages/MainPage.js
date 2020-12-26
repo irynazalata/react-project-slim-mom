@@ -5,6 +5,7 @@ import Modal from "../shared/Modal/Modal.js";
 import Header from "../components/Header/Header";
 import { pageContainer, bgContainer } from "./MainPage.module.css";
 import Loader from "../shared/Loader/Loader";
+import Notification from "../shared/Notification/Notification";
 import getLoader from "../redux/loader/loaderSelectors";
 import styles from "../shared/Modal/Modal.module.css";
 import { CSSTransition } from "react-transition-group";
@@ -13,41 +14,31 @@ const MainPage = function () {
   const [showModal, setShowModal] = useState(false);
   const loader = useSelector(getLoader);
 
-modalToggle = () => {
+  const modalToggle = () => {
     setShowModal((prevState) => !prevState.showModal);
   };
 
-  modalClose = () => {
-    this.setState({ showModal: false });
+  const modalClose = () => {
+    setShowModal(false);
   };
+  return (
+    <>
+      <div className={bgContainer}>
+        <Header />
+        <div className={pageContainer}>
+          <DailyCaloriesForm onShowModal={modalToggle} />
 
-  render() {
-    const { showModal } = this.state;
-    return (
-      <>
-        <div className={bgContainer}>
-          <Header />
-          <div className={pageContainer}>
-            <DailyCaloriesForm onShowModal={this.modalToggle} />
-
-            <div
-              id="overlay"
-              className={showModal ? styles.overlay : styles.notShow}
-            >
-              <CSSTransition
-                in={showModal}
-                timeout={300}
-                classNames={styles}
-                unmountOnExit
-              >
-                <Modal onModalToggle={this.modalClose} />
-              </CSSTransition>
-            </div>
+          <div id="overlay" className={showModal ? styles.overlay : styles.notShow}>
+            <CSSTransition in={showModal} timeout={300} classNames={styles} unmountOnExit>
+              <Modal onModalToggle={modalClose} />
+            </CSSTransition>
           </div>
         </div>
-        <Notification>Выход выполнен успешно</Notification>
-      </>
-    );
-  }
-}
+      </div>
+      <Notification>Выход выполнен успешно</Notification>
+      {loader && <Loader />}
+    </>
+  );
+};
+
 export default MainPage;

@@ -42,7 +42,6 @@ class DiaryAddProductForm extends Component {
     axios
       .get(`/product?search=${query}`)
       .then(resp => {
-        console.log(resp.data);
         this.setState({
           productsQuery: resp.data.length > 1 ? [...resp.data] : [],
         })
@@ -51,18 +50,22 @@ class DiaryAddProductForm extends Component {
         if (err.response.status == 401 || err.response.status == 403 || err.response.status == 404) {
          alert ("Ошибка при аутентификации!")
         }
-        if (err.response.status == 400 ) {
-          this.props.NotificationToTrue()
-          this.props.errorToTrue()
-          setTimeout(() => {
-            this.props.NotificationToFalse()
+        if (err.response.status == 400) {
+          console.log(this.state.product);
+          if (this.state.product.includes('(')) {
+            return
+          } else {
+            this.props.NotificationToTrue()
+            this.props.errorToTrue()
+            setTimeout(() => {
+              this.props.NotificationToFalse()
           
-          }, 2000)
-          setTimeout(() => {
+            }, 2000)
+            setTimeout(() => {
             
-            this.props.errorToFalse()
-          }, 3000)
-          
+              this.props.errorToFalse()
+            }, 3000)
+          }
         }
       } 
       )};
