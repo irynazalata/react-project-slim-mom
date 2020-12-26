@@ -51,7 +51,6 @@ class DiaryAddProductForm extends Component {
          alert ("Ошибка при аутентификации!")
         }
         if (err.response.status == 400) {
-          console.log(this.state.product);
           if (this.state.product.includes('(')) {
             return
           } else {
