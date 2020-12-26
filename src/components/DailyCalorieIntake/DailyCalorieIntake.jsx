@@ -1,23 +1,24 @@
 import { render } from "@testing-library/react"
 import React from "react"
 import { Link } from "react-router-dom";
-import  {useSelector}  from "react-redux"
+import  {useSelector, useDispatch}  from "react-redux"
 import styles from "./DailyCalorieIntake.module.css"
 import dailyRateSelector from "../../redux/dailyRate/dailyRateSelector"
+import { useCallback } from "react";
+import changeFilter from "../../redux/dailyRate/dailyRateActions"
 
 
 const DailyCalorieIntake = () => {
     const calories = useSelector(dailyRateSelector.getCalories);
   const products = useSelector(dailyRateSelector.getProducts);
 
-  // let arr = [],
+  // filter part
 
-  // getArr = (axiosArr) => {
-  //   return arr = [...arr, ...axiosArr]
-  // }
-    
-  // getArr(products)
-  // console.log(arr);
+  const value = useSelector(dailyRateSelector.getFilter)
+  const dispatch = useDispatch();
+  const onChange = useCallback(event =>dispatch(changeFilter(event.target.value)), [dispatch])
+
+  //end of filter part
 
   return (
     <div className={styles.wrapper}>
@@ -31,6 +32,15 @@ const DailyCalorieIntake = () => {
         <p className={styles.productsTitle}>
           Продукты, которые вам не рекомендуется употреблять
         </p>
+        {/* filter */}
+        <input
+        className={styles.filterInput}
+        type="text"
+        name="filter"
+        value={value}
+        onChange={onChange}
+      />
+       {/* filter end*/}
         <ol className={styles.productsList}>
   {products.map((product, id) => <li key = {id} className={styles.productsItem}>{product}</li>)}
           

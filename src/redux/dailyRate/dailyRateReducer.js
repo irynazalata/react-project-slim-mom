@@ -1,10 +1,9 @@
-import { combineReducers } from "redux";
-import { createReducer } from "@reduxjs/toolkit";
-import dailyRateActions from "./dailyRateActions";
+import { combineReducers } from "redux"
+import { createReducer } from "@reduxjs/toolkit"
+import dailyRateActions from "./dailyRateActions"
 
 // const setCalories = (_, { payload }) => payload.dailyRate;
 // const setNotAllowedProducts = (_, { payload }) => payload.notAllowedProducts;
-
 
 // const calories = createReducer(
 //   "",
@@ -22,32 +21,32 @@ import dailyRateActions from "./dailyRateActions";
 //     notAllowedProducts,
 // });
 
-const initialState ={
-    "id": "",
-    "dailyRate": "",
-    "summaries": [
-      {
-        "_id": "",
-        "date": "",
-        "kcalLeft": "",
-        "kcalConsumed": "",
-        "dailyRate": "",
-        "percentsOfDailyRate": "",
-        "userId": "",
-        "__v": ""
-      }
-    ],
-    "notAllowedProducts": [
-     
-    ]
-  }
-
-const setDiet =  (_, { payload }) => payload;
-const userDataDiet = createReducer(initialState,
+const initialState = {
+  id: "",
+  dailyRate: "",
+  summaries: [
     {
-        [dailyRateActions.fetchDailyRateSuccess]: setDiet,
+      _id: "",
+      date: "",
+      kcalLeft: "",
+      kcalConsumed: "",
+      dailyRate: "",
+      percentsOfDailyRate: "",
+      userId: "",
+      __v: "",
+    },
+  ],
+  notAllowedProducts: [],
+}
 
-    }
-    )
+const setDiet = (_, { payload }) => payload
+const userDataDiet = createReducer(initialState, {
+  [dailyRateActions.fetchDailyRateSuccess]: setDiet,
+})
 
-export default userDataDiet
+const setFilter = (_, { payload }) => payload
+const filter = createReducer("", {
+  [dailyRateActions.changeFilter]: setFilter,
+})
+
+export default {userDataDiet, filter}

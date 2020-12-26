@@ -7,19 +7,20 @@ const fetchDailyRateError = createAction("dailyRate/fetchError")
 const fetchDailyRateRequestAuth = createAction("dailyRate/fetchRequestAuth")
 const fetchDailyRateSuccessAuth = createAction("dailyRate/fetchSuccessAuth")
 const fetchDailyRateErrorAuth = createAction("dailyRate/fetchErrorAuth")
+
+const changeFilter = createAction("dailyRate/changeFilter")
+
 export default {
+  fetchDailyRateRequest,
+  fetchDailyRateSuccess,
+  fetchDailyRateError,
 
-    fetchDailyRateRequest,
-    fetchDailyRateSuccess,
-    fetchDailyRateError,
+  fetchDailyRateRequestAuth,
+  fetchDailyRateSuccessAuth,
+  fetchDailyRateErrorAuth,
 
-    fetchDailyRateRequestAuth,
-    fetchDailyRateSuccessAuth,
-    fetchDailyRateErrorAuth,
-
-
+  changeFilter,
 }
-
 
 //*Before Error Handling
 
