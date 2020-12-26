@@ -16,7 +16,6 @@ const RegistrationPage = () => {
   const loader = useSelector(getLoader);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(name);
   useEffect(() => {
     if (name) {
       dispatch(authActions.unsetUserName());

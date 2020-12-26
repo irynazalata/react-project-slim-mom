@@ -12,7 +12,6 @@ import { pageContainer, bgContainer, headerHide, logoHide } from "./LoginRegistr
 const LoginPage = () => {
   const isError = useSelector(getError);
   const loader = useSelector(getLoader);
-  console.log(loader);
   return (
     <>
       <div className={bgContainer}>
