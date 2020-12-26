@@ -40,7 +40,6 @@ function CalculatorCalorieForm() {
       bloodType: Yup.number().required('Обязательно'),
   })
 
-  // const{height, age, weight, desiredWeight, bloodType} = userData;
 
   return (
     <>
@@ -54,9 +53,9 @@ function CalculatorCalorieForm() {
           bloodType: userData && userData.bloodType ? userData.bloodType.toString() : "",
         }}
         enableReinitialize
-        onSubmit={(values, { resetForm }) => {
+        onSubmit={(values) => {
           handleSubmit(values)
-          // resetForm({})
+        
         }}
       >
         {({ errors, touched }) => (
@@ -70,6 +69,8 @@ function CalculatorCalorieForm() {
                     className={styles.input}
                     name="height"
                     type="number"
+                    min="100"
+                    max="260"
                     required
                   />{" "}
                   <p className={styles.labelValue}>Рост*</p>
@@ -84,6 +85,8 @@ function CalculatorCalorieForm() {
                     className={styles.input}
                     name="age"
                     type="number"
+                    min="12"
+                    max="100"
                     required
                   />
                   <p className={styles.labelValue}>Возраст*</p>
@@ -98,6 +101,8 @@ function CalculatorCalorieForm() {
                     className={styles.input}
                     name="weight"
                     type="number"
+                    min="40"
+                    max="200"
                     required
                   />
                   <p className={styles.labelValue}>Текущий вес*</p>
@@ -113,6 +118,8 @@ function CalculatorCalorieForm() {
                     className={styles.input}
                     name="desiredWeight"
                     type="number"
+                    min="40"
+                    max="150"
                     required
                   />
                   <p className={styles.labelValue}>Желаемый вес*</p>
@@ -157,8 +164,6 @@ function CalculatorCalorieForm() {
   )
 }
 
-// const mapDispatchToProps = {
-//   onFetchDailyRates: dailyRateOperations.onFetchDailyRatesAuthorised,
-// }
+
 
 export default CalculatorCalorieForm
