@@ -17,26 +17,36 @@ const MainPage = function () {
     setShowModal((prevState) => !prevState.showModal);
   };
 
-  const modalClose = () => {
-    setShowModal(false);
+  modalClose = () => {
+    this.setState({ showModal: false });
   };
+  render() {
+    const { showModal } = this.state;
+    return (
+      <>
+        <div className={bgContainer}>
+          <Header />
+          <div className={pageContainer}>
+            <DailyCaloriesForm onShowModal={this.modalToggle} />
 
-  return (
-    <>
-      <div className={bgContainer}>
-        <Header />
-        <div className={pageContainer}>
-          <DailyCaloriesForm onShowModal={modalToggle} />
-
-          <div id="overlay" className={showModal ? styles.overlay : styles.notShow}>
-            <CSSTransition in={showModal} timeout={300} classNames={styles} unmountOnExit>
-              <Modal onModalToggle={modalClose} />
-            </CSSTransition>
+            <div
+              id="overlay"
+              className={showModal ? styles.overlay : styles.notShow}
+            >
+              <CSSTransition
+                in={showModal}
+                timeout={300}
+                classNames={styles}
+                unmountOnExit
+              >
+                <Modal onModalToggle={this.modalClose} />
+              </CSSTransition>
+            </div>
           </div>
-          {loader && <Loader />}
         </div>
-      </div>
-    </>
-  );
-};
+        <Notification>Выход выполнен успешно</Notification>
+      </>
+    );
+  }
+}
 export default MainPage;

@@ -24,9 +24,9 @@ class Modal extends Component {
       onModalToggle();
     }
   };
-  closeModalOverlay = () => this.props.onModalToggle();
 
   removeScroll = () => {
+    console.log('Hi');
     document.body.classList.remove('stopScroll');
   };
 
