@@ -13,8 +13,8 @@ const onFetchDailyRates = (values) => (dispatch) => {
   axios
     .post("/daily-rate", values)
     .then((receivedData) => {
-      console.log(receivedData.data);
-      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data));
+      console.log(receivedData.data)
+      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data))
     })
     .catch((error) => {
       dispatch(dailyRateActions.fetchDailyRateError(error));
