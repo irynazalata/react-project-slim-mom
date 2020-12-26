@@ -12,7 +12,6 @@ import { pageContainer, bgContainer, headerHide, logoHide } from "./LoginRegistr
 const LoginPage = () => {
   const isError = useSelector(getError);
   const loader = useSelector(getLoader);
-  console.log(loader);
   return (
     <>
       <div className={bgContainer}>
@@ -28,7 +27,7 @@ const LoginPage = () => {
         </div>
       </div>
       <Notification>
-        {isError ? <p>Логин или пароль введен неверно</p> : <p>Регистрация прошла успешно</p>}
+        {isError ? <span>Логин или пароль введен неверно</span> : <span>Регистрация прошла успешно</span>}
       </Notification>
     </>
   );

@@ -15,6 +15,7 @@ const deleteProductRequest = createAction('Product/deleteRequest');
 const deleteProductSuccess = createAction('Product/deleteSuccess');
 const deleteProductError = createAction('Product/deleteError');
 
+// eslint-disable-next-line
 export default {
   addProductRequest,
   addProductSuccess,

@@ -40,6 +40,8 @@ const deleteProduct = (dayId, eatenProductId) => dispatch => {
 //     .then(resp => dispatch(productAddActions.searchProductSuccess(resp)))
 //   .cath(err => dispatch(productAddActions.searchProductError(err)))
 // }
+
+// eslint-disable-next-line
 export default {
   addProduct,
   fetchProducts,
