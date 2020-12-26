@@ -124,8 +124,10 @@ input[type="radio"]:checked + label:after {
   content: "";
   display: block;
   position: absolute;
-  top: 2px;
-  left: 5px;
+  bottom: 17%;
+  left: 13%;
+  /* top: 2px;
+  left: 5px; */
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -140,8 +142,18 @@ input[type="radio"]:checked + label:after {
   color: #9b9faa;
 }
 
-input:checked + label {
-  color: #fc842d;
+
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+input[type="number"] {
+   -moz-appearance: textfield;
 }
 
 @media screen and (min-width: 768px) {
