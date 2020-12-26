@@ -21,7 +21,6 @@
   display: block;
   width: 155px;
   position: relative;
-  z-index: 101;
   margin-bottom: 31px;
 }
 .react-datepicker__month-container {
@@ -37,6 +36,7 @@
   .CalendarContainer {
     width: 261px;
     margin-bottom: 60px;
+    z-index: 101;
   }
   .img {
     top: 13px;
