@@ -12,7 +12,6 @@ const LoginForm = ({ onSubmit, DisplayingErrorMessagesSchema }) => {
         initialValues={{ email: '', password: '' }}
         validationSchema={DisplayingErrorMessagesSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log('hello');
           onSubmit(values);
           resetForm({});
         }}

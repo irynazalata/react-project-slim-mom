@@ -27,7 +27,7 @@ const LoginPage = () => {
         </div>
       </div>
       <Notification>
-        {isError ? <p>Логин или пароль введен неверно</p> : <p>Регистрация прошла успешно</p>}
+        {isError ? <span>Логин или пароль введен неверно</span> : <span>Регистрация прошла успешно</span>}
       </Notification>
     </>
   );

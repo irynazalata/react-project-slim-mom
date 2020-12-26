@@ -36,7 +36,7 @@ const RegistrationPage = () => {
           {loader && <Loader/>}
         </div>
       </div>
-      <Notification><p>Произошла ошибка, повторите попытку еще раз</p></Notification>
+      <Notification><span>Произошла ошибка, повторите попытку еще раз</span></Notification>
     </>
   );
 };

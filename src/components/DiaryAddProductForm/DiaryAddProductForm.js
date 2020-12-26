@@ -116,7 +116,7 @@ class DiaryAddProductForm extends Component {
           />
         )}
         </form>
-        <Notification> Такого продукта нет! </Notification>
+        <Notification><span>Такого продукта нет!</span></Notification>
         </>
     );
   }
