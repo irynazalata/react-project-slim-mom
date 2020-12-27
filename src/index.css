@@ -7,10 +7,14 @@ html {
 *::after {
   box-sizing: inherit;
 }
+#root {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   margin: 0;
-  font-family: "Gotham Pro";
+  font-family: 'Gotham Pro';
   font-weight: 700;
   scrollbar-color: #264061 #f0f1f3;
   scrollbar-width: 6px;
@@ -25,10 +29,6 @@ body {
 }
 ::-webkit-scrollbar-thumb:vertical {
   height: 40px;
-}
-#root {
-  margin: 0;
-  padding: 0;
 }
 
 .container {
