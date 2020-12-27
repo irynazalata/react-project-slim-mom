@@ -1,5 +1,5 @@
-import React, { Component, Suspense, Redirect } from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import React, { Component, Suspense } from 'react';
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import routes from './routes';
 import { authOperations } from './redux/auth';
