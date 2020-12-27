@@ -25,9 +25,10 @@ const bloodTypeFour = [
   "Красное мясо",
 ];
 
+// eslint-disable-next-line
 export default {
   bloodTypeOne,
   bloodTypeTwo,
   bloodTypeThree,
-  bloodTypeFour,
+  bloodTypeFour
 };

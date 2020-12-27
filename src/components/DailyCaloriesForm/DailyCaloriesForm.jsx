@@ -61,7 +61,6 @@ const DailyCaloriesForm = ({ onShowModal }) => {
         }}
         onSubmit={(values) => {
           handleSubmit(values)
-          
         }}
       >
         {({ errors, touched }) => (
@@ -135,34 +134,40 @@ const DailyCaloriesForm = ({ onShowModal }) => {
                     <div className={styles.error}>{errors.desiredWeight}</div>
                   )}
                 </label>
+                <div className={styles.radioGroupContainer}>
+                  <p className={styles.radioTitle}>Группа крови*</p>
 
-                <p className={styles.radioTitle}>Группа крови*</p>
-                {touched.bloodType && errors.bloodType && (
-                  <div className={styles.error}>{errors.bloodType}</div>
-                )}
-                <div className={styles.radioWrapper} role="group">
-                  <Field
-                    id="first"
-                    type="radio"
-                    name="bloodType"
-                    value="1"
-                    required
-                  />
-                  <label htmlFor="first" className={styles.radioLabel}>
-                    1
-                  </label>
-                  <Field id="second" type="radio" name="bloodType" value="2" />
-                  <label htmlFor="second" className={styles.radioLabel}>
-                    2
-                  </label>
-                  <Field id="third" type="radio" name="bloodType" value="3" />
-                  <label htmlFor="third" className={styles.radioLabel}>
-                    3
-                  </label>
-                  <Field id="fourth" type="radio" name="bloodType" value="4" />
-                  <label htmlFor="fourth" className={styles.radioLabel}>
-                    4
-                  </label>
+                  {touched.bloodType && errors.bloodType && (
+                    <div className={styles.errorRadio}>{errors.bloodType}</div>
+                  )}
+                  <div className={styles.radioWrapper} role="group">
+                    <Field id="first" type="radio" name="bloodType" value="1" />
+                    <label htmlFor="first" className={styles.radioLabel}>
+                      1
+                    </label>
+                    <Field
+                      id="second"
+                      type="radio"
+                      name="bloodType"
+                      value="2"
+                    />
+                    <label htmlFor="second" className={styles.radioLabel}>
+                      2
+                    </label>
+                    <Field id="third" type="radio" name="bloodType" value="3" />
+                    <label htmlFor="third" className={styles.radioLabel}>
+                      3
+                    </label>
+                    <Field
+                      id="fourth"
+                      type="radio"
+                      name="bloodType"
+                      value="4"
+                    />
+                    <label htmlFor="fourth" className={styles.radioLabel}>
+                      4
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -175,6 +180,5 @@ const DailyCaloriesForm = ({ onShowModal }) => {
     </>
   )
 }
-
 
 export default DailyCaloriesForm

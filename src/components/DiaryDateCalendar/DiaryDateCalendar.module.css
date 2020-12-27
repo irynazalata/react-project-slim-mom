@@ -36,6 +36,7 @@
   .CalendarContainer {
     width: 261px;
     margin-bottom: 60px;
+    z-index: 101;
   }
   .img {
     top: 13px;

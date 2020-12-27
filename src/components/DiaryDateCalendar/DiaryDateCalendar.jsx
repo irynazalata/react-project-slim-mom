@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import moment from 'moment';
 import img from "../../images/calendar.png";
 import Calendar from "./Calendar";
@@ -20,7 +20,6 @@ class DiaryDateCalendar extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("hello");
     if (prevState.date !== this.state.date) {
     this.props.toFetchProducts(this.state.date)
   }
@@ -30,7 +29,6 @@ class DiaryDateCalendar extends Component {
     setSomeDate(someDate);
     
     const result = someDate ? moment(someDate).format("YYYY-MM-DD") : 0;
-    console.log(result);
     this.setState({ date: result });
     this.props.setDate(result)
   };

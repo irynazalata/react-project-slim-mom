@@ -17,6 +17,7 @@
   width: 240px;
   border: 0;
   border-bottom: 1px solid #e0e0e0;
+  background: rgba(255, 255, 255, 0.2);
 }
 .input:focus {
   outline: none;
@@ -55,6 +56,14 @@
   color: #e11616;
   font-size: 15px;
 }
+.errorRadio {
+  width: 300px;
+  position: absolute;
+  top: 58px;
+  left: 0;
+  color: #e11616;
+  font-size: 15px;
+}
 
 .button {
   margin: 0 auto;
@@ -87,6 +96,9 @@
   display: flex;
   justify-content: space-between;
 }
+.radioGroupContainer{
+  position: relative;
+}
 
 .radioTitle {
   margin: 0;
@@ -102,7 +114,6 @@
   color: #9b9faa;
 }
 
-/* custom radio-styles */
 input[type="radio"] + label {
   display: inline-block;
   cursor: pointer;
@@ -132,8 +143,9 @@ input[type="radio"]:checked + label:after {
   content: "";
   display: block;
   position: absolute;
-  top: 2px;
-  left: 5px;
+  bottom: 17%;
+  left: 13%;
+ 
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -151,7 +163,15 @@ input[type="radio"]:checked + label:after {
 input:checked + label {
   color: #fc842d;
 }
-/* custom radio-styles finish*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+input[type="number"] {
+   -moz-appearance: textfield;
+}
 
 @media screen and (min-width: 768px) {
   .title {

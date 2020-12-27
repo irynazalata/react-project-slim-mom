@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 
+// eslint-disable-next-line
 export default [
   {
     path: '/',
