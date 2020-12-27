@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component, Suspense, Redirect } from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import routes from './routes';
@@ -24,6 +24,7 @@ class App extends Component {
                 <PublicRoute key={route.label} {...route} />
               ),
             )}
+            <Redirect to="/" />
           </Switch>
         </Suspense>
       </BrowserRouter>
