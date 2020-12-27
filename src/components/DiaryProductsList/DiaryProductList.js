@@ -1,19 +1,21 @@
-import React from "react";
-import { connect } from "react-redux";
-import productAddSelectors from "../../redux/products/productAdd/productAddSelectors";
-import productAddOperations from "../../redux/products/productAdd/productAddOperations";
-import DiaryProductsListItem from "./DiaryProductsListItem/DiaryProductsListItem";
-import styles from "./DiaryProductsList.module.css";
-import { Component } from "react";
+import React from 'react';
+import { connect } from 'react-redux';
+import productSelectors from '../../redux/products/productSelectors';
+import productOperations from '../../redux/products/productOperations';
+import DiaryProductsListItem from './DiaryProductsListItem/DiaryProductsListItem';
+import styles from './DiaryProductsList.module.css';
+import { Component } from 'react';
 
 class DiaryProductsList extends Component {
   render() {
     return (
       <>
         {!this.props.products || !(this.props.products.length > 0) ? (
-          <h4 className={styles.title}>Съеденные в этот день продукты ещё не добавлены</h4>
+          <h4 className={styles.title}>
+            Съеденные в этот день продукты ещё не добавлены
+          </h4>
         ) : (
-          ""
+          ''
         )}
         {this.props.products && (
           <ul className={styles.list}>
@@ -27,13 +29,13 @@ class DiaryProductsList extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  products: productAddSelectors.getProducts(state),
+const mapStateToProps = state => ({
+  products: productSelectors.getProducts(state),
   date: state.date,
 });
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    toFetchProducts: (date) => dispatch(productAddOperations.fetchProducts(date)),
+    toFetchProducts: date => dispatch(productOperations.fetchProducts(date)),
   };
 };
 

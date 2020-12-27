@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import img from '../../images/plus.png';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import productAddOperations from '../../redux/products/productAdd/productAddOperations';
+import productOperations from '../../redux/products/productOperations';
 import AxiosList from './AxiosList';
 import notificationActions from '../../redux/notification/notificationActions';
 import Notification from '../../shared/Notification/Notification';
@@ -148,8 +148,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     toAddProducts: (date, productId, weight) =>
-      dispatch(productAddOperations.addProduct(date, productId, weight)),
-    toFetchProducts: date => dispatch(productAddOperations.fetchProducts(date)),
+      dispatch(productOperations.addProduct(date, productId, weight)),
+    toFetchProducts: date => dispatch(productOperations.fetchProducts(date)),
     NotificationToTrue: () => dispatch(notificationActions.notificationTrue()),
     NotificationToFalse: () =>
       dispatch(notificationActions.notificationFalse()),
