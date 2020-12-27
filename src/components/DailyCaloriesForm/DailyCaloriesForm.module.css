@@ -56,6 +56,14 @@
   color: #e11616;
   font-size: 15px;
 }
+.errorRadio {
+  width: 300px;
+  position: absolute;
+  top: 58px;
+  left: 0;
+  color: #e11616;
+  font-size: 15px;
+}
 
 .button {
   margin: 0 auto;
@@ -87,6 +95,9 @@
 .radioWrapper {
   display: flex;
   justify-content: space-between;
+}
+.radioGroupContainer{
+  position: relative;
 }
 
 .radioTitle {
