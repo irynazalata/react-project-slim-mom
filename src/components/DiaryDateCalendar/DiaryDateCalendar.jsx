@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import img from '../../images/calendar.png';
 import Calendar from './Calendar';
 import setDate from '../../redux/calendar/calendarAction';
 import productOperations from '../../redux/products/productOperations';
@@ -33,10 +32,9 @@ class DiaryDateCalendar extends Component {
   };
   render() {
     return (
-      <label className={style.CalendarContainer}>
+      <div className={style.CalendarContainer}>
         <Calendar onTap={this.handleTap} />
-        <img className={style.img} src={img} alt="" />
-      </label>
+      </div>
     );
   }
 }

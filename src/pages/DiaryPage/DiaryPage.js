@@ -16,6 +16,7 @@ class DiaryPage extends Component {
 
   modalToggle = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
+    document.body.classList.add('stopScroll');
   };
 
   render() {

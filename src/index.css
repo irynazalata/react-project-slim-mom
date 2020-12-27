@@ -37,11 +37,30 @@ body {
   margin: 0 auto;
 }
 
+.react-datepicker-wrapper {
+  position: relative;
+}
+.react-datepicker-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 20px;
+  top: 0;
+  right: -17px;
+  background-image: url('./images/calendar.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
     padding: 0 87px;
     margin: 0 auto;
+  }
+  .react-datepicker-wrapper::after {
+    top: 12px;
+    right: -36px;
   }
 }
 

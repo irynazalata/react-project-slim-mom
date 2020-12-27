@@ -53,11 +53,19 @@ html {
   margin: 0px;
   text-align: right;
 }
-.listName{
+.listName {
   list-style-type: none;
   padding-inline-start: 0px;
   margin: 0px;
   text-align: left;
+}
+.products {
+  width: 280px;
+  height: 77px;
+  overflow: auto;
+}
+.percent {
+  margin-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -76,7 +84,7 @@ html {
   .meny {
     width: 270px;
     padding-top: 91px;
-    background-image: url("../../images/tablet/leaves-sidebar-tablet-x1-min.png");
+    background-image: url('../../images/tablet/leaves-sidebar-tablet-x1-min.png');
   }
   .menutext {
     margin-bottom: 0px;
@@ -87,12 +95,15 @@ html {
   .title {
     margin: 0 0 39px;
   }
+  .products {
+    height: 112px;
+  }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
   screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .meny {
-    background-image: url("../../images/tablet/leaves-sidebar-tablet-x2-v2-min.png");
+    background-image: url('../../images/tablet/leaves-sidebar-tablet-x2-v2-min.png');
   }
 }
 
@@ -101,7 +112,7 @@ html {
     width: 535px;
     padding: 141px 0 162px 90px;
     display: block;
-    background-image: url("../../images/desktop/leaves-sidebar-desktop-x1-v2-min.png");
+    background-image: url('../../images/desktop/leaves-sidebar-desktop-x1-v2-min.png');
     background-position: 0px -135px;
     margin-left: auto;
   }
@@ -114,7 +125,7 @@ html {
     padding-top: 0;
     height: 168px;
   }
-  .title{
+  .title {
     margin: 0 0 25px;
   }
 }
@@ -122,16 +133,7 @@ html {
   screen and (min-resolution: 192dpi) and (min-width: 1280px),
   screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .container {
-    background-image: url("../../images/desktop/leaves-sidebar-desktop-x2-v2-min.png");
+    background-image: url('../../images/desktop/leaves-sidebar-desktop-x2-v2-min.png');
     background-position: 0px -135px;
   }
-}
-
-.products {
-  width: 280px;
-  height: 170px;
-  overflow: scroll;
-}
-.percent {
-  margin-right: 20px;
 }
