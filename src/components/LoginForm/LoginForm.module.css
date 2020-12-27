@@ -129,6 +129,7 @@
 @media screen and (min-width: 1280px) {
   .title {
     margin-bottom: 91px;
+    margin-top: 0;
     padding-top: 118px;
   }
 
