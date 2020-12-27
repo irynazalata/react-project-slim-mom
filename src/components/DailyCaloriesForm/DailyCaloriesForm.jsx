@@ -56,8 +56,8 @@ const DailyCaloriesForm = ({ onShowModal }) => {
           weight: userData && userData.weight ? userData.weight : "",
           desiredWeight:
             userData && userData.desiredWeight ? userData.desiredWeight : "",
-          // bloodType:
-          //   userData && userData.bloodType ? userData.bloodType.toString() : "",
+          bloodType:
+            userData && userData.bloodType ? userData.bloodType.toString() : "",
           
         }}
         onSubmit={(values) => {
