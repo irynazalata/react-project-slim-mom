@@ -81,6 +81,10 @@
   justify-content: space-between;
 }
 
+.radioGroupContainer{
+  position: relative;
+}
+
 .radioTitle {
   margin: 0;
   margin-bottom: 14px;
@@ -124,8 +128,9 @@ input[type="radio"]:checked + label:after {
   content: "";
   display: block;
   position: absolute;
-  top: 2px;
-  left: 5px;
+  bottom: 17%;
+  left: 13%;
+
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -140,8 +145,18 @@ input[type="radio"]:checked + label:after {
   color: #9b9faa;
 }
 
-input:checked + label {
-  color: #fc842d;
+
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+input[type="number"] {
+   -moz-appearance: textfield;
 }
 
 @media screen and (min-width: 768px) {
@@ -190,6 +205,15 @@ input:checked + label {
   width: 300px;
   position: absolute;
   top: 28px;
+  left: 0;
+  color: #e11616;
+  font-size: 15px;
+}
+
+.errorRadio {
+  width: 300px;
+  position: absolute;
+  top: 58px;
   left: 0;
   color: #e11616;
   font-size: 15px;
