@@ -65,6 +65,7 @@
   text-align: center;
   letter-spacing: 0.04em;
   outline: none;
+  margin: 0 auto;
 }
 
 .button:hover {
@@ -191,13 +192,13 @@ input[type="number"] {
   .title {
     font-size: 34px;
     line-height: 41px;
-    margin-bottom: 68px;
+    margin-bottom: 85px;
   }
   .inputWrapper {
     margin-bottom: 24px;
   }
   .button {
-    margin-left: 346px;
+    margin-left: auto;
   }
 }
 

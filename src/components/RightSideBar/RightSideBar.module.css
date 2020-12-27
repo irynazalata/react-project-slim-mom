@@ -99,18 +99,23 @@ html {
 @media screen and (min-width: 1280px) {
   .container {
     width: 535px;
-    padding: 137px 60px 112px 90px;
+    padding: 141px 0 162px 90px;
     display: block;
     background-image: url("../../images/desktop/leaves-sidebar-desktop-x1-v2-min.png");
     background-position: 0px -135px;
-    margin: 0;
+    margin-left: auto;
   }
   .summary {
     padding-top: 0;
     margin-bottom: 60px;
+    height: 168px;
   }
   .meny {
     padding-top: 0;
+    height: 168px;
+  }
+  .title{
+    margin: 0 0 25px;
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),

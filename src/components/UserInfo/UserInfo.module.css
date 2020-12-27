@@ -12,7 +12,7 @@
   width: 290px;
   align-items: center;
   justify-content: flex-end ;
-  margin: 0 auto;
+  margin-left: auto;
 }
 .name {
   font-family: Gotham Pro;
