@@ -1,18 +1,20 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
-import styles from "./DailyCalorieIntake.module.css"
-import dailyRateSelector from "../../redux/dailyRate/dailyRateSelector"
-import sprite from "../../images/sprite.svg"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import styles from './DailyCalorieIntake.module.css';
+import dailyRateSelector from '../../redux/dailyRate/dailyRateSelector';
+import sprite from '../../images/sprite.svg';
 
 const DailyCalorieIntake = () => {
-  const calories = useSelector(dailyRateSelector.getCalories)
-  const products = useSelector(dailyRateSelector.getProducts)
+  const calories = useSelector(dailyRateSelector.getCalories);
+  const products = useSelector(dailyRateSelector.getProducts);
 
-  const [value, setValue] = useState("")
-  const onChange = (event) => setValue(event.target.value)
+  const [value, setValue] = useState('');
+  const onChange = event => setValue(event.target.value);
 
-  const productsFinal = products.filter((product) => product.includes(value))
+  const productsFinal = products.filter(product =>
+    product.toLowerCase().includes(value),
+  );
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>
@@ -36,7 +38,7 @@ const DailyCalorieIntake = () => {
           />
           <span>
             <svg width="12" height="12">
-              <use href={sprite + "#search-icon"} />
+              <use href={sprite + '#search-icon'} />
             </svg>
           </span>
         </div>
@@ -53,7 +55,7 @@ const DailyCalorieIntake = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DailyCalorieIntake
+export default DailyCalorieIntake;
