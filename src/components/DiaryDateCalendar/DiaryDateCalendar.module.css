@@ -8,6 +8,7 @@
   width: 138px;
   height: 20px;
   padding: 0;
+  margin-bottom: 30px;
 }
 
 .react-datepicker__month-container {
@@ -19,6 +20,7 @@
     line-height: 1.215;
     width: 219px;
     height: 38px;
+    margin-bottom: 0;
   }
   .CalendarContainer {
     position: relative;
