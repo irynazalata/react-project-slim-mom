@@ -44,6 +44,9 @@ class DiaryAddProductForm extends Component {
     axios
       .get(`/product?search=${query}`)
       .then(resp => {
+        if (this.state.product.length < 3) {
+          return;
+        }
         this.setState({
           productsQuery: resp.data.length > 1 ? [...resp.data] : [],
         });
@@ -57,18 +60,14 @@ class DiaryAddProductForm extends Component {
           alert('Ошибка при аутентификации!');
         }
         if (err.response.status === 400) {
-          console.log(err.response.status);
           if (this.state.product.includes('(')) {
             return;
           } else {
-            this.props.NotificationToTrue();
             this.props.errorToTrue();
+            this.props.NotificationToTrue();
             setTimeout(() => {
               this.props.NotificationToFalse();
-            }, 2000);
-            setTimeout(() => {
-              this.props.errorToFalse();
-            }, 3000);
+            }, 500);
           }
         }
       });
@@ -86,7 +85,7 @@ class DiaryAddProductForm extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.product !== this.state.product) {
       if (this.state.product.length < 3) {
-        this.setState({ productsQuery: [], weight: '' });
+        this.setState(prevState => ({ productsQuery: [], weight: '' }));
         return;
       }
       this.searchProducts(this.state.product);

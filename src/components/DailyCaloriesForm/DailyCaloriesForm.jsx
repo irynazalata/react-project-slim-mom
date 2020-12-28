@@ -79,14 +79,13 @@ const DailyCaloriesForm = ({ onShowModal }) => {
                     min="100"
                     max="260"
                     required
-                  />{" "}
+                  />
                   <p className={styles.labelValue}>Рост*</p>
                   {touched.height && errors.height && (
                     <div className={styles.error}>{errors.height}</div>
                   )}
                 </label>
                 <label className={styles.label}>
-                  {" "}
                   <Field
                     placeholder=" "
                     className={styles.input}
