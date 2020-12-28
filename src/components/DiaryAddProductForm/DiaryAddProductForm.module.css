@@ -76,8 +76,13 @@
   }
   .input {
     width: 104px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-weight: normal;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+    text-align: end;
   }
   .input:first-child {
     width: 239px;

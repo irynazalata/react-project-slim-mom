@@ -67,7 +67,7 @@ class DiaryAddProductForm extends Component {
             this.props.NotificationToTrue();
             setTimeout(() => {
               this.props.NotificationToFalse();
-            }, 500);
+            }, 2000);
           }
         }
       });
@@ -111,6 +111,7 @@ class DiaryAddProductForm extends Component {
             value={this.state.product ? this.state.weight : ''}
             placeholder="Граммы"
             type="number"
+            min="0"
             onChange={this.handleChange}
           />
           <button className={style.btn} type="submit">
