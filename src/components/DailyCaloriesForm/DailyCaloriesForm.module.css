@@ -30,7 +30,7 @@
 .labelValue {
   position: absolute;
   left: 0;
-  top: -20px;
+  top: -28px;
 
   padding: 0;
   font-family: Verdana;
@@ -47,14 +47,20 @@
   top: -30px;
   font-size: 12px;
 }
-
+.errorInput {
+  background-color: #e1161613;
+  border-bottom: 1px solid #e11616;
+}
+/* .errorLabelValue {
+  color: #e11616;
+} */
 .error {
   width: 300px;
   position: absolute;
-  top: 28px;
+  top: 22px;
   left: 0;
   color: #e11616;
-  font-size: 15px;
+  font-size: 13px;
 }
 .errorRadio {
   width: 300px;
@@ -96,7 +102,7 @@
   display: flex;
   justify-content: space-between;
 }
-.radioGroupContainer{
+.radioGroupContainer {
   position: relative;
 }
 
@@ -114,7 +120,7 @@
   color: #9b9faa;
 }
 
-input[type="radio"] + label {
+input[type='radio'] + label {
   display: inline-block;
   cursor: pointer;
   position: relative;
@@ -122,8 +128,8 @@ input[type="radio"] + label {
   margin-right: 15px;
   font-size: 14px;
 }
-input[type="radio"] + label:before {
-  content: "";
+input[type='radio'] + label:before {
+  content: '';
   display: block;
   width: 22px;
   height: 22px;
@@ -135,17 +141,17 @@ input[type="radio"] + label:before {
   background-color: #fff;
   border-radius: 50%;
 }
-input[type="radio"] {
+input[type='radio'] {
   display: none !important;
   *display: inline;
 }
-input[type="radio"]:checked + label:after {
-  content: "";
+input[type='radio']:checked + label:after {
+  content: '';
   display: block;
   position: absolute;
   bottom: 17%;
   left: 13%;
- 
+
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -166,11 +172,11 @@ input:checked + label {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-   -webkit-appearance: none;
-   margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
-input[type="number"] {
-   -moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 @media screen and (min-width: 768px) {

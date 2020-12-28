@@ -23,7 +23,9 @@ const LoginForm = ({ onSubmit, DisplayingErrorMessagesSchema }) => {
                 type="text"
                 name="email"
                 placeholder=" "
-                className={styles.input}
+                className={`${styles.input} ${
+                  touched.email && errors.email && styles.errorInput
+                }`}
               />
               <p className={styles.name}>Логин *</p>
               {touched.email && errors.email && (
@@ -35,7 +37,9 @@ const LoginForm = ({ onSubmit, DisplayingErrorMessagesSchema }) => {
                 type="password"
                 name="password"
                 placeholder=" "
-                className={styles.inputPass}
+                className={`${styles.inputPass} ${
+                  touched.password && errors.password && styles.errorInput
+                }`}
               />
               <p className={styles.name}>Пароль *</p>
               {touched.password && errors.password && (
