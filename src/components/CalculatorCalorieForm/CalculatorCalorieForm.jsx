@@ -66,14 +66,24 @@ function CalculatorCalorieForm() {
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      errors.height && touched.height ? styles.errorInput : ''
+                    }`}
                     name="height"
                     type="number"
                     min="100"
                     max="260"
                     required
                   />
-                  <p className={styles.labelValue}>Рост*</p>
+                  <p
+                    className={`${styles.labelValue} ${
+                      errors.height && touched.height
+                        ? styles.errorLabelValue
+                        : ''
+                    }`}
+                  >
+                    Рост*
+                  </p>
                   {touched.height && errors.height && (
                     <div className={styles.error}>{errors.height}</div>
                   )}
@@ -81,14 +91,22 @@ function CalculatorCalorieForm() {
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      touched.age && errors.age ? styles.errorInput : ''
+                    }`}
                     name="age"
                     type="number"
                     min="12"
                     max="100"
                     required
                   />
-                  <p className={styles.labelValue}>Возраст*</p>
+                  <p
+                    className={`${styles.labelValue} ${
+                      touched.age && errors.age ? styles.errorLabelValue : ''
+                    }`}
+                  >
+                    Возраст*
+                  </p>
                   {touched.age && errors.age && (
                     <div className={styles.error}>{errors.age}</div>
                   )}
@@ -97,14 +115,24 @@ function CalculatorCalorieForm() {
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      touched.weight && errors.weight ? styles.errorInput : ''
+                    }`}
                     name="weight"
                     type="number"
                     min="40"
                     max="200"
                     required
                   />
-                  <p className={styles.labelValue}>Текущий вес*</p>
+                  <p
+                    className={`${styles.labelValue} ${
+                      touched.weight && errors.weight
+                        ? styles.errorLabelValue
+                        : ''
+                    }`}
+                  >
+                    Текущий вес*
+                  </p>
                   {touched.weight && errors.weight && (
                     <div className={styles.error}>{errors.weight}</div>
                   )}
@@ -114,14 +142,26 @@ function CalculatorCalorieForm() {
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      touched.desiredWeight && errors.desiredWeight
+                        ? styles.errorInput
+                        : ''
+                    }`}
                     name="desiredWeight"
                     type="number"
                     min="40"
                     max="150"
                     required
                   />
-                  <p className={styles.labelValue}>Желаемый вес*</p>
+                  <p
+                    className={`${styles.labelValue} ${
+                      touched.desiredWeight && errors.desiredWeight
+                        ? styles.errorLabelValue
+                        : ''
+                    }`}
+                  >
+                    Желаемый вес*
+                  </p>
                   {touched.desiredWeight && errors.desiredWeight && (
                     <div className={styles.error}>{errors.desiredWeight}</div>
                   )}

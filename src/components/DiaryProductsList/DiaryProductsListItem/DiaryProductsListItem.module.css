@@ -9,6 +9,7 @@
 }
 .listItem p {
   border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
 }
 .listItemWeight {
   margin-right: 10px;
@@ -42,6 +43,7 @@
 @media screen and (min-width: 768px) {
   .listItem p {
     margin-right: 30px;
+    padding-bottom: 20px;
   }
   .listItemName {
     width: 240px;

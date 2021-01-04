@@ -1,5 +1,5 @@
 .title {
-  font-family: "Gotham Pro";
+  font-family: 'Gotham Pro';
   margin-bottom: 80px;
   font-size: 14px;
   font-weight: 700;
@@ -46,7 +46,10 @@
   font-size: 12px;
   transition: 0.3s;
 }
-
+.errorInput {
+  background-color: #e1161613;
+  border-bottom: 1px solid #e11616;
+}
 .label {
   position: relative;
 }

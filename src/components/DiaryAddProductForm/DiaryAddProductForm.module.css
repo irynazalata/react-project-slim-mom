@@ -7,7 +7,6 @@
 }
 .input {
   display: block;
-
   width: 289px;
   font-weight: normal;
   font-size: 14px;
@@ -79,10 +78,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: normal;
+    text-align: end;
   }
   input[type='number'] {
     -moz-appearance: textfield;
-    text-align: end;
   }
   .input:first-child {
     width: 239px;
