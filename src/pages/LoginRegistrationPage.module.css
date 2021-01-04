@@ -16,12 +16,13 @@
   }
   .bgContainer {
     background-image: url(../images/tablet-webP/banana-tablet-x1.webp),
-      url(../images/tablet/Strawberry-Big-PNG.svg),
+      url(../images/tablet/strawberry-tablet-x1-min.png),
       url(../images/tablet/leaves-tablet-x1-min-login.png),
-      url(../images/tablet-webP/greybcg-tablet-x1.webp);
+      url(../images/tablet/greybcg-tablet-x1-min.png);
     background-repeat: no-repeat;
-    background-position: bottom right, bottom 200px right,
+    background-position: bottom right, bottom 170px right -120px,
       bottom 250px left 12px, bottom right;
+      background-size: auto, 450px, auto, auto;
   }
 }
 
