@@ -15,7 +15,7 @@
     position: relative;
   }
   .bgContainer {
-    background-image: url(../images/tablet-webP/banana-tablet-x1.webp),
+    background-image: url(../images/tablet/banana-tablet-x1-min.png),
       url(../images/tablet/strawberry-tablet-x1-min.png),
       url(../images/tablet/leaves-tablet-x1-min-login.png),
       url(../images/tablet/greybcg-tablet-x1-min.png);
