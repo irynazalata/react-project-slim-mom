@@ -49,31 +49,3 @@
     padding-left: 148px;
   }
 }
-
-@media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi) and (min-width: 768px),
-  screen and (min-resolution: 2dppx) and (min-width: 768px) {
-  .bgContainer {
-    background-image: url(../images/tablet-webP/banana-tablet-x2.webp),
-      url(../images/tablet/strawberry-tablet-x2-min.png),
-      url(../images/tablet/leaves-tablet-x2-min-login.png),
-      url(../images/tablet-webP/greybcg-tablet-x2.webp);
-    background-repeat: no-repeat;
-    background-position: bottom right, top 433px right, bottom 279px left 12px,
-      bottom right;
-  }
-}
-
-@media screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi) and (min-width: 1280px),
-  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
-  .bgContainer {
-    background-image: url(../images/desktop/banana-desktop-x2-min-login.png),
-      url(../images/desktop/leaves-desktop-x2-min-login.png),
-      url(../images/desktop/strawberry-desktop-x2-min-login.png),
-      url(../images/desktop/greybcg-desktop-x2-min.png);
-    background-repeat: no-repeat;
-    background-position: bottom right, bottom right 200px, top 193px right,
-      bottom right;
-  }
-}
