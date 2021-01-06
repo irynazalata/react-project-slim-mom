@@ -96,7 +96,6 @@ class SideBar extends Component {
   render() {
     const { data, kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = this.state;
     const dateNow = moment(data).format("DD.MM.YYYY");
-    // console.log(this.props.products);
     return (
       <div className={classes.container}>
         <div className={classes.summary}>
