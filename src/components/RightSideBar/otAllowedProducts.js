@@ -31,7 +31,7 @@ const bloodTypeFour = [
 ];
 
 // eslint-disable-next-line
-export default {
+export {
   bloodTypeOne,
   bloodTypeTwo,
   bloodTypeThree,
