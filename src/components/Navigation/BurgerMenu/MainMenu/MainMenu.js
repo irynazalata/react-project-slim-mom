@@ -1,8 +1,8 @@
 import React, { useRef, useContext } from "react";
-import useOnClickOutside from "./onClickOutside";
-import { MenuContext } from "./NavState";
-import HamburgerButton from "./HamburgerButton";
-import { SideMenu } from "./SideMenu";
+import useOnClickOutside from "../onClickOutside/onClickOutside";
+import { MenuContext } from "../NavState/NavState";
+import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import { SideMenu } from "../SideMenu/SideMenu";
 
 const MainMenu = () => {
   const node = useRef();
