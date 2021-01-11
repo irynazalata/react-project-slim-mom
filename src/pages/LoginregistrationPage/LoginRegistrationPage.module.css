@@ -15,14 +15,14 @@
     position: relative;
   }
   .bgContainer {
-    background-image: url(../images/tablet/banana-tablet-x1-min.png),
-      url(../images/tablet/strawberry-tablet-x1-min.png),
-      url(../images/tablet/leaves-tablet-x1-min-login.png),
-      url(../images/tablet/greybcg-tablet-x1-min.png);
+    background-image: url(../../images/tablet/banana-tablet-x1-min.png),
+      url(../../images/tablet/strawberry-tablet-x1-min.png),
+      url(../../images/tablet/leaves-tablet-x1-min-login.png),
+      url(../../images/tablet/greybcg-tablet-x1-min.png);
     background-repeat: no-repeat;
     background-position: bottom right, bottom 170px right -120px,
       bottom 250px left 12px, bottom right;
-      background-size: auto, 450px, auto, auto;
+    background-size: auto, 450px, auto, auto;
   }
 }
 
@@ -33,13 +33,14 @@
     padding: 95px 0 0 115px;
   }
   .bgContainer {
-    background-image: url(../images/desktop/banana-desktop-x1-min-login.png),
-      url(../images/desktop/strawberry-desktop-x1-min-login.svg),
-      url(../images/desktop/Strawberry-Big-PNG.svg),
-      url(../images/desktop/greybcg-desktop-login-x1.png);
+    background-image: url(../../images/desktop/banana-desktop-x1-min-login.png),
+      url(../../images/desktop/leaves-desktop-x2-min-login.png),
+      url(../../images/desktop/strawberry-desktop-x1-min-login.png),
+      url(../../images/desktop/greybcg-desktop-login-x1.png);
     background-repeat: no-repeat;
-    background-position: bottom right, bottom right 250px, top 193px right,
+    background-position: bottom right, bottom right 270px, top 193px right,
       bottom right;
+    background-size: auto, 756px, auto, auto;
   }
   .headerHide {
     display: none;
