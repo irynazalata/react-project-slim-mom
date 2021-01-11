@@ -16,12 +16,14 @@ const RegistrationPage = () => {
   const loader = useSelector(getLoader);
   const dispatch = useDispatch();
   const history = useHistory();
+
   useEffect(() => {
     if (name) {
       dispatch(authActions.unsetUserName());
       history.push("/auth/login");
     }
   }, [name, history, dispatch]);
+  
   return (
     <>
       <div className={bgContainer}>

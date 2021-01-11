@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
 import RegistrationForm from "./RegistrationForm";
 import authOperations from "../../redux/auth/authOperations";
-import * as Yup from "yup";
 
 export default function RegistrationFormContainer() {
   const dispatch = useDispatch();
+  
   const DisplayingErrorMessagesSchema = Yup.object().shape({
     username: Yup.string().min(3, "Минимум 3 символа!").max(50, "Слишком длинный!").required("Обязательно"),
     email: Yup.string().min(3, "Минимум 3 символа!").max(50, "Слишком длинный!").required("Обязательно"),
