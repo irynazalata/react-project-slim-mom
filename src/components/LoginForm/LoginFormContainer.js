@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
 import LoginForm from "./LoginForm";
 import authOperations from "../../redux/auth/authOperations";
-import * as Yup from "yup";
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();

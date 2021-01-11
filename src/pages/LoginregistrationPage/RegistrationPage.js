@@ -23,7 +23,7 @@ const RegistrationPage = () => {
       history.push("/auth/login");
     }
   }, [name, history, dispatch]);
-
+  
   return (
     <>
       <div className={bgContainer}>
