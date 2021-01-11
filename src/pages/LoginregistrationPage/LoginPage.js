@@ -1,17 +1,18 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Logo from "../components/Logo/Logo";
-import LoginForm from "../components/LoginForm/LoginFormContainer";
-import Notification from "../shared/Notification/Notification";
 import { useSelector } from "react-redux";
-import getError from "../redux/error/errorSelectors";
-import Loader from "../shared/Loader/Loader";
-import getLoader from "../redux/loader/loaderSelectors";
+import Header from "../../components/Header/Header";
+import Logo from "../../components/Logo/Logo";
+import LoginForm from "../../components/LoginForm/LoginFormContainer";
+import Notification from "../../shared/Notification/Notification";
+import getError from "../../redux/error/errorSelectors";
+import Loader from "../../shared/Loader/Loader";
+import getLoader from "../../redux/loader/loaderSelectors";
 import { pageContainer, bgContainer, headerHide, logoHide } from "./LoginRegistrationPage.module.css";
 
 const LoginPage = () => {
   const isError = useSelector(getError);
   const loader = useSelector(getLoader);
+
   return (
     <>
       <div className={bgContainer}>
