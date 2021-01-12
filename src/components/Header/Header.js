@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-import Logo from "../Logo/Logo";
 import { connect } from "react-redux";
-import Navigation from "../Navigation/Navigation";
 import { authSelectors } from "../../redux/auth";
+import Logo from "../Logo/Logo";
+import Navigation from "../Navigation/Navigation";
+import styles from "./Header.module.css";
 
 const Header = ({ isAuthenticated }) => {
   return (
