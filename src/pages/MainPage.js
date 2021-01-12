@@ -1,42 +1,51 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import DailyCaloriesForm from "../components/DailyCaloriesForm/DailyCaloriesForm";
-import Modal from "../shared/Modal/Modal.js";
-import Header from "../components/Header/Header";
-import { pageContainer, bgContainer } from "./MainPage.module.css";
-import Loader from "../shared/Loader/Loader";
-import getLoader from "../redux/loader/loaderSelectors";
-import styles from "../shared/Modal/Modal.module.css";
-import { CSSTransition } from "react-transition-group";
+import React, { Component } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyCaloriesForm';
+import Notification from '../shared/Notification/Notification';
+import Modal from '../shared/Modal/Modal.js';
+import Header from '../components/Header/Header';
+import styles from '../shared/Modal/Modal.module.css';
+import { pageContainer, bgContainer } from './MainPage.module.css';
 
-const MainPage = function () {
-  const [showModal, setShowModal] = useState(false);
-  const loader = useSelector(getLoader);
-
-  const modalToggle = () => {
-    setShowModal((prevState) => !prevState.showModal);
+class MainPage extends Component {
+  state = {
+    showModal: false,
   };
 
-  const modalClose = () => {
-    setShowModal(false);
+  modalToggle = () => {
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  };
+  modalClose = () => {
+    this.setState({ showModal: false });
   };
 
-  return (
-    <>
-      <div className={bgContainer}>
-        <Header />
-        <div className={pageContainer}>
-          <DailyCaloriesForm onShowModal={modalToggle} />
+  render() {
+    const { showModal } = this.state;
+    return (
+      <>
+        <div className={bgContainer}>
+          <Header />
+          <div className={pageContainer}>
+            <DailyCaloriesForm onShowModal={this.modalToggle} />
 
-          <div id="overlay" className={showModal ? styles.overlay : styles.notShow}>
-            <CSSTransition in={showModal} timeout={300} classNames={styles} unmountOnExit>
-              <Modal onModalToggle={modalClose} />
-            </CSSTransition>
+            <div
+              id="overlay"
+              className={showModal ? styles.overlay : styles.notShow}
+            >
+              <CSSTransition
+                in={showModal}
+                timeout={300}
+                classNames={styles}
+                unmountOnExit
+              >
+                <Modal onModalToggle={this.modalClose} />
+              </CSSTransition>
+            </div>
           </div>
-          {loader && <Loader />}
         </div>
-      </div>
-    </>
-  );
-};
+        <Notification>Выход выполнен успешно</Notification>
+      </>
+    );
+  }
+}
 export default MainPage;
