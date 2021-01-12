@@ -12,6 +12,10 @@ const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
 const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
 const getCurrentUserError = createAction('auth/getCurrentUserError');
 
+const refreshUserRequest = createAction('auth/refreshUserRequest');
+const refreshUserSuccess = createAction('auth/refreshUserSuccess');
+const refreshUserError = createAction('auth/refreshUserError');
+
 const logoutRequest = createAction('auth/logoutRequest');
 const logoutSuccess = createAction('auth/logoutSuccess');
 const logoutError = createAction('auth/logoutError');
@@ -34,5 +38,8 @@ export default {
   logoutSuccess,
   logoutError,
   unsetUserName,
-  tokenUnset
+  tokenUnset,
+  refreshUserRequest,
+  refreshUserSuccess,
+  refreshUserError
 };
