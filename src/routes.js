@@ -1,11 +1,12 @@
 import { lazy } from 'react';
 
+// eslint-disable-next-line
 export default [
   {
     path: '/',
     label: 'Main',
     exact: true,
-    component: lazy(() => import('./pages/MainPage')),
+    component: lazy(() => import('./pages/MainPage/MainPage')),
     private: false,
     restricted: true,
   },
@@ -13,7 +14,7 @@ export default [
     path: '/auth/register',
     label: 'Register',
     exact: true,
-    component: lazy(() => import('./pages/RegistrationPage')),
+    component: lazy(() => import('./pages/LoginregistrationPage/RegistrationPage')),
     private: false,
     restricted: true,
   },
@@ -21,7 +22,7 @@ export default [
     path: '/auth/login',
     label: 'Login',
     exact: true,
-    component: lazy(() => import('./pages/LoginPage')),
+    component: lazy(() => import('./pages/LoginregistrationPage/LoginPage')),
     private: false,
     restricted: true,
   },

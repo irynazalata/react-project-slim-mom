@@ -1,11 +1,8 @@
-
 import Loader from 'react-loader-spinner';
 import React from 'react';
-import classes from "./Loader.module.css";
+import classes from './Loader.module.css';
 
-export default class Loaders extends React.Component {
-
-  render() {
+const Loaders=()=>{
     return (
       <Loader
         type="Grid"
@@ -14,7 +11,7 @@ export default class Loaders extends React.Component {
         width={100}
         timeout={3000}
         className={classes.loader}
-        />
+      />
     );
-  }
 }
+export default(Loaders)

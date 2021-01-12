@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import img from '../../images/plus.png';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import productAddOperations from '../../redux/products/productAdd/productAddOperations';
+import productOperations from '../../redux/products/productOperations';
 import AxiosList from './AxiosList';
-import getNotification from '../../redux/notification/notificationSelectors';
 import notificationActions from '../../redux/notification/notificationActions';
 import Notification from '../../shared/Notification/Notification';
 import errorActions from '../../redux/error/errorActions';
@@ -16,8 +15,8 @@ class DiaryAddProductForm extends Component {
     product: '',
     weight: '',
     productsQuery: [],
-    productId: "",
-    error: "",
+    productId: '',
+    error: '',
   };
 
   componentDidMount() {
@@ -33,52 +32,60 @@ class DiaryAddProductForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.toAddProducts(this.props.date, this.state.productId, this.state.weight);
-    this.setState({ product: "" });
+    this.props.toAddProducts(
+      this.props.date,
+      this.state.productId,
+      this.state.weight,
+    );
+    this.setState({ product: '' });
   };
-  
-  searchProducts = (query) => {
+
+  searchProducts = query => {
     axios
       .get(`/product?search=${query}`)
       .then(resp => {
-        console.log(resp.data);
+        if (this.state.product.length < 3) {
+          return;
+        }
         this.setState({
           productsQuery: resp.data.length > 1 ? [...resp.data] : [],
-        })
+        });
       })
-      .catch((err) => {
-        if (err.response.status == 401 || err.response.status == 403 || err.response.status == 404) {
-         alert ("Ошибка при аутентификации!")
+      .catch(err => {
+        if (
+          err.response.status === 401 ||
+          err.response.status === 403 ||
+          err.response.status === 404
+        ) {
+          alert('Ошибка при аутентификации!');
         }
-        if (err.response.status == 400 ) {
-          this.props.NotificationToTrue()
-          this.props.errorToTrue()
-          setTimeout(() => {
-            this.props.NotificationToFalse()
-          
-          }, 2000)
-          setTimeout(() => {
-            
-            this.props.errorToFalse()
-          }, 3000)
-          
+        if (err.response.status === 400) {
+          if (this.state.product.includes('(')) {
+            return;
+          } else {
+            this.props.errorToTrue();
+            this.props.NotificationToTrue();
+            setTimeout(() => {
+              this.props.NotificationToFalse();
+            }, 2000);
+          }
         }
-      } 
-      )};
+      });
+  };
 
-  getCurrentProduct = (e) => {
+  getCurrentProduct = e => {
     this.setState({
       product: e.target.textContent,
       productId: e.target.dataset.id,
       productsQuery: [],
-      weight: 100
+      weight: 100,
     });
   };
 
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.product !== this.state.product) {
       if (this.state.product.length < 3) {
-        this.setState({ productsQuery: [], weight: '' });
+        this.setState(prevState => ({ productsQuery: [], weight: '' }));
         return;
       }
       this.searchProducts(this.state.product);
@@ -88,54 +95,64 @@ class DiaryAddProductForm extends Component {
   render() {
     return (
       <>
-      <form className={style.form} onSubmit={this.handleSubmit}>
-        <input
-          className={style.input}
-          name="product"
-          value={this.state.product}
-          placeholder="Введите название продукта"
-          type="text"
-          autoComplete="off"
-          onChange={this.handleChange}
-        />
-        <input
-          className={style.input}
-          name="weight"
-          value={this.state.product ? this.state.weight : ""}
-          placeholder="Граммы"
-          type="number"
-          onChange={this.handleChange}
-        />
-        <button className={style.btn} type="submit">
-          Добавить
-        </button>
-        <button className={style.roundBtn} type="submit">
-          <img className={style.img} src={img} alt="add" />
-        </button>
-        {this.state.productsQuery.length >1 && (
-          <AxiosList
-            toGetProduct={this.getCurrentProduct}
-            arr={this.state.productsQuery}
+        <form className={style.form} onSubmit={this.handleSubmit}>
+          <input
+            className={style.input}
+            name="product"
+            value={this.state.product}
+            placeholder="Введите название продукта"
+            type="text"
+            autoComplete="off"
+            onChange={this.handleChange}
           />
-        )}
+          <input
+            className={style.input}
+            name="weight"
+            value={this.state.product ? this.state.weight : ''}
+            placeholder="Граммы"
+            type="number"
+            min="0"
+            onChange={this.handleChange}
+          />
+          <button className={style.btn} type="submit">
+            Добавить
+          </button>
+          <button className={style.roundBtn} type="submit">
+            <img
+              className={style.img}
+              src={img}
+              alt="add"
+              width="14"
+              height="14"
+            />
+          </button>
+          {this.state.productsQuery.length > 1 && (
+            <AxiosList
+              toGetProduct={this.getCurrentProduct}
+              arr={this.state.productsQuery}
+            />
+          )}
         </form>
-        <Notification> Такого продукта нет! </Notification>
-        </>
+        <Notification>
+          <span>Такого продукта нет!</span>
+        </Notification>
+      </>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   date: state.date,
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     toAddProducts: (date, productId, weight) =>
-    dispatch(productAddOperations.addProduct(date, productId, weight)),
-    toFetchProducts: date => dispatch(productAddOperations.fetchProducts(date)),
+      dispatch(productOperations.addProduct(date, productId, weight)),
+    toFetchProducts: date => dispatch(productOperations.fetchProducts(date)),
     NotificationToTrue: () => dispatch(notificationActions.notificationTrue()),
-    NotificationToFalse: () => dispatch(notificationActions.notificationFalse()),
+    NotificationToFalse: () =>
+      dispatch(notificationActions.notificationFalse()),
     errorToTrue: () => dispatch(errorActions.errorTrue()),
     errorToFalse: () => dispatch(errorActions.errorFalse()),
   };

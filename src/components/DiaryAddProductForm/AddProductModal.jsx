@@ -6,7 +6,6 @@ import goBackBtn from '../../images/go-back.png';
 import styles from '../../shared/Modal/Modal.module.css';
 
 class Modal extends Component {
- 
   componentDidMount() {
     window.addEventListener('keydown', this.closeModal);
     document
@@ -20,19 +19,20 @@ class Modal extends Component {
       .removeEventListener('click', this.closeModal);
   }
 
-  
-
   closeModal = event => {
-    console.log(event.target.nodeName);
-    if (event.target.nodeName === "INPUT" || event.target.nodeName === "LI" || event.target.innerText === "Добавить") {
-      return
+    if (
+      event.target.nodeName === 'INPUT' ||
+      event.target.nodeName === 'LI' ||
+      event.target.innerText === 'Добавить'
+    ) {
+      return;
     }
     if (event.code === 'Escape') {
       this.props.onModalToggle();
-    }
-    else {
+    } else {
       this.props.onModalToggle();
     }
+    this.removeScroll();
   };
 
   removeScroll = () => {
@@ -48,7 +48,6 @@ class Modal extends Component {
               type="button"
               onClick={this.props.onModalToggle}
               className={styles.closeModalBtn}
-              type="button"
             >
               <img
                 src={closeModalBtn}

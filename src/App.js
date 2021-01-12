@@ -1,11 +1,10 @@
 import React, { Component, Suspense } from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import routes from './routes';
 import { authOperations } from './redux/auth';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
-import Header from './components/Header/Header';
 import Loader from './shared/Loader/Loader';
 import './App.css';
 
@@ -25,6 +24,7 @@ class App extends Component {
                 <PublicRoute key={route.label} {...route} />
               ),
             )}
+            <Redirect to="/" />
           </Switch>
         </Suspense>
       </BrowserRouter>

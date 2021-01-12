@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import classes from "./RightSideBar.module.css";
 import { connect } from "react-redux";
 import axios from "axios";
 import moment from "moment";
-import otAllowedProducts from "./otAllowedProducts";
+import classes from "./RightSideBar.module.css";
+import { bloodTypeOne, bloodTypeTwo, bloodTypeThree, bloodTypeFour } from "./otAllowedProducts";
 
 const date = moment(Date.now()).format("DD.MM.YYYY");
 
@@ -15,7 +15,6 @@ class SideBar extends Component {
     dailyRate: 0,
     percentsOfDailyRate: "",
     eatenProducts: [],
-    // notAllowedProducts: [],
     bloodTypes: 0,
   };
   componentDidMount() {
@@ -74,33 +73,29 @@ class SideBar extends Component {
     });
   };
   notAllowed() {
-    if (this.state.bloodTypes == 0) {
-      return <p className={classes.defaultText}>Здесь будет отображаться Ваш рацион</p>;
-    } else if (this.state.bloodTypes == 1) {
-      return otAllowedProducts.bloodTypeOne.map((e) =>
-        otAllowedProducts.bloodTypeOne.length !== otAllowedProducts.bloodTypeOne.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
-      );
-    } else if (this.state.bloodTypes == 2) {
-      return otAllowedProducts.bloodTypeTwo.map((e) =>
-        otAllowedProducts.bloodTypeTwo.length !== otAllowedProducts.bloodTypeTwo.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
-      );
-    } else if (this.state.bloodTypes == 3) {
-      return otAllowedProducts.bloodTypeThree.map((e) =>
-        otAllowedProducts.bloodTypeThree.length !== otAllowedProducts.bloodTypeThree.indexOf(e) + 1
-          ? ` ${e},`
-          : ` ${e}.`
-      );
-    } else {
-      return otAllowedProducts.bloodTypeFour.map((e) =>
-        otAllowedProducts.bloodTypeFour.length !== otAllowedProducts.bloodTypeFour.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
-      );
+    switch (this.state.bloodTypes) {
+      case 1:
+        return bloodTypeOne.map((e) => (bloodTypeOne.length !== bloodTypeOne.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`));
+
+      case 2:
+        return bloodTypeTwo.map((e) => (bloodTypeTwo.length !== bloodTypeTwo.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`));
+
+      case 3:
+        return bloodTypeThree.map((e) =>
+          bloodTypeThree.length !== bloodTypeThree.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
+        );
+
+      case 4:
+        return bloodTypeFour.map((e) => (bloodTypeFour.length !== bloodTypeFour.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`));
+
+      default:
+        return "Здесь будет отображаться Ваш рацион";
     }
   }
 
   render() {
     const { data, kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = this.state;
     const dateNow = moment(data).format("DD.MM.YYYY");
-
     return (
       <div className={classes.container}>
         <div className={classes.summary}>
@@ -126,16 +121,6 @@ class SideBar extends Component {
           <h2 className={classes.title}>Нерекомендуемые продукты</h2>
           <div className={classes.products}>
             <p className={classes.defaultText}>{this.notAllowed()}</p>
-
-            {/* {this.state.notAllowedProducts == false ? (
-              <p className={classes.defaultText}>Здесь будет отображаться Ваш рацион</p>
-            ) : (
-              <p className={classes.menutext}>
-                {this.state.notAllowedProducts.map((e) =>
-                 this.state.notAllowedProducts.length !== this.state.notAllowedProducts.indexOf(e) + 1 ? ` ${e},` : ` ${e}.`
-                )}
-              </p>
-            )} */}
           </div>
         </div>
       </div>

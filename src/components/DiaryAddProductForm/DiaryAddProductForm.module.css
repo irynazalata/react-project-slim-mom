@@ -7,7 +7,6 @@
 }
 .input {
   display: block;
-  
   width: 289px;
   font-weight: normal;
   font-size: 14px;
@@ -19,10 +18,10 @@
   border-bottom: 1px solid rgba(224, 224, 224, 1);
 }
 @media screen and (max-width: 767px) {
-.input {
-  margin-left:auto;
-  margin-right: auto
-}
+  .input {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 ::placeholder {
   font-family: Verdana, sans-serif;
@@ -71,12 +70,18 @@
   .form {
     display: flex;
     position: relative;
-    margin-bottom: 59px;
+    margin-bottom: 30px;
+    margin-top: 60px;
   }
   .input {
     width: 104px;
-    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-weight: normal;
+    text-align: end;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
   }
   .input:first-child {
     width: 239px;
@@ -84,6 +89,7 @@
   }
   .input:last-child {
     width: 104px;
+    margin-bottom: 0;
   }
   .btn {
     display: none;
@@ -122,13 +128,11 @@
   z-index: 100;
   background-color: white;
   max-height: 300px;
-  overflow-y: scroll
- 
+  overflow-y: scroll;
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .productList {
-  top: 40px;
-  left: -40px;
+    top: 40px;
+    left: -40px;
   }
 }
-  

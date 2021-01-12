@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyCaloriesForm';
-import Notification from '../shared/Notification/Notification';
-import Modal from '../shared/Modal/Modal.js';
-import Header from '../components/Header/Header';
-import styles from '../shared/Modal/Modal.module.css';
+import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
+import Modal from '../../shared/Modal/Modal.js';
+import Header from '../../components/Header/Header';
+import Loader from '../../shared/Loader/Loader';
+import Notification from '../../shared/Notification/Notification';
+import styles from '../../shared/Modal/Modal.module.css';
 import { pageContainer, bgContainer } from './MainPage.module.css';
 
 class MainPage extends Component {
@@ -43,9 +44,13 @@ class MainPage extends Component {
             </div>
           </div>
         </div>
-        <Notification>Выход выполнен успешно</Notification>
+        <Notification>
+          <span>Выход выполнен успешно</span>
+        </Notification>
+        {loader && <Loader />}
       </>
     );
   }
 }
+
 export default MainPage;

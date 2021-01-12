@@ -1,10 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import styles from '../Notification/Notification.module.css';
-import { useSelector } from 'react-redux';
 import getNotification from '../../redux/notification/notificationSelectors';
 import getError from '../../redux/error/errorSelectors';
-import PropTypes from 'prop-types';
 
 const Notification = ({ children }) => {
   const isNotification = useSelector(getNotification);
@@ -25,7 +25,7 @@ const Notification = ({ children }) => {
 };
 
 Notification.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export default Notification;

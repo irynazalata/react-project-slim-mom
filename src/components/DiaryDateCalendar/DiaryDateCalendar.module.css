@@ -8,21 +8,9 @@
   width: 138px;
   height: 20px;
   padding: 0;
+  margin-bottom: 30px;
 }
 
-.img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 18px;
-  height: 20px;
-}
-.CalendarContainer {
-  display: block;
-  width: 155px;
-  position: relative;
-  margin-bottom: 31px;
-}
 .react-datepicker__month-container {
   height: 200px;
 }
@@ -32,12 +20,10 @@
     line-height: 1.215;
     width: 219px;
     height: 38px;
+    margin-bottom: 0;
   }
   .CalendarContainer {
-    width: 261px;
-    margin-bottom: 60px;
-  }
-  .img {
-    top: 13px;
+    position: relative;
+    z-index: 101;
   }
 }

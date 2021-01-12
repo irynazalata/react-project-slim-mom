@@ -19,6 +19,7 @@ const logoutError = createAction('auth/logoutError');
 const unsetUserName = createAction('auth/unsetUserName');
 const tokenUnset = createAction('token/tokenUnset');
 
+// eslint-disable-next-line
 export default {
   registerRequest,
   registerSuccess,

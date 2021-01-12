@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import { MenuContext } from "./NavState";
-import styles from "./Navigation.module.css";
+import { MenuContext } from "../NavState/NavState";
+import styles from "../../Navigation.module.css";
 import { NavLink } from "react-router-dom";
 
 const Menu = styled.nav`

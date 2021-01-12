@@ -7,14 +7,12 @@ const fetchProductRequest = createAction('Product/fetchRequest');
 const fetchProductSuccess = createAction('Product/fetchSuccess');
 const fetchProductError = createAction('Product/fetchError');
 
-// const searchProductRequest = createAction('Product/searchRequest');
-// const searchProductSuccess = createAction('Product/searchSuccess');
-// const searchProductError = createAction('Product/searchError');
 
 const deleteProductRequest = createAction('Product/deleteRequest');
 const deleteProductSuccess = createAction('Product/deleteSuccess');
 const deleteProductError = createAction('Product/deleteError');
 
+// eslint-disable-next-line
 export default {
   addProductRequest,
   addProductSuccess,
@@ -25,7 +23,5 @@ export default {
   deleteProductRequest,
   deleteProductSuccess,
   deleteProductError,
-  // searchProductRequest,
-  // searchProductSuccess,
-  // searchProductError
+
 };

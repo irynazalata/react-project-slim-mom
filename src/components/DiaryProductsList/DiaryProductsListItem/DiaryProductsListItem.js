@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styles from './DiaryProductsListItem.module.css';
-import productAddOperations from '../../../redux/products/productAdd/productAddOperations';
+import productOperations from '../../../redux/products/productOperations';
 
 const DiaryProductsListItem = ({
   title,
@@ -35,8 +35,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    deleteProduct: (dayId) => {
-      return dispatch(productAddOperations.deleteProduct(dayId, ownProps.id));
+    deleteProduct: dayId => {
+      return dispatch(productOperations.deleteProduct(dayId, ownProps.id));
     },
   };
 };

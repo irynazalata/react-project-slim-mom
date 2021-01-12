@@ -73,26 +73,47 @@ const DailyCaloriesForm = ({ onShowModal }) => {
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      errors.height && touched.height && styles.errorInput
+                    }`}
                     name="height"
                     type="number"
+                    min="100"
+                    max="260"
                     required
-                  />{' '}
-                  <p className={styles.labelValue}>Рост*</p>
+                  />
+                  <p
+                    className={`${styles.labelValue} ${
+                      errors.height && touched.height
+                        ? styles.errorLabelValue
+                        : ''
+                    }`}
+                  >
+                    Рост*
+                  </p>
                   {touched.height && errors.height && (
                     <div className={styles.error}>{errors.height}</div>
                   )}
                 </label>
                 <label className={styles.label}>
-                  {' '}
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      touched.age && errors.age && styles.errorInput
+                    }`}
                     name="age"
                     type="number"
+                    min="12"
+                    max="100"
                     required
                   />
-                  <p className={styles.labelValue}>Возраст*</p>
+                  <p
+                    className={`${styles.labelValue} ${
+                      touched.age && errors.age ? styles.errorLabelValue : ''
+                    }`}
+                  >
+                    Возраст*
+                  </p>
                   {touched.age && errors.age && (
                     <div className={styles.error}>{errors.age}</div>
                   )}
@@ -101,12 +122,24 @@ const DailyCaloriesForm = ({ onShowModal }) => {
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      touched.weight && errors.weight && styles.errorInput
+                    }`}
                     name="weight"
                     type="number"
+                    min="40"
+                    max="200"
                     required
                   />
-                  <p className={styles.labelValue}>Текущий вес*</p>
+                  <p
+                    className={`${styles.labelValue} ${
+                      touched.weight && errors.weight
+                        ? styles.errorLabelValue
+                        : ''
+                    }`}
+                  >
+                    Текущий вес*
+                  </p>
                   {touched.weight && errors.weight && (
                     <div className={styles.error}>{errors.weight}</div>
                   )}
@@ -116,44 +149,64 @@ const DailyCaloriesForm = ({ onShowModal }) => {
                 <label className={styles.label}>
                   <Field
                     placeholder=" "
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      touched.desiredWeight &&
+                      errors.desiredWeight &&
+                      styles.errorInput
+                    }`}
                     name="desiredWeight"
                     type="number"
+                    min="40"
+                    max="150"
                     required
                   />
-                  <p className={styles.labelValue}>Желаемый вес*</p>
+                  <p
+                    className={`${styles.labelValue} ${
+                      touched.desiredWeight && errors.desiredWeight
+                        ? styles.errorLabelValue
+                        : ''
+                    }`}
+                  >
+                    Желаемый вес*
+                  </p>
                   {touched.desiredWeight && errors.desiredWeight && (
                     <div className={styles.error}>{errors.desiredWeight}</div>
                   )}
                 </label>
+                <div className={styles.radioGroupContainer}>
+                  <p className={styles.radioTitle}>Группа крови*</p>
 
-                <p className={styles.radioTitle}>Группа крови*</p>
-                {touched.bloodType && errors.bloodType && (
-                  <div className={styles.error}>{errors.bloodType}</div>
-                )}
-                <div className={styles.radioWrapper} role="group">
-                  <Field
-                    id="first"
-                    type="radio"
-                    name="bloodType"
-                    value="1"
-                    required
-                  />
-                  <label htmlFor="first" className={styles.radioLabel}>
-                    1
-                  </label>
-                  <Field id="second" type="radio" name="bloodType" value="2" />
-                  <label htmlFor="second" className={styles.radioLabel}>
-                    2
-                  </label>
-                  <Field id="third" type="radio" name="bloodType" value="3" />
-                  <label htmlFor="third" className={styles.radioLabel}>
-                    3
-                  </label>
-                  <Field id="fourth" type="radio" name="bloodType" value="4" />
-                  <label htmlFor="fourth" className={styles.radioLabel}>
-                    4
-                  </label>
+                  {touched.bloodType && errors.bloodType && (
+                    <div className={styles.errorRadio}>{errors.bloodType}</div>
+                  )}
+                  <div className={styles.radioWrapper} role="group">
+                    <Field id="first" type="radio" name="bloodType" value="1" />
+                    <label htmlFor="first" className={styles.radioLabel}>
+                      1
+                    </label>
+                    <Field
+                      id="second"
+                      type="radio"
+                      name="bloodType"
+                      value="2"
+                    />
+                    <label htmlFor="second" className={styles.radioLabel}>
+                      2
+                    </label>
+                    <Field id="third" type="radio" name="bloodType" value="3" />
+                    <label htmlFor="third" className={styles.radioLabel}>
+                      3
+                    </label>
+                    <Field
+                      id="fourth"
+                      type="radio"
+                      name="bloodType"
+                      value="4"
+                    />
+                    <label htmlFor="fourth" className={styles.radioLabel}>
+                      4
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>

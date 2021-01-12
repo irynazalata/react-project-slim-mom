@@ -6,7 +6,6 @@ import RightSideBar from '../../components/RightSideBar/RightSideBar.js';
 import Header from '../../components/Header/Header';
 import img from '../../images/plus.png';
 import Modal from '../../components/DiaryAddProductForm/AddProductModal.jsx';
-import { CSSTransition } from 'react-transition-group';
 
 import styles from './diary.module.css';
 
@@ -17,6 +16,7 @@ class DiaryPage extends Component {
 
   modalToggle = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
+    document.body.classList.add('stopScroll');
   };
 
   render() {
@@ -35,11 +35,16 @@ class DiaryPage extends Component {
               onClick={this.modalToggle}
               type="button"
             >
-              <img className={styles.img} src={img} alt="add" />
+              <img
+                className={styles.img}
+                src={img}
+                alt="add"
+                width="14"
+                height="14"
+              />
             </button>
-            
-                {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
-              
+
+            {this.state.showModal && <Modal onModalToggle={this.modalToggle} />}
           </div>
           <RightSideBar />
         </div>

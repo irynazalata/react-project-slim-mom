@@ -1,5 +1,5 @@
 .title {
-  font-family: "Gotham Pro";
+  font-family: 'Gotham Pro';
   margin-bottom: 80px;
   font-size: 14px;
   font-weight: 700;
@@ -24,6 +24,7 @@
   width: 100%;
   border: 0;
   border-bottom: 1px solid #e0e0e0;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .input:focus {
@@ -44,6 +45,11 @@
   top: -30px;
   font-size: 12px;
   transition: 0.3s;
+}
+
+.errorInput {
+  background-color: #e1161613;
+  border-bottom: 1px solid #e11616;
 }
 
 .label {
@@ -128,6 +134,7 @@
 @media screen and (min-width: 1280px) {
   .title {
     margin-bottom: 91px;
+    margin-top: 0;
     padding-top: 118px;
   }
 
