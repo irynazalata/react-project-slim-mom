@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './DailyCalorieIntake.module.css';
 import dailyRateSelector from '../../redux/dailyRate/dailyRateSelector';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/images/sprite.svg';
 
 const DailyCalorieIntake = () => {
   const calories = useSelector(dailyRateSelector.getCalories);

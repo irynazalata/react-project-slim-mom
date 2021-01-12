@@ -6,7 +6,6 @@ import { authOperations } from './redux/auth';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Loader from './shared/Loader/Loader';
-import './App.css';
 
 class App extends Component {
   componentDidMount() {

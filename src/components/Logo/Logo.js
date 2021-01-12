@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/desktop/logo-desktop-x1-min.png';
+import logo from '../../assets/images/desktop/logo-desktop-x1-min.png';
 import './Logo.css';
 import { authSelectors } from '../../redux/auth';
 import { Link } from 'react-router-dom';

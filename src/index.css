@@ -47,7 +47,7 @@ body {
   height: 20px;
   top: 0;
   right: -17px;
-  background-image: url('./images/calendar.png');
+  background-image: url('./assets/images/calendar.png');
   background-repeat: no-repeat;
   background-size: contain;
 }

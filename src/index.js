@@ -5,7 +5,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import './fonts/fonts.css';
+import './assets/fonts/fonts.css';
 
 ReactDOM.render(
   <React.StrictMode>

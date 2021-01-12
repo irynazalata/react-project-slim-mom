@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import img from '../../images/plus.png';
+import img from '../../assets/images/plus.png';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import productOperations from '../../redux/products/productOperations';

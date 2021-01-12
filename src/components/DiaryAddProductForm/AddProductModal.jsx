@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DiaryAddProductForm from './DiaryAddProductForm.js';
-import closeModalBtn from '../../images/close-burger-menu.png';
-import goBackBtn from '../../images/go-back.png';
+import closeModalBtn from '../../assets/images/close-burger-menu.png';
+import goBackBtn from '../../assets/images/go-back.png';
 
 import styles from '../../shared/Modal/Modal.module.css';
 
