@@ -23,6 +23,16 @@ class DiaryAddProductForm extends Component {
     this.props.toFetchProducts(this.props.date);
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.product !== this.state.product) {
+      if (this.state.product.length < 3) {
+        this.setState(prevState => ({ productsQuery: [], weight: '' }));
+        return;
+      }
+      this.searchProducts(this.state.product);
+    }
+  };
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -80,16 +90,6 @@ class DiaryAddProductForm extends Component {
       productsQuery: [],
       weight: 100,
     });
-  };
-
-  componentDidUpdate = (prevProps, prevState) => {
-    if (prevState.product !== this.state.product) {
-      if (this.state.product.length < 3) {
-        this.setState(prevState => ({ productsQuery: [], weight: '' }));
-        return;
-      }
-      this.searchProducts(this.state.product);
-    }
   };
 
   render() {
