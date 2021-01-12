@@ -1,37 +1,35 @@
-import React, { Component } from 'react';
-import styles from './Header.module.css';
-import { NavLink } from 'react-router-dom';
-import Logo from '../Logo/Logo';
-import { connect } from 'react-redux';
-import Navigation from '../Navigation/Navigation';
-import { authSelectors } from '../../redux/auth';
+import React, { Component } from "react";
+import styles from "./Header.module.css";
+import { NavLink } from "react-router-dom";
+import Logo from "../Logo/Logo";
+import { connect } from "react-redux";
+import Navigation from "../Navigation/Navigation";
+import { authSelectors } from "../../redux/auth";
 
-class Header extends Component {
-  render() {
-    return (
-      <>
-        {!this.props.isAuthenticated && (
-          <div className={styles.headerContainer}>
-            <Logo />
+const Header = ({ isAuthenticated }) => {
+  return (
+    <>
+      {!isAuthenticated && (
+        <div className={styles.headerContainer}>
+          <Logo />
 
-            <div className={styles.navContainer}>
-              <NavLink className={styles.loginLink} to="/auth/login">
-                Вход
-              </NavLink>
-              <NavLink className={styles.loginLink} to="/auth/register">
-                Регистрация
-              </NavLink>
-            </div>
+          <div className={styles.navContainer}>
+            <NavLink className={styles.loginLink} to="/auth/login">
+              Вход
+            </NavLink>
+            <NavLink className={styles.loginLink} to="/auth/register">
+              Регистрация
+            </NavLink>
           </div>
-        )}
+        </div>
+      )}
 
-        {this.props.isAuthenticated && <Navigation />}
-      </>
-    );
-  }
-}
+      {isAuthenticated && <Navigation />}
+    </>
+  );
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: authSelectors.isAuthenticated(state),
 });
 
