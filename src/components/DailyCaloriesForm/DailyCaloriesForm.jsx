@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 import styles from './DailyCaloriesForm.module.css';
 import dailyRateOperations from '../../redux/dailyRate/dailyRateOperations';
-import { Formik, Form, Field } from 'formik';
 import authSelectors from '../../redux/auth/authSelectors';
-import * as Yup from 'yup';
 
 const DailyCaloriesForm = ({ onShowModal }) => {
   const dispatch = useDispatch();
