@@ -89,7 +89,6 @@ const refreshUser = (credentials, action, values, userId) => (dispatch, getState
     .then(({ data }) => {
       token.set(data.newAccessToken);
       dispatch(authActions.refreshUserSuccess(data));
-      console.log(action);
       switch (action) {
         case "getUser":
           dispatch(getCurrentUser());

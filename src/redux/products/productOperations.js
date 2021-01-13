@@ -12,8 +12,6 @@ const addProduct = (date, productId, weight) => (dispatch) => {
 };
 
 const fetchProducts = (date) => dispatch => {
-
-
   dispatch(productActions.fetchProductRequest());
   axios
     .post("/day/info", { date })
