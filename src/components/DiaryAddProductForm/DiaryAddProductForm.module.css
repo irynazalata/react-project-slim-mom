@@ -78,10 +78,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: normal;
-    text-align: end;
   }
-  input[type='number'] {
+  input[type="number"] {
     -moz-appearance: textfield;
+    text-align: end;
   }
   .input:first-child {
     width: 239px;

@@ -2,6 +2,7 @@ import axios from "axios";
 import authActions from "./authActions";
 import notificationActions from "../notification/notificationActions";
 import dailyRateOperations from "../dailyRate/dailyRateOperations";
+import productOperations from "../products/productOperations";
 
 axios.defaults.baseURL = "https://slimmom-backend.goit.global/";
 
@@ -43,6 +44,33 @@ const login = (credentials) => (dispatch) => {
     .finally(() => setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500));
 };
 
+const getCurrentUser = () => (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken, sid: sidValue },
+  } = getState();
+
+  if (!persistedToken) {
+    return;
+  }
+
+  token.set(persistedToken);
+
+  dispatch(authActions.getCurrentUserRequest());
+
+  axios
+    .get("user")
+    .then(({ data }) => {
+      dispatch(authActions.getCurrentUserSuccess(data));
+    })
+    .catch((error) => {
+      dispatch(authActions.getCurrentUserError(error));
+      dispatch(refreshUser({ sid: sidValue }, "getUser"));
+      // if (error.response.status === 401) {
+      //   dispatch(authActions.tokenUnset());
+      // }
+    });
+};
+
 const refreshUser = (credentials, action, values, userId) => (dispatch, getState) => {
   const {
     auth: { refreshToken: persistedToken },
@@ -68,7 +96,6 @@ const refreshUser = (credentials, action, values, userId) => (dispatch, getState
           break;
 
         case "DailyRates":
-          dispatch(getCurrentUser());
           dispatch(dailyRateOperations.onFetchDailyRatesAuthorised(values, userId));
           break;
 
@@ -81,39 +108,12 @@ const refreshUser = (credentials, action, values, userId) => (dispatch, getState
       }
     })
     .catch((error) => {
-      // if (error.response.status === 401) {
-      //   dispatch(authActions.tokenUnset());
-      // }
+      if (error.response.status === 401) {
+        dispatch(authActions.tokenUnset());
+      }
       dispatch(authActions.refreshUserError(error));
     })
     .finally(() => setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500));
-};
-
-const getCurrentUser = () => (dispatch, getState) => {
-  const {
-    auth: { token: persistedToken, sid: sidValue },
-  } = getState();
-
-  if (!persistedToken) {
-    return;
-  }
-
-  token.set(persistedToken);
-
-  dispatch(authActions.getCurrentUserRequest());
-
-  axios
-    .get("user")
-    .then(({ data }) => {
-      dispatch(authActions.getCurrentUserSuccess(data));
-    })
-    .catch((error) => {
-      dispatch(refreshUser({ sid: sidValue }, "getUser"));
-      // if (error.response.status === 401) {
-      //   dispatch(authActions.tokenUnset());
-      // }
-      // dispatch(authActions.getCurrentUserError(error));
-    });
 };
 
 const logOut = () => (dispatch, getState) => {
