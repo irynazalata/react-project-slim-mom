@@ -1,47 +1,50 @@
-import axios from "axios";
-import authActions from "./authActions";
-import notificationActions from "../notification/notificationActions";
-import dailyRateOperations from "../dailyRate/dailyRateOperations";
-import productOperations from "../products/productOperations";
+import axios from 'axios';
+import authActions from './authActions';
+import notificationActions from '../notification/notificationActions';
+import dailyRateOperations from '../dailyRate/dailyRateOperations';
 
-axios.defaults.baseURL = "https://slimmom-backend.goit.global/";
+axios.defaults.baseURL = 'https://slimmom-backend.goit.global/';
 
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorization = "";
+    axios.defaults.headers.common.Authorization = '';
   },
 };
 
-const register = (credentials) => (dispatch) => {
+const register = credentials => dispatch => {
   dispatch(authActions.registerRequest());
 
   axios
-    .post("auth/register", credentials)
+    .post('auth/register', credentials)
     .then(({ data }) => {
       dispatch(authActions.registerSuccess(data));
     })
-    .catch((error) => {
+    .catch(error => {
       dispatch(authActions.registerError(error));
     })
-    .finally(() => setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500));
+    .finally(() =>
+      setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500),
+    );
 };
 
-const login = (credentials) => (dispatch) => {
+const login = credentials => dispatch => {
   dispatch(authActions.loginRequest());
 
   axios
-    .post("auth/login", credentials)
+    .post('auth/login', credentials)
     .then(({ data }) => {
       token.set(data.accessToken);
       dispatch(authActions.loginSuccess(data));
     })
-    .catch((error) => {
+    .catch(error => {
       dispatch(authActions.loginError(error));
     })
-    .finally(() => setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500));
+    .finally(() =>
+      setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500),
+    );
 };
 
 const getCurrentUser = () => (dispatch, getState) => {
@@ -58,20 +61,23 @@ const getCurrentUser = () => (dispatch, getState) => {
   dispatch(authActions.getCurrentUserRequest());
 
   axios
-    .get("user")
+    .get('user')
     .then(({ data }) => {
       dispatch(authActions.getCurrentUserSuccess(data));
     })
-    .catch((error) => {
+    .catch(error => {
       dispatch(authActions.getCurrentUserError(error));
-      dispatch(refreshUser({ sid: sidValue }, "getUser"));
+      dispatch(refreshUser({ sid: sidValue }, 'getUser'));
       // if (error.response.status === 401) {
       //   dispatch(authActions.tokenUnset());
       // }
     });
 };
 
-const refreshUser = (credentials, action, values, userId) => (dispatch, getState) => {
+const refreshUser = (credentials, action, values, userId) => (
+  dispatch,
+  getState,
+) => {
   const {
     auth: { refreshToken: persistedToken },
   } = getState();
@@ -85,20 +91,22 @@ const refreshUser = (credentials, action, values, userId) => (dispatch, getState
   dispatch(authActions.refreshUserRequest());
 
   axios
-    .post("auth/refresh", credentials)
+    .post('auth/refresh', credentials)
     .then(({ data }) => {
       token.set(data.newAccessToken);
       dispatch(authActions.refreshUserSuccess(data));
       switch (action) {
-        case "getUser":
+        case 'getUser':
           dispatch(getCurrentUser());
           break;
 
-        case "DailyRates":
-          dispatch(dailyRateOperations.onFetchDailyRatesAuthorised(values, userId));
+        case 'DailyRates':
+          dispatch(
+            dailyRateOperations.onFetchDailyRatesAuthorised(values, userId),
+          );
           break;
 
-        case "logOut":
+        case 'logOut':
           dispatch(logOut());
           break;
 
@@ -106,13 +114,15 @@ const refreshUser = (credentials, action, values, userId) => (dispatch, getState
           break;
       }
     })
-    .catch((error) => {
+    .catch(error => {
       if (error.response.status === 401) {
         dispatch(authActions.tokenUnset());
       }
       dispatch(authActions.refreshUserError(error));
     })
-    .finally(() => setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500));
+    .finally(() =>
+      setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500),
+    );
 };
 
 const logOut = () => (dispatch, getState) => {
@@ -123,19 +133,21 @@ const logOut = () => (dispatch, getState) => {
   dispatch(authActions.logoutRequest());
 
   axios
-    .post("auth/logout")
+    .post('auth/logout')
     .then(() => {
       token.unset();
       dispatch(authActions.logoutSuccess());
     })
-    .catch((error) => {
-      dispatch(refreshUser({ sid: sidValue }, "logOut"));
+    .catch(error => {
+      dispatch(refreshUser({ sid: sidValue }, 'logOut'));
       if (error.response.status === 401) {
         dispatch(authActions.tokenUnset());
       }
       dispatch(authActions.logoutError(error));
     })
-    .finally(() => setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500));
+    .finally(() =>
+      setTimeout(() => dispatch(notificationActions.notificationFalse()), 2500),
+    );
 };
 
 // eslint-disable-next-line
