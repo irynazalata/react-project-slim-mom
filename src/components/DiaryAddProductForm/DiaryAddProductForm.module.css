@@ -79,7 +79,7 @@
     padding-bottom: 10px;
     font-weight: normal;
   }
-  input[type="number"] {
+  .input[type='number'] {
     -moz-appearance: textfield;
     text-align: end;
   }
